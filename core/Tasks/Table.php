@@ -12,14 +12,15 @@ Class Table{
 		$this->callback = $callback;
 	}
 
-	private $name;
-	private $task;
+	public $name;
+	public $task;
 	
 	public function up()
 	{
 		if(!Capsule::schema()->hasTable($this->name)) {
-			Capsule::schema()->create('users', $this->callback);
-		}    	
+			Capsule::schema()->create($this->name, $this->callback);
+		}
+		return $this;
 	}
 
 	public function down()
@@ -27,5 +28,6 @@ Class Table{
 		if(Capsule::schema()->hasTable($this->name)) {
 			Capsule::schema()->dropTable($this->name);
 		}    			
+		return $this;
 	}
 }

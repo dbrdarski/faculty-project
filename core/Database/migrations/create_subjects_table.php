@@ -5,15 +5,15 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSubjectsTable extends Migration{
 	public function up(){
-		Schema::create('users'), function (Blueprint $table){
+		Schema::create('courses'), function (Blueprint $table){
 			$table->increments('id');
 			$table->string('password');
-			$table->string('subjectName');
+			$table->string('course_name');
 			$table->timestamps();
 		}
 	}
 
 	public function down(){
-		Schema::drop('users');
+		Schema::drop('courses');
 	}
 }

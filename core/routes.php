@@ -9,6 +9,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     return $response;
 });
 
-$app->get('/install', 'InstallerController:index')->setName('install');
+$app->get('/install', 'InstallerController:all')->setName('install');
+$app->get('/install/{table}', 'InstallerController:table')->setName('install');
 
 $app->run();
