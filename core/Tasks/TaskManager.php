@@ -2,18 +2,10 @@
 
 namespace Core\Tasks;
 
-Class TaskManager{
-
- 	private function __invoke() {
- 		if(self::$instance == null){
- 			self::$instance = new TaskManager;
- 		}
- 		return self::$instance;
-    }
+Class TaskManagerInstance{
 
 	private $tasks = [];
-	private static $instance;
-	
+
 	public function add($task)
 	{
 		$this->tasks[$task->name] = $task;		
@@ -52,4 +44,26 @@ Class TaskManager{
 			$t->down()->up();
 		}, $this->tasks);
 	}
+}
+
+Class TaskManager{
+
+	public function __construct(){
+        if (null === self::$instance) {
+            self::$instance = new TaskManagerInstance();
+        }
+	}
+
+	private static $instance;
+
+	public static function getInstance()
+    {
+        if (null === self::$instance) {
+            self::$instance = new TaskManagerInstance();
+        }
+        return self::$instance;
+    }
+	
+    private function __clone(){}
+    private function __wakeup(){}	
 }

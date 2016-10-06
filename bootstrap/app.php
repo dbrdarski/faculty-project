@@ -27,5 +27,11 @@ $capsule->bootEloquent();
 $container['InstallerController'] = function ($container) {
     return new \Core\Controllers\InstallerController($container);
 };
+$container['UninstallerController'] = function ($container) {
+    return new \Core\Controllers\UninstallerController($container);
+};
+$container['ReinstallerController'] = function ($container) {
+    return new \Core\Controllers\ReinstallerController($container);
+};
 
 require __DIR__ . '/../core/routes.php';

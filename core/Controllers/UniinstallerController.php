@@ -5,19 +5,19 @@ namespace Core\Controllers;
 use Core\Tasks\TaskManager;
 use Core\Tasks\Table;
 
-class InstallerController extends Controller
+class UninstallerController extends Controller
 {
     public function all($request, $response)
     {
-    	$response->getBody()->write("Installing Database Tables");
-    	$tm = TaskManager::getInstance()->installAll();
+    	$response->getBody()->write("Uninstalling Database Tables");
+    	$tm = TaskManager::getInstance()->uninstallAll();
 		return $response;
     }   
     public function table($request, $response, $args)
     {
  		$table = $request->getAttribute('table');
-    	$response->getBody()->write("Installing Database Table: $table");
-    	$tm = TaskManager::getInstance()->install($table);
+    	$response->getBody()->write("Uninstalling Database Table: $table");
+    	$tm = TaskManager::getInstance()->uninstall($table);
 		return $response;
     }
 }
