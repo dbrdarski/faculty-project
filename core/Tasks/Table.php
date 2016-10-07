@@ -26,7 +26,7 @@ Class Table{
 	public function down()
 	{
 		if(Capsule::schema()->hasTable($this->name)) {
-			Capsule::schema()->dropTable($this->name);
+			Capsule::schema()->drop($this->name);
 		}    			
 		return $this;
 	}

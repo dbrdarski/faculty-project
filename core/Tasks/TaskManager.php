@@ -5,44 +5,58 @@ namespace Core\Tasks;
 Class TaskManagerInstance{
 
 	private $tasks = [];
-
+	function getTasks(){
+		return $this->tasks;
+	}
+	function getTask($name){
+		$t = $this->tasks;
+		if(isset($t[$name])){
+			return $t[$name];
+		} else{
+			die('Burn in hell!!!!!!!!!!!!');
+		}
+	}
 	public function add($task)
 	{
-		$this->tasks[$task->name] = $task;		
+		$this->tasks[$task->name] = $task;
 		return $this;
 	}
 	public function install($name)
 	{
-		$this->tasks[$name]->up();
+		$this->getTask($name)->up();
 		return $this;
 	}
 	public function uninstall($name)
 	{
-		$this->tasks[$name]->down();
+		$this->getTask($name)->down();
 		return $this;
 	}
 	public function reinstall($name)
 	{
-		$this->tasks[$name]->down()->up();
+		$this->getTask($name)->down()->up();
 		return $this;
 	}
 	public function installAll()
 	{
-		return array_map(function($t){
+		array_map(function($t){
 			$t->up();
 		}, $this->tasks);
+		return $this;
+
 	}
 	public function uninstallAll()
 	{
-		return array_map(function($t){
+		array_map(function($t){
 			$t->down();
 		}, $this->tasks);
+		return $this;
 	}
 	public function reinstallAll()
 	{
-		return array_map(function($t){
+		array_map(function($t){
 			$t->down()->up();
 		}, $this->tasks);
+		return $this;
 	}
 }
 

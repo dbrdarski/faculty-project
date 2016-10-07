@@ -3,17 +3,18 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/hello/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name')->setName('hello');
+    $name = $request->getAttribute('name');
+    // ->setName('hello');
     $response->getBody()->write("Hello, $name");
 
     return $response;
 });
 
-$app->get('/install', 'InstallerController:all')->setName('install');
-$app->get('/install/{table}', 'InstallerController:table')->setName('install');
-$app->get('/reinstall', 'ReinstallerController:all')->setName('install');
-$app->get('/reinstall/{table}', 'ReinstallerController:table')->setName('reinstall');
-$app->get('/uninstall', 'UninstallerController:all')->setName('install');
-$app->get('/uninstall/{table}', 'UninstallerController:table')->setName('uninstall');
+$app->get('/install', 'InstallerController:installAll')->setName('install');
+$app->get('/install/{table}', 'InstallerController:install')->setName('install');
+$app->get('/reinstall', 'InstallerController:reinstallAll')->setName('install');
+$app->get('/reinstall/{table}', 'InstallerController:reinstall')->setName('install');
+$app->get('/uninstall', 'InstallerController:uninstallAll')->setName('uninstall');
+$app->get('/uninstall/{table}', 'InstallerController:uninstall')->setName('uninstall');
 
 $app->run();

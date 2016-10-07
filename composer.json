@@ -2,7 +2,8 @@
     "require": {
         "slim/slim": "^3.0",    	
         "mustache/mustache": "^2.11",
-        "illuminate/database": "^5.3"
+        "illuminate/database": "^5.3",
+        "mustangostang/spyc": "^0.5.1"
     },
     "autoload": {
         "psr-4": {
