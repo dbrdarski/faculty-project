@@ -12,8 +12,8 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');
 $app->get('/install/{table}', 'InstallerController:install')->setName('install');
-$app->get('/reinstall', 'InstallerController:reinstallAll')->setName('install');
-$app->get('/reinstall/{table}', 'InstallerController:reinstall')->setName('install');
+$app->get('/reinstall', 'InstallerController:reinstallAll')->setName('reinstall');
+$app->get('/reinstall/{table}', 'InstallerController:reinstall')->setName('reinstall');
 $app->get('/uninstall', 'InstallerController:uninstallAll')->setName('uninstall');
 $app->get('/uninstall/{table}', 'InstallerController:uninstall')->setName('uninstall');
 
