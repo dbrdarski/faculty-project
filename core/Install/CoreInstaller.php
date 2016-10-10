@@ -25,8 +25,8 @@ class CoreInstaller{
 		->add(new Table('courses', 
 			function ($table){
 				$table->increments('id');
-				$table->integer('owner');
-				$table->foreign('owner')->references('id')->on('users');
+				$table->integer('owner')->unsigned();
+				// $table->foreign('owner')->references('id')->on('users')->onDelete('cascade');;
 				$table->string('name');
 				$table->boolean('active');
 				$table->timestamps();
@@ -35,10 +35,10 @@ class CoreInstaller{
 		->add(new Table('subscriptions', 
 			function ($table){
 				$table->increments('id');
-				$table->integer('userId');
-				$table->foreign('userId')->references('id')->on('users');
-				$table->integer('courseId');
-				$table->foreign('courseId')->references('id')->on('courses');
+				$table->integer('userId')->unsigned();
+				// $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+				$table->integer('courseId')->unsigned();
+				// $table->foreign('courseId')->references('id')->on('courses')->onDelete('cascade');
 				$table->integer('grade');
 				$table->integer('rating');
 				$table->timestamps();
