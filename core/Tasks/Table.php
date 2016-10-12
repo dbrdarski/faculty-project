@@ -4,17 +4,8 @@ namespace Core\Tasks;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-Class Table{
+Class Table extends Task{
 
-	public function __construct($name, $callback)
-	{
-		$this->name = $name;
-		$this->callback = $callback;
-	}
-
-	public $name;
-	public $task;
-	
 	public function up()
 	{
 		if(!Capsule::schema()->hasTable($this->name)) {

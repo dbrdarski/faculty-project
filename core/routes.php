@@ -11,14 +11,12 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 });
 
 $app->get('/', function($req, $res){
-    // $course = new \Core\Models\Course;
-    // $user = new \Core\Models\Lecturer;
-    // $r = $user->add('me2@admin.com', 'Dane', 'Brdarski', 'qwertybanana');
-    // $c = $course->addCourse('New Course', 'This is a course');
-    // $r = $user->createCourse("New Course 2", "This a course also.");
-    $s = new \Core\Models\Student;
-    $s->find(2)->courses()->find(1)->subscriptions()->create([]);
-    return $res->withJson($s);
+
+    // $course = \Core\Models\Course::find(1);
+    $student = \Core\Models\Student::find(1);
+    $student->courses()->attach(1);
+
+    return $res->withJson($student);
 });
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');

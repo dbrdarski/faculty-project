@@ -24,9 +24,17 @@ class Course extends Model
         return $t->id;
     }
 
-    public function subscriptions()
+    public function lecturers()
     {
-        return $this->hasMany(Subscription::class);
+        return $this->belongsTo(Lecturer::class);
     }
+    public function students(){
+        return $this->belongsToMany(Student::class);
+    }
+
+    // public function subscriptions()
+    // {
+    //     return $this->hasMany(Subscription::class);
+    // }
 
 }

@@ -17,8 +17,12 @@ class Student extends User
         ]);
     }
 
-    public function subscriptions()
-    {
-        return $this->hasMany(Subscription::class);
+    // public function subscriptions()
+    // {
+    //     return $this->hasMany(Subscription::class);
+    // }
+    public function courses(){
+        return $this->belongsToMany(Course::class);
     }
+
 }

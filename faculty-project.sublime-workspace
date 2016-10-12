@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"fun",
-				"function"
+				"json",
+				"json_encode"
+			],
+			[
+				"has",
+				"hasTable"
 			],
 			[
 				"pad",
-				"padding-top"
+				"padding"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"fun",
+				"function"
 			],
 			[
 				"else",
@@ -17,7 +29,7 @@
 			],
 			[
 				"e",
-				"every(${0:callback})	Array"
+				"every(${0:callback})\tArray"
 			],
 			[
 				"pr",
@@ -29,7 +41,7 @@
 			],
 			[
 				"outer",
-				"outerHeight	Window"
+				"outerHeight\tWindow"
 			],
 			[
 				"margin",
@@ -53,7 +65,7 @@
 			],
 			[
 				"ta",
-				"ta-l	text-align: left;"
+				"ta-l\ttext-align: left;"
 			],
 			[
 				"translate",
@@ -65,7 +77,7 @@
 			],
 			[
 				"class",
-				"className	Element"
+				"className\tElement"
 			],
 			[
 				"bg",
@@ -82,10 +94,6 @@
 			[
 				"call",
 				"callbackSuccess"
-			],
-			[
-				"has",
-				"hash	URLUtils"
 			],
 			[
 				"sea",
@@ -229,7 +237,7 @@
 			],
 			[
 				"stopP",
-				"stopPropagation()	Event"
+				"stopPropagation()\tEvent"
 			],
 			[
 				"el",
@@ -237,7 +245,7 @@
 			],
 			[
 				"key",
-				"keydown	Event"
+				"keydown\tEvent"
 			],
 			[
 				"z",
@@ -325,7 +333,7 @@
 			],
 			[
 				"le",
-				"length	String"
+				"length\tString"
 			],
 			[
 				"marig",
@@ -506,24 +514,79 @@
 			[
 				"c-net",
 				"c-neutral"
-			],
-			[
-				"lisy",
-				"list-style-position"
-			],
-			[
-				"c-gray",
-				"c-dark-gray"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "config/config.php",
+			"settings":
+			{
+				"buffer_size": 394,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Install/CoreInstaller.php",
+			"settings":
+			{
+				"buffer_size": 1319,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "bootstrap/app.php",
 			"settings":
 			{
-				"buffer_size": 690,
+				"buffer_size": 540,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/Course.php",
+			"settings":
+			{
+				"buffer_size": 537,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/Subscription.php",
+			"settings":
+			{
+				"buffer_size": 534,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/User.php",
+			"settings":
+			{
+				"buffer_size": 752,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/Lecturer.php",
+			"settings":
+			{
+				"buffer_size": 426,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/Student.php",
+			"settings":
+			{
+				"buffer_size": 435,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -531,23 +594,8 @@
 			"file": "core/routes.php",
 			"settings":
 			{
-				"buffer_size": 398,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/dbrdarski/Downloads/#archive/slim3auth/app/routes.php",
-			"settings":
-			{
-				"buffer_size": 859,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "composer.json",
-			"settings":
-			{
-				"buffer_size": 220,
+				"buffer_size": 1329,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -628,19 +676,39 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project",
-		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/core",
-		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/core/db",
-		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/core/db/migrations"
+		"/D/Projects/faculty-project",
+		"/D/Projects/faculty-project/bootstrap",
+		"/D/Projects/faculty-project/config",
+		"/D/Projects/faculty-project/core",
+		"/D/Projects/faculty-project/core/Controllers",
+		"/D/Projects/faculty-project/core/Database",
+		"/D/Projects/faculty-project/core/Install",
+		"/D/Projects/faculty-project/core/Models",
+		"/D/Projects/faculty-project/core/Tasks"
 	],
 	"file_history":
 	[
+		"/D/Projects/faculty-project/core/Models/User.php",
+		"/D/Projects/faculty-project/composer.json",
+		"/D/Projects/faculty-project/core/routes.php",
+		"/D/Projects/faculty-project/core/Controllers/InstallerController.php",
+		"/D/Projects/php-cms/core/Models/User.php",
+		"/D/Projects/faculty-project/config/setup.php",
+		"/D/Projects/faculty-project/config/config.php.tpl",
+		"/D/Projects/faculty-project/core/Controllers/UninstallerController.php",
+		"/D/Projects/faculty-project/core/Controllers/ReinstallerController.php",
+		"/D/Projects/faculty-project/core/Install/CoreInstaller.php",
+		"/D/Projects/faculty-project/core/Controllers/UniinstallerController.php",
+		"/D/Projects/faculty-project/bootstrap/app.php",
+		"/D/Projects/faculty-project/resources/templates/setup.html",
+		"/D/Projects/php-cms/config/config.php",
+		"/D/Projects/php-cms/bootstrap/app.php",
+		"/C/Users/dbrdarski/Downloads/#archive/slim3auth/app/routes.php",
 		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/core/db/migrations/create_users_table.php",
 		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/core/db/migrations/create_subjects_table.php",
 		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/app/routes.php",
 		"/C/Users/dbrdarski/Downloads/#archive/slim3auth/bootstrap/app.php",
 		"/C/Users/dbrdarski/Downloads/#archive/slim3auth/composer.json",
-		"/C/Users/dbrdarski/Downloads/#archive/slim3auth/app/routes.php",
 		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
 		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/faculty-project.sublime-workspace",
 		"/C/Users/dbrdarski/Desktop/Projects/#Archive/faculty-project/faculty-project.sublime-project",
@@ -747,26 +815,11 @@
 		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/app.js",
 		"/C/Users/dbrdarski/Desktop/Projects/nolet/api/index.php",
 		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.structure.pageSection.areas.pageSectionArea.availableComponents.textBox.xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.structure.pageSection.areas.pageSectionArea.availableComponents.sectionIntro.xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.content.sectionIntro.xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.structure.pageSection.areas.pageSectionArea.availableComponents.sectionIntro (1).xml",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/main.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/css/main.less",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/views/step2.html",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/routes.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/bootstrap.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/index.php",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/api/index.php",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/deps/angular.route..min.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/deps/angular.min.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/deps/sample.js",
-		"/C/xampp/apache/conf/httpd.conf",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/dependencies/sample.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/index.html"
+		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.structure.pageSection.areas.pageSectionArea.availableComponents.sectionIntro.xml"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -781,6 +834,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Lecturer",
+			"this",
+			" ",
+			"\"user",
+			"User",
+			"user",
+			"\"collation",
+			"collation",
+			"Collation",
+			"collation",
+			"DB",
+			"$settings",
+			"\"charset",
+			"Charset",
+			"charset",
+			"\"password",
+			"Password",
+			"password",
+			"\"password",
+			"Password",
+			"password",
+			"exampleInputPassword1",
+			"Password",
+			"password",
+			"driver",
+			"exampleInputEmail1",
 			"$response",
 			"$request",
 			"root",
@@ -816,8 +895,8 @@
 			"getVideoWindowRatio",
 			"window",
 			"ratio",
-			"		  ",
-			"	  ",
+			"\t\t  ",
+			"\t  ",
 			"  ",
 			"getVideoRatio",
 			"$w",
@@ -882,33 +961,7 @@
 			"callme",
 			"callMeForm",
 			"Contacts Teaser\n",
-			".",
-			"enter",
-			"hideAfter",
-			"count",
-			"Count",
-			"count",
-			"slick.",
-			"videoDial",
-			"sliderVideosYT",
-			"videos",
-			"videoDialog",
-			"videoFrame",
-			"function(e)",
-			"$",
-			"i",
-			";",
-			"}",
-			"{",
-			"videoFrame.removeClass('active').fadeOut(200);",
-			"video.",
-			"video",
-			"Video",
-			"video",
-			".dialog-overlay .btn",
-			"\\php-cms",
-			"php.cms",
-			"partials"
+			"."
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -933,9 +986,9 @@
 			"            <h3 class=\"package-title\">Bronze</h3>\n",
 			"\n}",
 			"}\n",
-			"{\n	",
-			";\n	",
-			"\n	\n",
+			"{\n\t",
+			";\n\t",
+			"\n\t\n",
 			";\n",
 			"}\n"
 		],
@@ -948,29 +1001,236 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "bootstrap/app.php",
+					"file": "config/config.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 690,
+						"buffer_size": 394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								448,
-								448
+								165,
+								165
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "core/Install/CoreInstaller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								911,
+								911
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 132.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bootstrap/app.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								403,
+								403
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "core/Models/Course.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								534,
+								534
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "core/Models/Subscription.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								499,
+								499
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "core/Models/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 752,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "core/Models/Lecturer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "core/Models/Student.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 435,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								360,
+								360
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -982,87 +1242,31 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 8,
 					"file": "core/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 398,
+						"buffer_size": 1329,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								335,
-								335
+								452,
+								452
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/dbrdarski/Downloads/#archive/slim3auth/app/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 859,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								24,
-								24
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "composer.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 220,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								220,
-								220
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]

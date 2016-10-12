@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Model;
 
 class Subscription extends Model
 {
-    protected $table = 'subscriptions';
+    protected $table = 'course_student';
 
     protected $fillable = [
         'grade',
@@ -22,9 +22,5 @@ class Subscription extends Model
 
         // var_dump($t->id);
         return $t->id;
-    }
-
-    public function students(){
-        return $this->belongsToMany(Student::class);
     }
 }

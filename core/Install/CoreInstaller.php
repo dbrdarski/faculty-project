@@ -3,6 +3,7 @@
 namespace Core\Install;
 
 use Core\Tasks\TaskManager;
+use Core\Tasks\Task;
 use Core\Tasks\Table;
 
 class CoreInstaller{
@@ -33,7 +34,7 @@ class CoreInstaller{
 				$table->timestamps();
 			})
 		)
-		->add(new Table('subscriptions', 
+		->add(new Table('course_student', 
 			function ($table){
 				$table->increments('id');
 				$table->integer('student_id')->unsigned();
@@ -43,6 +44,18 @@ class CoreInstaller{
 				$table->integer('grade');
 				$table->integer('rating');
 				$table->timestamps();
+			})
+		)
+		->add(new Task('add_users_and_courses',
+			function(){
+			    $user1 = new \Core\Models\Lecturer;
+			    $user2 = new \Core\Models\Student;
+			    $user1->add('me@admin.com', 'Dane', 'Brdarski', 'qwertybanana');
+			    $user2->add('student@admin.com', 'Pepe', 'Biserov', 'qwertybanana');
+			    $course = new \Core\Models\Course;
+			    $user1->createCourse('New Course', 'This is a course');
+			    $user1->createCourse("New Course 2", "This a course also.");
+			    // $s->find(2)->courses()->find(1)->subscriptions()->create([]);
 			})
 		);
 	}
