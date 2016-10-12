@@ -14,10 +14,10 @@ class CoreInstaller{
 				$table->increments('id');
 				$table->string('email')->unique();
 				$table->string('password');
-				$table->string('firstName');
-				$table->string('lastName');
-				$table->string('gender');
-				$table->string('type');
+				$table->string('first_name');
+				$table->string('last_name');
+				// $table->string('gender');
+				$table->integer('type');
 				$table->boolean('active');
 				$table->timestamps();
 			})
@@ -25,9 +25,10 @@ class CoreInstaller{
 		->add(new Table('courses', 
 			function ($table){
 				$table->increments('id');
-				$table->integer('owner')->unsigned();
+				$table->integer('lecturer_id')->unsigned();
 				// $table->foreign('owner')->references('id')->on('users')->onDelete('cascade');;
 				$table->string('name');
+				$table->text('description');
 				$table->boolean('active');
 				$table->timestamps();
 			})
@@ -35,9 +36,9 @@ class CoreInstaller{
 		->add(new Table('subscriptions', 
 			function ($table){
 				$table->increments('id');
-				$table->integer('userId')->unsigned();
+				$table->integer('student_id')->unsigned();
 				// $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-				$table->integer('courseId')->unsigned();
+				$table->integer('course_id')->unsigned();
 				// $table->foreign('courseId')->references('id')->on('courses')->onDelete('cascade');
 				$table->integer('grade');
 				$table->integer('rating');
