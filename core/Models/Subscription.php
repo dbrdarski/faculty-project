@@ -13,14 +13,18 @@ class Subscription extends Model
         'rating'
     ];
 
-    public function addCourse($name, $desc)
+    public function gradeStudent($grade)
     {
         $t = $this->create([
-            'name' => $name,
-            'description' => $desc
+            'grade' => $grade
         ]);
-
-        // var_dump($t->id);
-        return $t->id;
+        return $this;
+    }
+    public function rateCourse($rating)
+    {
+        $t = $this->create([
+            'rating' => $rating
+        ]);
+        return $this;
     }
 }

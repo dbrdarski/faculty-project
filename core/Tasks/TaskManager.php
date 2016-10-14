@@ -5,10 +5,12 @@ namespace Core\Tasks;
 Class TaskManagerInstance{
 
 	private $tasks = [];
-	function getTasks(){
+	public function getTasks()
+	{
 		return $this->tasks;
 	}
-	function getTask($name){
+	public function getTask($name)
+	{
 		$t = $this->tasks;
 		if(isset($t[$name])){
 			return $t[$name];

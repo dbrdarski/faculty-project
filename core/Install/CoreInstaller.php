@@ -46,6 +46,28 @@ class CoreInstaller{
 				$table->timestamps();
 			})
 		)
+		->add(new Table('lessions', 
+			function ($table){
+				$table->increments('id');
+				$table->integer('course_id')->unsigned();
+				$table->string('name');
+				$table->string('description');
+				$table->string('video');
+				$table->timestamps();
+			})
+		)
+		->add(new Table('lession_student',
+			function ($table){
+				$table->increments('id');
+				$table->integer('student_id')->unsigned();
+				// $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+				$table->integer('course_id')->unsigned();
+				// $table->foreign('courseId')->references('id')->on('courses')->onDelete('cascade');
+				$table->boolean('complete');
+				$table->integer('grade');
+				$table->timestamps();
+			})
+		)
 		->add(new Task('add_users_and_courses',
 			function(){
 			    $user1 = new \Core\Models\Lecturer;

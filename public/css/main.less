@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:30,40,50,700');
+
+@primary : #3a5d71;
+@primary : #16a085;
+@primary : #d14841;
+@seondary: #475577;
+@light: #ecf0f1;
+@yellow: #FBA026;
+@orange: #F37934;
+@red: #EB6B56;
+@violet: #9365B8;
+@green: #41A85F;
+@cyan: #2C82C9;
+@blue: #2969B0;
+
+@xs : 0;
+@sm : 544px;	
+@md : 768px;
+@lg : 992px;
+@xl : 1200px;
+
+.media-max(@s, @content){
+	@media(max-width: @s){
+		@content();
+	}
+}
+
+.media-min(@s, @content){
+	@media(min-width: @s){
+		@content();
+	}	
+}
+
+
+// .media(@s, @content) when ( @@s > 0 ){
+	
+// }
+// .media(@s1, @s2, @content) when (@arguments > 2 ) and (@s1 = '='){
+	
+// }
+
+// .media(@s1, @s2, @content) when (@arguments > 2 ) and (@s2 = '='){
+	
+// }
+
+.thumb-color(@color){
+	background-color: @color - #333 !important;
+	& > & {
+		background-color: @color !important;		
+	}
+	.name{ 
+		background:@color - #222;
+		color:@color - #222;
+	}	
+}
+
+*{
+	&[bg="red"]{ .thumb-color(@red); }
+	&[bg="yellow"]{ .thumb-color(@yellow); }
+	&[bg="orange"]{ .thumb-color(@orange); }
+	&[bg="violet"]{ .thumb-color(@violet); }
+	&[bg="green"]{ .thumb-color(@green); }
+	&[bg="cyan"]{ .thumb-color(@cyan); }
+}
+
+body, *{
+	font-family: Ubuntu, sans serif;
+	color: #555;
+}
+
+a{
+	color: @cyan;
+	&:hover{
+		color: @blue;
+	}
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+
+	li{
+		list-style-type: none;
+	}
+}
+
+
+#header{
+	position: fixed;
+	width: 100%; top: 0;
+	background: @primary;
+	padding: 18px 0;
+	&+*{
+		margin-top: 60px;
+	}
+	a{
+		color: white;
+		text-decoration: none;
+		&:hover{
+			opacity: .6666;
+		}
+	}
+	nav{
+		text-align: right;
+	}
+	li{
+		list-style-type: none;
+		display: inline-block;
+		padding-left: 40px;
+		height: 25px;
+		line-height: 25px;
+	}
+}
+
+.logo, .navigation{
+	height: 25px;
+}
+
+.punchline{
+	margin: 0;
+	padding: 30px 0;
+    letter-spacing: -0.03em;
+}
+#logo{
+	display: block;
+	width: 145px;
+	height: 25px;
+	background: url(../img/logo.svg) no-repeat center;
+	opacity: 1 !important;
+	transition: all .2s;
+	&:hover{
+		background-image: url(../img/logo_hover.svg);
+	}
+
+}
+#courses{
+	background: @light;
+	// padding-top: 30px;
+	// padding-bottom: 30px;
+	.course{
+	    border-radius: 3px;
+	    overflow: hidden;
+		background: white;	    
+	    box-shadow: 2px 4px 5px fade(black, 8);
+	    margin-bottom: 30px;
+	    .media-max(@sm - 1, {
+	    	margin-bottom: 17px;	
+	    });
+	    
+	    .inner{
+	    	padding: 20px;
+	    }
+	    .thumb{
+	    	position: relative;
+			height: 8em;
+	    	display: block;
+	    	text-decoration: none;
+	    	padding: 0 0.5em;
+	    	&:hover .thumb-img{
+				opacity: 1;
+	    	}
+	    }
+		.thumb-img{
+			position: absolute;
+			top: 0; left: 0;
+			height: 8em; width: 100%;
+			background: @green right center;
+	    	opacity: .8;
+	    	transition: .3s;
+		}
+		.name{
+			position: relative;
+			display: inline;
+			// color: white;
+			font-size: 23px;
+			height: 1em;
+			font-weight: 400;
+		    line-height: 1.45em;		    
+		    padding: 0.175em 0 .275em;
+			box-shadow: -0.325em 0, 0.275em 0;
+			text-decoration: none;
+			> *{
+				color: white;
+			}
+		}
+		.description{
+			min-height: 4 * 1.5em;
+			line-height: 1.25em;
+			padding: 0;
+		}
+		li{
+			line-height: 1em;
+			padding-top: 10px;
+		}
+		a{
+			text-decoration: none;
+		}
+	}
+}
+
+.video-wrapper{
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+	iframe{
+		position: absolute;
+		top: 0; bottom: 0; left: 0; right: 0;
+		width: 100%; height: 100%;
+	}
+}

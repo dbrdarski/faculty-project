@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  {{> sections/head}}
+  </head>
+  <body>
+    {{> sections/header}}
+    <div id="courses">
+      <div class="container">
+        <h1 class="punchline">{{name}}</h1>
+        <p>by <a href="{{authorURL}}">{{author}}</a></p>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="video-wrapper">
+              <iframe src="{{video}}?modestbranding=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <ul>
+              {{#lessions}}
+              <li>{{title}}</li>
+              {{/lessions}}
+            </ul>          
+          </div>
+        </div>
+      </div>
+    </div>   
+    {{> sections/scripts}}
+  </body>
+</html>

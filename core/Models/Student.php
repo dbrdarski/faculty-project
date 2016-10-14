@@ -10,7 +10,8 @@ class Student extends User
     public $typeId = 3;
 
     
-    public function enrollCourse($name, $desc){
+    public function enrollCourse($name, $desc)
+    {
         return $this->find(1)->courses()->create([
             'name' => $name,
             'description' => $desc
@@ -21,8 +22,13 @@ class Student extends User
     // {
     //     return $this->hasMany(Subscription::class);
     // }
-    public function courses(){
+    public function courses()
+    {
         return $this->belongsToMany(Course::class);
+    }
+    public function lessions()
+    {
+        return $this->belongsToMany(Lession::class);
     }
 
 }
