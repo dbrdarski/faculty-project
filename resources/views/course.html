@@ -11,14 +11,19 @@
         <p>by <a href="{{authorURL}}">{{author}}</a></p>
         <div class="row">
           <div class="col-md-9">
-            <div class="video-wrapper">
-              <iframe src="{{video}}?modestbranding=1" frameborder="0" allowfullscreen></iframe>
+            <div id="course-video">
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/{{video}}?modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                <!-- <iframe src="https://www.youtube.com/embed/UW_oXEksqh8" frameborder="0" allowfullscreen></iframe> -->
+              </div>
             </div>
+            <a href="#" class="btn btn-primary btn-lg">Start course</a>
           </div>
           <div class="col-md-3">
-            <ul>
+          <h3 class="h6 title">Course contents</h3>
+            <ul class="lessions">
               {{#lessions}}
-              <li>{{title}}</li>
+              <li><a href="{{url}}">{{index}}. {{title}}</a></li>
               {{/lessions}}
             </ul>          
           </div>

@@ -3,7 +3,8 @@
 @primary : #3a5d71;
 @primary : #16a085;
 @primary : #d14841;
-@seondary: #475577;
+@s: #475577;
+@secondary: @s - #222;
 @light: #ecf0f1;
 @yellow: #FBA026;
 @orange: #F37934;
@@ -20,13 +21,12 @@
 @xl : 1200px;
 
 .media-max(@s, @content){
-	@media(max-width: @s){
+	@media (max-width: @s){
 		@content();
 	}
 }
-
 .media-min(@s, @content){
-	@media(min-width: @s){
+	@media (min-width: @s){
 		@content();
 	}	
 }
@@ -133,10 +133,21 @@ ul{
 	}
 
 }
+
+h1,h2,h3,h4,h5,h6{
+	&.title{
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 1em;
+	}
+}
+#course-video{
+	margin-bottom: 40px;
+}
 #courses{
 	background: @light;
 	// padding-top: 30px;
-	// padding-bottom: 30px;
+	padding-bottom: 40px;
 	.course{
 	    border-radius: 3px;
 	    overflow: hidden;
@@ -197,7 +208,21 @@ ul{
 		}
 	}
 }
-
+ul.lessions{
+	padding-left: .5em;
+	li{
+		padding-left: .5em;
+	    line-height: 1.25em;
+	    padding: 0 0 7px;
+	    & + li{
+	    	padding-top: 5px;
+			border-top: 1px solid #ccc;
+	    }
+	    a{
+	    	text-decoration: none;
+	    }
+	}
+}
 .video-wrapper{
 	position: relative;
 	height: 0;
@@ -207,4 +232,26 @@ ul{
 		top: 0; bottom: 0; left: 0; right: 0;
 		width: 100%; height: 100%;
 	}
+}
+#btn(@c){
+	outline: 0 none;
+	&, &:focus{
+		background: @c;
+		border-color: @c - #181818;
+	}
+	&:hover{
+		background: @c - #111;
+		border-color: @c - #222;
+	}
+	&:active{
+		border: 0 none;
+		margin-top: .2em;
+		background: @c - #181818 !important;
+	}
+}
+
+.btn-primary{
+	border: 0 none;
+	border-bottom: .2em solid;
+	#btn(@secondary);
 }

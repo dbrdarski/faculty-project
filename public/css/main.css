@@ -124,8 +124,22 @@ ul li {
 #logo:hover {
   background-image: url(../img/logo_hover.svg);
 }
+h1.title,
+h2.title,
+h3.title,
+h4.title,
+h5.title,
+h6.title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+#course-video {
+  margin-bottom: 40px;
+}
 #courses {
   background: #ecf0f1;
+  padding-bottom: 40px;
 }
 #courses .course {
   border-radius: 3px;
@@ -188,6 +202,21 @@ ul li {
 #courses .course a {
   text-decoration: none;
 }
+ul.lessions {
+  padding-left: .5em;
+}
+ul.lessions li {
+  padding-left: .5em;
+  line-height: 1.25em;
+  padding: 0 0 7px;
+}
+ul.lessions li + li {
+  padding-top: 5px;
+  border-top: 1px solid #ccc;
+}
+ul.lessions li a {
+  text-decoration: none;
+}
 .video-wrapper {
   position: relative;
   height: 0;
@@ -201,4 +230,23 @@ ul li {
   right: 0;
   width: 100%;
   height: 100%;
+}
+.btn-primary {
+  border: 0 none;
+  border-bottom: .2em solid;
+  outline: 0 none;
+}
+.btn-primary,
+.btn-primary:focus {
+  background: #253355;
+  border-color: #0d1b3d;
+}
+.btn-primary:hover {
+  background: #142244;
+  border-color: #031133;
+}
+.btn-primary:active {
+  border: 0 none;
+  margin-top: .2em;
+  background: #0d1b3d !important;
 }

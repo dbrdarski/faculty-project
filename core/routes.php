@@ -2,6 +2,13 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+function indexArr($arr){
+	return array_map(function($v, $k){
+		$v['index'] = $k + 1;
+		return $v;
+	}, $arr, array_keys($arr));
+}
+
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     $name = $request->getAttribute('name');
     // ->setName('hello');
@@ -10,6 +17,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     return $response;
 });
 $app->get('/course', function($req, $res){
+
 	$this->view->render($res, "course", [
  		'name' => 'Laravel 101',
  		'courseURL' => '#',
@@ -18,21 +26,21 @@ $app->get('/course', function($req, $res){
  		'level' => 'Beginner',
  		'bg' => 'red',
  		'img' => 'laravel.png',
- 		'video' => 'https://www.youtube.com/watch?v=TuLtbcclcfM',
- 		'lessions' => [
- 			['title' => 'Introduction'],
- 			['title' => 'Composer & Laravel Installer'],
- 			['title' => 'Laravel File Structure'],
- 			['title' => 'Routing'],
- 			['title' => 'Models'],
- 			['title' => 'Relationships'],
- 			['title' => 'Views'],
- 			['title' => 'Blade Templating'],
- 			['title' => 'Controllers'],
- 			['title' => 'Authentication'],
- 			['title' => 'Middleware'],
- 			['title' => 'Put it all together!'], 			
- 		]
+ 		'video' => 'lnf1GdNxDbc',
+ 		'lessions' => indexArr([
+ 			['url'=>"#", 'title' => 'Introduction'],
+ 			['url'=>"#", 'title' => 'Composer & Laravel Installer'],
+ 			['url'=>"#", 'title' => 'Laravel File Structure'],
+ 			['url'=>"#", 'title' => 'Routing'],
+ 			['url'=>"#", 'title' => 'Models'],
+ 			['url'=>"#", 'title' => 'Relationships'],
+ 			['url'=>"#", 'title' => 'Views'],
+ 			['url'=>"#", 'title' => 'Blade Templating'],
+ 			['url'=>"#", 'title' => 'Controllers'],
+ 			['url'=>"#", 'title' => 'Authentication'],
+ 			['url'=>"#", 'title' => 'Middleware'],
+ 			['url'=>"#", 'title' => 'Put it all together!'], 			
+ 		])
 	]);
 	return $res;
 });
