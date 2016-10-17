@@ -16,9 +16,7 @@
                 <small id="couseTitle" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group form-group-title">
-                <input type="text" class="form-control form-control-sm" id="customSlug" name="customSlug" v-bind:value="makeSlug(name)" v-on:blur="checkSlug">
-                <input type="hidden" id="autoSlug" name="autoSlug" v-bind:value="makeSlug(name)">
-                <input type="hidden" id="slug" name="slug" v-bind:value="makeSlug(name)">
+                <input type="text" class="form-control form-control-sm" id="slug" name="slug" v-model="slug" v-on:blur="slugBlur">
               </div>
               <div class="form-section-meta">
                 <div class="form-group">
@@ -89,6 +87,18 @@
     {{> sections/scripts}}    
   </body>
   <script>
+    var memo = function(fn){
+      var args = Array(fn.length);
+      return function Replace(){
+        var replace = Array.prototype.slice.call(arguments);
+        args = args.concat(replace).slice(replace.length);
+        return fn.apply(null, args);
+      };
+    };
+
+    var makeSlug = function(name){
+      return name.trim().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+    }
     var app = new Vue({
       el: '#edit-panel',
       data: {
@@ -96,36 +106,41 @@
         name : '',
         nameDefault : 'Sample course',
         author : 'You',
+        overrideSlug : false,
         description : '',
         descDefault : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
         bg : 'default',
         img :"",
+        courseURL : '#',
+        level : 0
+      },
+      methods:{
         getImg : function(img){
           return 'url(/uploads/' + (this.img || "laravel.png") + ')';
         },
-        courseURL : '#',
-        level : 0,
-        makeSlug : function(name){
-          return name.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
-        },
-        checkSlug : function(){
-          return this.makeSlug.call(this, this.customSlug);
-        },
-        logSlug: function(){          
+        logSlug: function(){
           console.log(slug.value);
           return false;
-        }
+        },
+        slugBlur : function(e){
+          console.log(this.overrideSlug, this.autoslug, this.overrideSlug);
+          if(e.target.value === this.autoslug || e.target.value === ''){
+            this.overrideSlug = false;
+          } else {
+            this.overrideSlug = makeSlug(e.target.value);
+            return this.overrideSlug;
+          }
+        }        
       },
       computed: {
-        'slug' : function(){
-          return customSlug ? makeSlug(customSlug) : autoSlug(name);
+        'autoslug' : function(){
+          return makeSlug(this.name);
+        },
+        'slug' : function(e){
+          this.slugBlur;   
+          return this.overrideSlug ? this.overrideSlug : this.autoslug;
         }
-      },
-      watch: {
-        name: function(){
-
-        }
-      }   
+      }
     });
   </script>
 </html>
