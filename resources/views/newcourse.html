@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  {{> sections/head}}
+  </head>
+  <body>
+    {{> sections/header}}
+    <div id="courses">
+      <div class="container">
+        <h1 class="h3 punchline">Create course</h1>
+        <form action="#" action="" method="POST">
+          <div id="edit-panel">
+            <div id="main-panel">
+              <div class="form-group form-group-title">
+                <input type="text" class="form-control form-control-lg" id="title" name="title" aria-describedby="couseTitle" placeholder="Title" v-model="name">
+                <small id="couseTitle" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group form-group-title">
+                <input type="text" class="form-control form-control-sm" id="customSlug" name="customSlug" v-bind:value="makeSlug(name)" v-on:blur="checkSlug">
+                <input type="hidden" id="autoSlug" name="autoSlug" v-bind:value="makeSlug(name)">
+                <input type="hidden" id="slug" name="slug" v-bind:value="makeSlug(name)">
+              </div>
+              <div class="form-section-meta">
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" id="description" name="description" aria-describedby="couseTitle" placeholder="Short description" rows="3" v-model="description"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="level">Pick level</label>
+                  <select class="form-control" name="level" id="level" v-model="level">
+                    <option value="0">Beginner</option>
+                    <option value="1">Intermediate</option>
+                    <option value="2">Advanced</option>
+                  </select>                  
+                </div>
+                <div class="form-group">
+                  <div class="grid">
+                    <div class="col-1">
+                      <label for="color">Pick color</label>
+                      <select class="form-control" name="color" id="color" v-model="bg">
+                        <option value="default">Default</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="orange">Orange</option>
+                        <option value="red">Red</option>
+                        <option value="violet">Violet</option>
+                        <option value="green">Green</option>
+                        <option value="cyan">Cyan</option>
+                        <option value="blue">Blue</option>
+                      </select>
+                    </div>
+                    <div class="col-1">
+                      <label for="img">Image</label>
+                      <input type="text" class="form-control" id="img" name="img" aria-describedby="couseTitle" placeholder="Select image" v-model="img">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">                
+                </div>
+              </div>
+            </div>
+            <div id="side-panel">
+              <div class="buttons">
+                <input type="submit" class="btn btn-primary btn-alt btn-lg" value="Create">
+                <a href="#" class="btn btn-primary btn-lg" v-on:click="logSlug">Publish</a>
+              </div>
+              <h2 class="h5 title">Thumbnail preview</h2>
+              {{=<% %>=}}
+              <div id="preview" v-cloak>
+                <div class="course">
+                  <a class="thumb"  href="{{courseURL}}" bg="{{bg}}" v-bind:bg="bg">
+                    <div class="thumb-img" bg="{{bg}}" v-bind:bg="bg" style="background-image: url(/uploads/{{img}})" v-bind:style="{'background-image': getImg()}"></div>
+                    <h2 class="name"><span>{{name || nameDefault}}</span></h2>
+                  </a>
+                  <div class="inner">
+                    <ul>
+                      <li class="description">{{description||descDefault}}</li>
+                      <li class="author">by <a href="{{authorURL}}">{{author}}</a></li>
+                      <li class="level">Level: {{levels[level]}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <%={{ }}=%>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>   
+    {{> sections/scripts}}    
+  </body>
+  <script>
+    var app = new Vue({
+      el: '#edit-panel',
+      data: {
+        levels : ['Beginner', 'Intermediate', 'Advanced'],
+        name : '',
+        nameDefault : 'Sample course',
+        author : 'You',
+        description : '',
+        descDefault : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        bg : 'default',
+        img :"",
+        getImg : function(img){
+          return 'url(/uploads/' + (this.img || "laravel.png") + ')';
+        },
+        courseURL : '#',
+        level : 0,
+        makeSlug : function(name){
+          return name.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+        },
+        checkSlug : function(){
+          return this.makeSlug.call(this, this.customSlug);
+        },
+        logSlug: function(){          
+          console.log(slug.value);
+          return false;
+        }
+      },
+      computed: {
+        'slug' : function(){
+          return customSlug ? makeSlug(customSlug) : autoSlug(name);
+        }
+      },
+      watch: {
+        name: function(){
+
+        }
+      }   
+    });
+  </script>
+</html>

@@ -10,7 +10,8 @@ class Course extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'video'
     ];
 
     public function addCourse($name, $desc)

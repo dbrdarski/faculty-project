@@ -1,4 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:30,40,50,700');
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+*[bg="default"] {
+  background-color: #041628 !important;
+}
+*[bg="default"] > *[bg="default"] {
+  background-color: #37495b !important;
+}
+*[bg="default"] .name {
+  background: #152739;
+  color: #152739;
+}
 *[bg="red"] {
   background-color: #b83823 !important;
 }
@@ -58,6 +73,16 @@
 *[bg="cyan"] .name {
   background: #0a60a7;
   color: #0a60a7;
+}
+*[bg="blue"] {
+  background-color: #00367d !important;
+}
+*[bg="blue"] > *[bg="blue"] {
+  background-color: #2969b0 !important;
+}
+*[bg="blue"] .name {
+  background: #07478e;
+  color: #07478e;
 }
 body,
 * {
@@ -174,7 +199,6 @@ h6.title {
   width: 100%;
   background: #41a85f right center;
   opacity: .8;
-  transition: .3s;
 }
 #courses .course .name {
   position: relative;
@@ -189,6 +213,10 @@ h6.title {
 }
 #courses .course .name > * {
   color: white;
+}
+#courses .course .thumb-img,
+#courses .course .name {
+  transition: .3s;
 }
 #courses .course .description {
   min-height: 6em;
@@ -238,15 +266,91 @@ ul.lessions li a {
 }
 .btn-primary,
 .btn-primary:focus {
-  background: #253355;
-  border-color: #0d1b3d;
+  background: #3c4a6c;
+  border-color: #243254;
 }
 .btn-primary:hover {
-  background: #142244;
-  border-color: #031133;
+  background: #313f61;
+  border-color: #212f51;
 }
 .btn-primary:active {
   border: 0 none;
   margin-top: .2em;
-  background: #0d1b3d !important;
+  background: #2b395b !important;
+}
+.btn-alt {
+  outline: 0 none;
+}
+.btn-alt,
+.btn-alt:focus {
+  background: #2980b9;
+  border-color: #1168a1;
+}
+.btn-alt:hover {
+  background: #1e75ae;
+  border-color: #0e659e;
+}
+.btn-alt:active {
+  border: 0 none;
+  margin-top: .2em;
+  background: #186fa8 !important;
+}
+#main-panel,
+#side-panel {
+  clear: both;
+  padding-bottom: 15px;
+}
+@media (min-width: 768px) {
+  #edit-panel {
+    width: 100%;
+    padding-right: 300px;
+  }
+  #main-panel {
+    float: left;
+    width: 100%;
+  }
+  #side-panel {
+    float: left;
+    clear: none;
+    width: 300px;
+    margin-right: -300px;
+    padding-left: 30px;
+  }
+}
+.buttons {
+  padding-bottom: 30px;
+  text-align: right;
+}
+.buttons:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.buttons .btn {
+  display: block;
+  float: left;
+  width: 130px;
+}
+.buttons .btn + .btn {
+  margin-left: 10px;
+}
+.form-group-meta {
+  max-width: 600px;
+}
+.grid {
+  margin: 0 -7.5px;
+}
+.grid:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.grid .col-1 {
+  float: left;
+  width: 50%;
+  padding: 0 7.5px;
+}
+label {
+  font-weight: 700;
+  color: #666;
 }

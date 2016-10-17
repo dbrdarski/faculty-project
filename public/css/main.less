@@ -3,9 +3,11 @@
 @primary : #3a5d71;
 @primary : #16a085;
 @primary : #d14841;
+@alt: #2980b9;
 @s: #475577;
-@secondary: @s - #222;
+@secondary: @s - #0b0b0b;
 @light: #ecf0f1;
+@default: #2c3e50 + #0b0b0b;
 @yellow: #FBA026;
 @orange: #F37934;
 @red: #EB6B56;
@@ -19,6 +21,14 @@
 @md : 768px;
 @lg : 992px;
 @xl : 1200px;
+
+.clearfix{
+	&:after {
+	    content:" ";
+	    display:table;
+	    clear:both;
+	}
+}
 
 .media-max(@s, @content){
 	@media (max-width: @s){
@@ -55,12 +65,14 @@
 }
 
 *{
+	&[bg="default"]{ .thumb-color(@default); }
 	&[bg="red"]{ .thumb-color(@red); }
 	&[bg="yellow"]{ .thumb-color(@yellow); }
 	&[bg="orange"]{ .thumb-color(@orange); }
 	&[bg="violet"]{ .thumb-color(@violet); }
 	&[bg="green"]{ .thumb-color(@green); }
 	&[bg="cyan"]{ .thumb-color(@cyan); }
+	&[bg="blue"]{ .thumb-color(@blue); }
 }
 
 body, *{
@@ -177,7 +189,6 @@ h1,h2,h3,h4,h5,h6{
 			height: 8em; width: 100%;
 			background: @green right center;
 	    	opacity: .8;
-	    	transition: .3s;
 		}
 		.name{
 			position: relative;
@@ -194,6 +205,10 @@ h1,h2,h3,h4,h5,h6{
 				color: white;
 			}
 		}
+		.thumb-img, .name{
+	    	transition: .3s;
+		}
+
 		.description{
 			min-height: 4 * 1.5em;
 			line-height: 1.25em;
@@ -240,13 +255,13 @@ ul.lessions{
 		border-color: @c - #181818;
 	}
 	&:hover{
-		background: @c - #111;
-		border-color: @c - #222;
+		background: @c - #0b0b0b;
+		border-color: @c - #1b1b1b;
 	}
 	&:active{
 		border: 0 none;
 		margin-top: .2em;
-		background: @c - #181818 !important;
+		background: @c - #111 !important;
 	}
 }
 
@@ -254,4 +269,64 @@ ul.lessions{
 	border: 0 none;
 	border-bottom: .2em solid;
 	#btn(@secondary);
+}
+
+.btn-alt{
+	#btn(@alt);
+}
+
+#main-panel, #side-panel{
+	clear: both;
+	padding-bottom: 15px;
+}
+
+.media-min(@md, {
+	#edit-panel{
+		width: 100%;
+		padding-right: 300px;
+	}
+	#main-panel{
+		float: left;
+		width: 100%;
+	}
+	#side-panel{
+		float: left;
+		clear: none;
+		width: 300px;
+		margin-right: -300px;
+		padding-left: 30px;
+		// text-align: right;
+	}
+});
+
+	.buttons{
+		.clearfix;
+		padding-bottom: 30px;
+		text-align: right;
+		.btn{
+			display: block;
+			float: left;
+			width: 130px;
+			+ .btn{
+				margin-left: 10px;
+			}
+		}
+	}
+
+.form-group-meta{
+	max-width: 600px;
+}
+
+.grid{
+	.clearfix;
+	margin: 0 -7.5px;
+	.col-1{
+		float: left;
+		width: 50%;
+		padding: 0 7.5px;
+	}
+}
+label{
+	font-weight: 700;
+	color: #666;
 }

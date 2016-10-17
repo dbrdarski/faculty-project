@@ -16,6 +16,10 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
     return $response;
 });
+$app->get('/course/new', function($req, $res){
+	$this->view->render($res, "newcourse", []);
+});
+
 $app->get('/course', function($req, $res){
 
 	$this->view->render($res, "course", [
