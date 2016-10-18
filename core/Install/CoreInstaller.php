@@ -28,8 +28,13 @@ class CoreInstaller{
 				$table->increments('id');
 				$table->integer('lecturer_id')->unsigned();
 				// $table->foreign('owner')->references('id')->on('users')->onDelete('cascade');;
-				$table->string('name');
+				$table->string('title');
+				$table->string('slug');
 				$table->text('description');
+				$table->string('video');
+				$table->string('image');
+				$table->integer('level');
+				$table->integer('color');
 				$table->boolean('active');
 				$table->timestamps();
 			})
@@ -50,7 +55,7 @@ class CoreInstaller{
 			function ($table){
 				$table->increments('id');
 				$table->integer('course_id')->unsigned();
-				$table->string('name');
+				$table->string('title');
 				$table->string('description');
 				$table->string('video');
 				$table->timestamps();
@@ -75,9 +80,16 @@ class CoreInstaller{
 			    $user1->add('me@admin.com', 'Dane', 'Brdarski', 'qwertybanana');
 			    $user2->add('student@admin.com', 'Pepe', 'Biserov', 'qwertybanana');
 			    $course = new \Core\Models\Course;
-			    $user1->createCourse('New Course', 'This is a course');
-			    $user1->createCourse("New Course 2", "This a course also.");
-			    // $s->find(2)->courses()->find(1)->subscriptions()->create([]);
+			    $user1->createCourse([
+			    	'title'=>'New Course',
+			    	'slug' => 'new_course',
+			    	'description' => 'This is a course'
+			    ]);
+			    $user1->createCourse([
+			    	'title'=> 'New Course 2',
+			    	'slug' => 'new_course_2',
+			    	'description' => 'This is a course'
+		    	]);
 			})
 		);
 	}
