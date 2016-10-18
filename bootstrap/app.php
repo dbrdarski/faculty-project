@@ -18,10 +18,18 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
-$install = new \Core\Install\CoreInstaller;
+$install = new \Core\Install\CoreInstaller; // create the Core install tasks
 
 $container['InstallerController'] = function ($container) {
     return new \Core\Controllers\InstallerController($container);
+};
+
+$container['validator'] = function ($container) {
+    return new \Core\Validation\Validator;
+};
+
+$container['CourseController'] = function ($container) {
+    return new \Core\Controllers\CourseController($container);
 };
 
 require __DIR__ . '/../core/routes.php';

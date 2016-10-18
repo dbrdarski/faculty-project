@@ -12,7 +12,7 @@
           <div id="edit-panel">
             <div id="main-panel">
               <div class="form-group form-group-title">
-                <input type="text" class="form-control form-control-lg" id="title" name="title" aria-describedby="couseTitle" placeholder="Title" v-model="name">
+                <input type="text" class="form-control form-control-lg" id="title" name="title" aria-describedby="couseTitle" value="{{title}}" placeholder="Title" v-model="title">
                 <small id="couseTitle" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group form-group-title">
@@ -35,7 +35,7 @@
                   <div class="grid">
                     <div class="col-1">
                       <label for="color">Pick color</label>
-                      <select class="form-control" name="color" id="color" v-model="bg">
+                      <select class="form-control" name="color" id="color" v-model="color">
                         <option value="default">Default</option>
                         <option value="yellow">Yellow</option>
                         <option value="orange">Orange</option>
@@ -47,8 +47,8 @@
                       </select>
                     </div>
                     <div class="col-1">
-                      <label for="img">Image</label>
-                      <input type="text" class="form-control" id="img" name="img" aria-describedby="couseTitle" placeholder="Select image" v-model="img">
+                      <label for="image">Image</label>
+                      <input type="text" class="form-control" id="image" name="image" placeholder="Select image" v-model="image">
                     </div>
                   </div>
                 </div>
@@ -65,9 +65,9 @@
               {{=<% %>=}}
               <div id="preview" v-cloak>
                 <div class="course">
-                  <a class="thumb"  href="{{courseURL}}" bg="{{bg}}" v-bind:bg="bg">
-                    <div class="thumb-img" bg="{{bg}}" v-bind:bg="bg" style="background-image: url(/uploads/{{img}})" v-bind:style="{'background-image': getImg()}"></div>
-                    <h2 class="name"><span>{{name || nameDefault}}</span></h2>
+                  <a class="thumb"  href="{{courseURL}}" bg="{{color}}" v-bind:bg="color">
+                    <div class="thumb-img" bg="{{color}}" v-bind:bg="color" style="background-image: url(/uploads/{{image}})" v-bind:style="{'background-image': getImg()}"></div>
+                    <h2 class="name"><span>{{title || titleDefault}}</span></h2>
                   </a>
                   <div class="inner">
                     <ul>
@@ -96,34 +96,34 @@
       };
     };
 
-    var makeSlug = function(name){
-      return name.trim().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+    var makeSlug = function(title){
+      return title.trim().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
     }
     var app = new Vue({
       el: '#edit-panel',
       data: {
         levels : ['Beginner', 'Intermediate', 'Advanced'],
-        name : '',
-        nameDefault : 'Sample course',
+        title : "{{title}}",
+        titleDefault : "Sample course",
         author : 'You',
         overrideSlug : false,
-        description : '',
+        description : "{{description}}",
         descDefault : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-        bg : 'default',
-        img :"",
+        color : 'default',
+        image : "{{image}}",
         courseURL : '#',
         level : 0
       },
       methods:{
-        getImg : function(img){
-          return 'url(/uploads/' + (this.img || "laravel.png") + ')';
+        getImg : function(image){
+          return 'url(/uploads/' + (this.image || "default.png") + ')';
         },
         logSlug: function(){
           console.log(slug.value);
           return false;
         },
         slugBlur : function(e){
-          console.log(this.overrideSlug, this.autoslug, this.overrideSlug);
+          this.overrideSlug;
           if(e.target.value === this.autoslug || e.target.value === ''){
             this.overrideSlug = false;
           } else {
@@ -134,7 +134,7 @@
       },
       computed: {
         'autoslug' : function(){
-          return makeSlug(this.name);
+          return makeSlug(this.title);
         },
         'slug' : function(e){
           this.slugBlur;   

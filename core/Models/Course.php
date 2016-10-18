@@ -9,20 +9,28 @@ class Course extends Model
     protected $table = 'courses';
 
     protected $fillable = [
-        'name',
+        'title',
+        'slug',
         'description',
-        'video'
+        'video',
+        'image',
+        'level',
+        'color'
     ];
 
-    public function addCourse($name, $desc)
+    public function addCourse($title, $slug)
     {
         $t = $this->create([
-            'name' => $name,
-            'description' => $desc
+            'title' => $title,            
+            'sluf' => $slug
         ]);
 
         // var_dump($t->id);
         return $t->id;
+    }
+    public static function getCourse($slug)
+    {
+        return self::where('slug', $slug)->first();
     }
 
     public function lecturers()

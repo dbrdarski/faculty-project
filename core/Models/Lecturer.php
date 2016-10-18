@@ -10,10 +10,15 @@ class Lecturer extends User
     public $typeId = 2;
 
     
-    public function createCourse($name, $desc){
+    public function createCourse($p){
         return $this->find(1)->courses()->create([
-            'name' => $name,
-            'description' => $desc
+            'title' => $p['title'],
+            'slug' => $p['slug'],
+            'description' => isset($p['description']) ? $p['description'] : "",
+            'video' => isset($p['video']) ? $p['video'] : "",
+            'color' => isset($p['color']) ? $p['color'] : 0,
+            'image' => isset($p['image']) ? $p['image'] : "",
+            'level' => isset($p['level']) ? $p['level'] : 0
         ]);
     }
 

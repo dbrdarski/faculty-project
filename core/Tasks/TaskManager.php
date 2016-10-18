@@ -6,7 +6,7 @@ Class TaskManagerInstance{
 
 	private $tasks = [];
 	public function getTasks()
-	{
+	{		
 		return $this->tasks;
 	}
 	public function getTask($name)
@@ -42,7 +42,7 @@ Class TaskManagerInstance{
 	{
 		array_map(function($t){
 			$t->up();
-		}, $this->tasks);
+		}, $this->getTasks());
 		return $this;
 
 	}
@@ -50,14 +50,14 @@ Class TaskManagerInstance{
 	{
 		array_map(function($t){
 			$t->down();
-		}, $this->tasks);
+		}, $this->getTasks());
 		return $this;
 	}
 	public function reinstallAll()
 	{
 		array_map(function($t){
 			$t->down()->up();
-		}, $this->tasks);
+		}, $this->getTasks());
 		return $this;
 	}
 }

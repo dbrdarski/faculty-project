@@ -16,9 +16,15 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
     return $response;
 });
-$app->get('/course/new', function($req, $res){
-	$this->view->render($res, "newcourse", []);
-});
+
+$app->post('/course/new', 'CourseController:createCourse');
+$app->get('/course/new', 'CourseController:createCourseIndex');
+$app->get('/course/{slug}', 'CourseController:editCourseIndex');
+
+
+// $app->get('/course/new', function($req, $res){
+// 	$this->view->render($res, "newcourse", []);
+// });
 
 $app->get('/course', function($req, $res){
 
