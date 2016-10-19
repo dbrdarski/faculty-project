@@ -2,6 +2,7 @@
 $settings = [
     'settings' => [
         'displayErrorDetails' => true,
+        'determineRouteBeforeAppMiddleware' => false,
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',

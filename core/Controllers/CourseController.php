@@ -17,8 +17,8 @@ class CourseController extends Controller{
     public function editCourseIndex($req, $res, $args)
     {
         $course = Course::getCourse($args['slug']);
-        return $this->view->render($res, "newcourse", $course);
         // return $res->withJson($r);
+        return $this->view->render($res, "newcourse", $course);
     }
         
     public function createCourse($req, $res)
@@ -34,6 +34,6 @@ class CourseController extends Controller{
         }
         $r = Lecturer::find(1)->createCourse($req->getParams());
         
-        return $res->withJson($r);
+        return $res->withJson(['redirect' => '/course/' .  $r['slug']]);
     }
 }

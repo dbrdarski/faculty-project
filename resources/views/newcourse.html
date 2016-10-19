@@ -8,7 +8,7 @@
     <div id="courses">
       <div class="container">
         <h1 class="h3 punchline">Create course</h1>
-        <form action="#" action="" method="POST">
+        <form action="#" action="" method="POST" id="edit-course">
           <div id="edit-panel">
             <div id="main-panel">
               <div class="form-group form-group-title">
@@ -66,7 +66,7 @@
               <div id="preview" v-cloak>
                 <div class="course">
                   <a class="thumb"  href="{{courseURL}}" bg="{{color}}" v-bind:bg="color">
-                    <div class="thumb-img" bg="{{color}}" v-bind:bg="color" style="background-image: url(/uploads/{{image}})" v-bind:style="{'background-image': getImg()}"></div>
+                    <div class="thumb-img" bg="{{color}}" v-bind:bg="color" v-bind:style="{'background-image': getImg()}"></div>
                     <h2 class="name"><span>{{title || titleDefault}}</span></h2>
                   </a>
                   <div class="inner">
@@ -84,9 +84,10 @@
         </form>
       </div>
     </div>   
-    {{> sections/scripts}}    
+    {{> sections/scripts}}
   </body>
   <script>
+  (function($){
     var memo = function(fn){
       var args = Array(fn.length);
       return function Replace(){
@@ -95,11 +96,13 @@
         return fn.apply(null, args);
       };
     };
-
+        // Now the app has started!
     var makeSlug = function(title){
-      return title.trim().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+      return title.toLowerCase().replace(/[\s-]+/g,'-').replace(/[^\w-]+/g,'').replace(/(^[-]+)|([-]+$)/g, '');
     }
-    var app = new Vue({
+
+    var compare = memo(function(x, y){ return x === y; });
+    var vm = new Vue({
       el: '#edit-panel',
       data: {
         levels : ['Beginner', 'Intermediate', 'Advanced'],
@@ -107,12 +110,13 @@
         titleDefault : "Sample course",
         author : 'You',
         overrideSlug : false,
+        customSlug : "",
         description : "{{description}}",
         descDefault : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
         color : 'default',
         image : "{{image}}",
         courseURL : '#',
-        level : 0
+        level : 0        
       },
       methods:{
         getImg : function(image){
@@ -122,25 +126,42 @@
           console.log(slug.value);
           return false;
         },
-        slugBlur : function(e){
-          this.overrideSlug;
+        slugBlur : function(e){          
+          this.slug;
           if(e.target.value === this.autoslug || e.target.value === ''){
             this.overrideSlug = false;
           } else {
-            this.overrideSlug = makeSlug(e.target.value);
-            return this.overrideSlug;
+            this.overrideSlug = true;
+            this.customSlug = e.target.value;
           }
         }        
       },
-      computed: {
+      computed:{
         'autoslug' : function(){
           return makeSlug(this.title);
         },
-        'slug' : function(e){
-          this.slugBlur;   
-          return this.overrideSlug ? this.overrideSlug : this.autoslug;
+        'slug' : function(e){        
+          this.overrideSlug; this.customSlug;
+          return this.overrideSlug ? makeSlug(this.customSlug) : this.autoslug;
         }
       }
     });
+
+    var $form = $('#edit-course');
+    $form.on('submit', function(e){
+      e.preventDefault();
+      $.ajax({
+        method: "POST",
+        url: window.location.pathname,
+        data: $form.serialize(),
+        success: function(data){
+          console.log(data);
+          if(data.redirect){
+            window.location.pathname = data.redirect;
+          }
+        }
+      });
+    });
+  })(jQuery);
   </script>
 </html>
