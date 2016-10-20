@@ -18,11 +18,36 @@ class Course extends Model
         'color'
     ];
 
+    static private $colors = ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue'];
+    static private $levels = ['Beginner', 'Intermediate', 'Advanced'];
+
+    public function getColorAttribute($value)
+    {
+        return self::$colors[$value];
+    }
+    public function getAuthorAttribute($value)
+    {
+        return "";
+    }
+    public function getLevelAttribute($value)
+    {
+        return self::$levels[$value];
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'lecturer_id', 'id');
+    }
+    // public function students()
+    // {
+    //     return $this->belongsToMany(Student::class);
+    // }
+
     public function addCourse($title, $slug)
     {
         $t = $this->create([
             'title' => $title,            
-            'sluf' => $slug
+            'slug' => $slug
         ]);
 
         // var_dump($t->id);
@@ -31,15 +56,6 @@ class Course extends Model
     public static function getCourse($slug)
     {
         return self::where('slug', $slug)->first();
-    }
-
-    public function lecturers()
-    {
-        return $this->belongsTo(Lecturer::class);
-    }
-    public function students()
-    {
-        return $this->belongsToMany(Student::class);
     }
 
     // public function subscriptions()

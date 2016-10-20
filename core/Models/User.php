@@ -16,6 +16,11 @@ class User extends Model
         'type'
     ];
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'lecturer_id');
+    }
+
     public function setPassword($password)
     {
         $this->update([
@@ -24,12 +29,13 @@ class User extends Model
     }
     public function add($email, $fname, $lname, $password)
     {
-        return $this->create([
+        $user = $this->create([
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'type' => $this->typeId,
             'first_name' => $fname,
             'last_name' => $lname            
         ]);
+        return $user['attributes']['id'];
     }
 }

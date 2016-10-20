@@ -1,4 +1,20 @@
 <?php
+
+// Class Curried{
+// 	function __construct($fn){
+// 		$this->fn = $fn;
+// 	}
+// 	function __invoke(){
+// 		return is_callable($this->fn) ? new Curried(call_user_func($this->fn, func_get_args())) : $this->fn;
+// 	}
+// 	public function _(){		
+// 		return is_callable($this->fn) ? new Curried(call_user_func($this->fn, func_get_args())) : new Curried($this->fn);
+// 	}
+// }
+// $e = (new Curried(function(){return 1;}))->_(1)->_(1)->_(1);
+// echo $e();
+// die();
+
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config/config.php';
 
