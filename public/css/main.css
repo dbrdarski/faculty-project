@@ -108,6 +108,7 @@ ul li {
   top: 0;
   background: #d14841;
   padding: 18px 0;
+  z-index: 1;
 }
 #header + * {
   margin-top: 60px;
@@ -215,7 +216,7 @@ h6.title {
   color: white;
 }
 #courses .course .thumb-img {
-  transition: .3s;
+  transition: opacity .3s;
 }
 #courses .course .description {
   min-height: 6.4em;
