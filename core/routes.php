@@ -19,6 +19,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
 $app->post('/course/new', 'CourseController:createCourse');
 $app->get('/course/new', 'CourseController:createCourseIndex');
+$app->post('/course/{slug}', 'CourseController:editCourse');
 $app->get('/course/{slug}', 'CourseController:editCourseIndex');
 
 
@@ -64,13 +65,7 @@ $app->get('/', function($req, $res){
     
 	
 	$this->view->render($res, "index", ["courses" => \Core\Models\Course::with('users')->get()->toArray() ]);
-	$r = \Core\Models\Course::with('users')->get();
-	// echo '<pre>';
-	// foreach ($r as $a) {
- //    	$s = $a;
-	// }
-	// var_dump($r->toArray());
-	// return $res;
+	return $res;
 });
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');

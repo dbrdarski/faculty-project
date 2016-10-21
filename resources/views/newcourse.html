@@ -12,6 +12,7 @@
           <div id="edit-panel">
             <div id="main-panel">
               <div class="form-group form-group-title">
+              <input type="hidden" name="id" value="{{id}}">
                 <input type="text" class="form-control form-control-lg" id="title" name="title" aria-describedby="couseTitle" value="{{title}}" placeholder="Title" v-model="title">
                 <small id="couseTitle" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
@@ -108,7 +109,7 @@
         levels : ['Beginner', 'Intermediate', 'Advanced'],
         title : "{{title}}",
         titleDefault : "Sample course",
-        author : 'You',
+        author : '{{users.first_name}} {{users.last_name}}',
         overrideSlug : false,
         customSlug : "",
         description : "{{description}}",
@@ -157,7 +158,7 @@
         success: function(data){
           console.log(data);
           if(data.redirect){
-            window.location.pathname = data.redirect;
+            // window.location.pathname = data.redirect;
           }
         }
       });

@@ -53,10 +53,6 @@ class Course extends Model
         // var_dump($t->id);
         return $t->id;
     }
-    public static function getCourse($slug)
-    {
-        return self::where('slug', $slug)->first();
-    }
 
     // public function subscriptions()
     // {

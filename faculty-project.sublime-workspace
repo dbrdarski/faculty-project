@@ -4,16 +4,40 @@
 		"selected_items":
 		[
 			[
+				"o",
+				"overrideSlug"
+			],
+			[
+				"slug",
+				"slugBlur"
+			],
+			[
+				"edit",
+				"editSlug"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
 				"json",
 				"json_encode"
 			],
 			[
 				"has",
 				"hasTable"
-			],
-			[
-				"pad",
-				"padding"
 			],
 			[
 				"max",
@@ -42,10 +66,6 @@
 			[
 				"outer",
 				"outerHeight\tWindow"
-			],
-			[
-				"margin",
-				"margin-top"
 			],
 			[
 				"padd",
@@ -276,16 +296,8 @@
 				"query_type"
 			],
 			[
-				"text",
-				"text-align"
-			],
-			[
 				"mar",
 				"margin-right"
-			],
-			[
-				"border",
-				"border-radius"
 			],
 			[
 				"print",
@@ -502,28 +514,43 @@
 			[
 				"round",
 				"right-rounded-corners"
-			],
-			[
-				"botto",
-				"bottom-rounded-corners"
-			],
-			[
-				"path",
-				"path-arrow-right"
-			],
-			[
-				"c-net",
-				"c-neutral"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "config/config.php",
+			"file": "core/routes.php",
 			"settings":
 			{
-				"buffer_size": 394,
+				"buffer_size": 4937,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/index.html",
+			"settings":
+			{
+				"buffer_size": 481,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/course.html",
+			"settings":
+			{
+				"buffer_size": 1153,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/newcourse.html",
+			"settings":
+			{
+				"buffer_size": 6071,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -531,70 +558,27 @@
 			"file": "core/Install/CoreInstaller.php",
 			"settings":
 			{
-				"buffer_size": 1319,
+				"buffer_size": 2846,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "bootstrap/app.php",
+			"file": "resources/views/sections/head.html",
 			"settings":
 			{
-				"buffer_size": 540,
-				"encoding": "UTF-8",
+				"buffer_size": 416,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "core/Models/Course.php",
+			"contents": "import url('https://fonts.googleapis.com/css?family=Ubuntu:30,40,50,700');\n\n@primary : #3a5d71;\n@primary : #16a085;\n@primary : #d14841;\n@alt: #2980b9;\n@s: #475577;\n@secondary: @s - #0b0b0b;\n@light: #ecf0f1;\n@default: #2c3e50 + #0b0b0b;\n@yellow: #FBA026;\n@orange: #F37934;\n@red: #EB6B56;\n@violet: #9365B8;\n@green: #41A85F;\n@cyan: #2C82C9;\n@blue: #2969B0;\n\n@xs : 0;\n@sm : 544px;\t\n@md : 768px;\n@lg : 992px;\n@xl : 1200px;\n\n.clearfix{\n\t&:after {\n\t    content:\" \";\n\t    display:table;\n\t    clear:both;\n\t}\n}\n\n.media-max(@s, @content){\n\t@media (max-width: @s){\n\t\t@content();\n\t}\n}\n.media-min(@s, @content){\n\t@media (min-width: @s){\n\t\t@content();\n\t}\t\n}\n\n\n// .media(@s, @content) when ( @@s > 0 ){\n\t\n// }\n// .media(@s1, @s2, @content) when (@arguments > 2 ) and (@s1 = '='){\n\t\n// }\n\n// .media(@s1, @s2, @content) when (@arguments > 2 ) and (@s2 = '='){\n\t\n// }\n\n.thumb-color(@color){\n\tbackground-color: @color - #333 !important;\n\t& > & {\n\t\tbackground-color: @color !important;\t\t\n\t}\n\t.name{ \n\t\tbackground:@color - #222;\n\t\tcolor:@color - #222;\n\t}\t\n}\n\n*{\n\t&[bg=\"default\"]{ .thumb-color(@default); }\n\t&[bg=\"red\"]{ .thumb-color(@red); }\n\t&[bg=\"yellow\"]{ .thumb-color(@yellow); }\n\t&[bg=\"orange\"]{ .thumb-color(@orange); }\n\t&[bg=\"violet\"]{ .thumb-color(@violet); }\n\t&[bg=\"green\"]{ .thumb-color(@green); }\n\t&[bg=\"cyan\"]{ .thumb-color(@cyan); }\n\t&[bg=\"blue\"]{ .thumb-color(@blue); }\n}\n\nbody, *{\n\tfont-family: Ubuntu, sans serif;\n\tcolor: #555;\n}\n\na{\n\tcolor: @cyan;\n\t&:hover{\n\t\tcolor: @blue;\n\t}\n}\n\nul{\n\tmargin: 0;\n\tpadding: 0;\n\n\tli{\n\t\tlist-style-type: none;\n\t}\n}\n\n\n#header{\n\tposition: fixed;\n\twidth: 100%; top: 0;\n\tbackground: @primary;\n\tpadding: 18px 0;\n\t&+*{\n\t\tmargin-top: 60px;\n\t}\n\ta{\n\t\tcolor: white;\n\t\ttext-decoration: none;\n\t\t&:hover{\n\t\t\topacity: .6666;\n\t\t}\n\t}\n\tnav{\n\t\ttext-align: right;\n\t}\n\tli{\n\t\tlist-style-type: none;\n\t\tdisplay: inline-block;\n\t\tpadding-left: 40px;\n\t\theight: 25px;\n\t\tline-height: 25px;\n\t}\n}\n\n.logo, .navigation{\n\theight: 25px;\n}\n\n.punchline{\n\tmargin: 0;\n\tpadding: 30px 0;\n    letter-spacing: -0.03em;\n}\n#logo{\n\tdisplay: block;\n\twidth: 145px;\n\theight: 25px;\n\tbackground: url(../img/logo.svg) no-repeat center;\n\topacity: 1 !important;\n\ttransition: all .2s;\n\t&:hover{\n\t\tbackground-image: url(../img/logo_hover.svg);\n\t}\n\n}\n\nh1,h2,h3,h4,h5,h6{\n\t&.title{\n\t\tfont-weight: 700;\n\t\ttext-transform: uppercase;\n\t\tmargin-bottom: 1em;\n\t}\n}\n#course-video{\n\tmargin-bottom: 40px;\n}\n#courses{\n\tbackground: @light;\n\t// padding-top: 30px;\n\tpadding-bottom: 40px;\n\t.course{\n\t    border-radius: 3px;\n\t    overflow: hidden;\n\t\tbackground: white;\t    \n\t    box-shadow: 2px 4px 5px fade(black, 8);\n\t    margin-bottom: 30px;\n\t    .media-max(@sm - 1, {\n\t    \tmargin-bottom: 17px;\t\n\t    });\n\t    \n\t    .inner{\n\t    \tpadding: 20px;\n\t    }\n\t    .thumb{\n\t    \tposition: relative;\n\t\t\theight: 8em;\n\t    \tdisplay: block;\n\t    \ttext-decoration: none;\n\t    \tpadding: 0 0.5em;\n\t    \t&:hover .thumb-img{\n\t\t\t\topacity: 1;\n\t    \t}\n\t    }\n\t\t.thumb-img{\n\t\t\tposition: absolute;\n\t\t\ttop: 0; left: 0;\n\t\t\theight: 8em; width: 100%;\n\t\t\tbackground: @green right center;\n\t    \topacity: .8;\n\t\t}\n\t\t.name{\n\t\t\tposition: relative;\n\t\t\tdisplay: inline;\n\t\t\t// color: white;\n\t\t\tfont-size: 23px;\n\t\t\theight: 1em;\n\t\t\tfont-weight: 400;\n\t\t    line-height: 1.45em;\t\t    \n\t\t    padding: 0.175em 0 .275em;\n\t\t\tbox-shadow: -0.325em 0, 0.275em 0;\n\t\t\ttext-decoration: none;\n\t\t\t> *{\n\t\t\t\tcolor: white;\n\t\t\t}\n\t\t}\n\t\t.thumb-img, .name{\n\t    \ttransition: .3s;\n\t\t}\n\n\t\t.description{\n\t\t\tmin-height: 4 * 1.5em;\n\t\t\tline-height: 1.25em;\n\t\t\tpadding: 0;\n\t\t}\n\t\tli{\n\t\t\tline-height: 1em;\n\t\t\tpadding-top: 10px;\n\t\t}\n\t\ta{\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n}\nul.lessions{\n\tpadding-left: .5em;\n\tli{\n\t\tpadding-left: .5em;\n\t    line-height: 1.25em;\n\t    padding: 0 0 7px;\n\t    & + li{\n\t    \tpadding-top: 5px;\n\t\t\tborder-top: 1px solid #ccc;\n\t    }\n\t    a{\n\t    \ttext-decoration: none;\n\t    }\n\t}\n}\n.video-wrapper{\n\tposition: relative;\n\theight: 0;\n\tpadding-bottom: 56.25%;\n\tiframe{\n\t\tposition: absolute;\n\t\ttop: 0; bottom: 0; left: 0; right: 0;\n\t\twidth: 100%; height: 100%;\n\t}\n}\n#btn(@c){\n\toutline: 0 none;\n\t&, &:focus{\n\t\tbackground: @c;\n\t\tborder-color: @c - #181818;\n\t}\n\t&:hover{\n\t\tbackground: @c - #0b0b0b;\n\t\tborder-color: @c - #1b1b1b;\n\t}\n\t&:active{\n\t\tborder: 0 none;\n\t\tmargin-top: .2em;\n\t\tbackground: @c - #111 !important;\n\t}\n}\n\n.btn-primary{\n\tborder: 0 none;\n\tborder-bottom: .2em solid;\n\t#btn(@secondary);\n}\n\n.btn-alt{\n\t#btn(@alt);\n}\n\n#main-panel, #side-panel{\n\tclear: both;\n\tpadding-bottom: 15px;\n}\n\n.media-min(@md, {\n\t#edit-panel{\n\t\twidth: 100%;\n\t\tpadding-right: 300px;\n\t}\n\t#main-panel{\n\t\tfloat: left;\n\t\twidth: 100%;\n\t}\n\t#side-panel{\n\t\tfloat: left;\n\t\tclear: none;\n\t\twidth: 300px;\n\t\tmargin-right: -300px;\n\t\tpadding-left: 30px;\n\t\t// text-align: right;\n\t}\n});\n\n\t.buttons{\n\t\t.clearfix;\n\t\tpadding-bottom: 30px;\n\t\ttext-align: right;\n\t\t.btn{\n\t\t\tdisplay: block;\n\t\t\tfloat: left;\n\t\t\twidth: 130px;\n\t\t\t+ .btn{\n\t\t\t\tmargin-left: 10px;\n\t\t\t}\n\t\t}\n\t}\n\n.form-group-meta{\n\tmax-width: 600px;\n}\n\n.grid{\n\t.clearfix;\n\tmargin: 0 -7.5px;\n\t.col-1{\n\t\tfloat: left;\n\t\twidth: 50%;\n\t\tpadding: 0 7.5px;\n\t}\n}\nlabel{\n\tfont-weight: 700;\n\tcolor: #666;\n}",
+			"file": "public/css/main.less",
+			"file_size": 5350,
+			"file_write_time": 131212063340987185,
 			"settings":
 			{
-				"buffer_size": 537,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Models/Subscription.php",
-			"settings":
-			{
-				"buffer_size": 534,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Models/User.php",
-			"settings":
-			{
-				"buffer_size": 752,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Models/Lecturer.php",
-			"settings":
-			{
-				"buffer_size": 426,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Models/Student.php",
-			"settings":
-			{
-				"buffer_size": 435,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/routes.php",
-			"settings":
-			{
-				"buffer_size": 1329,
+				"buffer_size": 5018,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -608,9 +592,13 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "",
+		"last_filter": "ins",
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -621,10 +609,6 @@
 			],
 			[
 				"Package Control: ",
-				"Package Control: Install Package"
-			],
-			[
-				"ins",
 				"Package Control: Install Package"
 			],
 			[
@@ -652,13 +636,14 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 512.0
+		"width": 400.0
 	},
 	"console":
 	{
 		"height": 671.0,
 		"history":
 		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
 			"view.options().get('translateTabsToSpaces')",
 			"view.options().set('translateTabsToSpaces', True)",
 			"npm install -g less",
@@ -679,19 +664,30 @@
 		"/D/Projects/faculty-project",
 		"/D/Projects/faculty-project/bootstrap",
 		"/D/Projects/faculty-project/config",
-		"/D/Projects/faculty-project/core",
-		"/D/Projects/faculty-project/core/Controllers",
-		"/D/Projects/faculty-project/core/Database",
-		"/D/Projects/faculty-project/core/Install",
-		"/D/Projects/faculty-project/core/Models",
-		"/D/Projects/faculty-project/core/Tasks"
+		"/D/Projects/faculty-project/public",
+		"/D/Projects/faculty-project/public/js",
+		"/D/Projects/faculty-project/public/js/vendor",
+		"/D/Projects/faculty-project/resources",
+		"/D/Projects/faculty-project/resources/views"
 	],
 	"file_history":
 	[
+		"/D/Projects/faculty-project/resources/views/newcourse.html",
+		"/D/Projects/faculty-project/core/Models/Student.php",
+		"/D/Projects/faculty-project/core/Models/Lecturer.php",
 		"/D/Projects/faculty-project/core/Models/User.php",
+		"/D/Projects/faculty-project/core/Models/Course.php",
+		"/D/Projects/faculty-project/resources/views/sections/header.html",
+		"/D/Projects/faculty-project/resources/views/sections/scripts.html",
+		"/D/Projects/faculty-project/bootstrap/app.php",
+		"/D/Projects/faculty-project/core/Models/Subscription.php",
+		"/D/Projects/faculty-project/config/config.php",
+		"/D/Projects/faculty-project/core/Controllers/InstallerController.php",
+		"/D/Projects/faculty-project/core/Tasks/Table.php",
+		"/D/Projects/faculty-project/core/Tasks/Task.php",
+		"/D/Projects/faculty-project/core/Tasks/TaskManager.php",
 		"/D/Projects/faculty-project/composer.json",
 		"/D/Projects/faculty-project/core/routes.php",
-		"/D/Projects/faculty-project/core/Controllers/InstallerController.php",
 		"/D/Projects/php-cms/core/Models/User.php",
 		"/D/Projects/faculty-project/config/setup.php",
 		"/D/Projects/faculty-project/config/config.php.tpl",
@@ -699,7 +695,6 @@
 		"/D/Projects/faculty-project/core/Controllers/ReinstallerController.php",
 		"/D/Projects/faculty-project/core/Install/CoreInstaller.php",
 		"/D/Projects/faculty-project/core/Controllers/UniinstallerController.php",
-		"/D/Projects/faculty-project/bootstrap/app.php",
 		"/D/Projects/faculty-project/resources/templates/setup.html",
 		"/D/Projects/php-cms/config/config.php",
 		"/D/Projects/php-cms/bootstrap/app.php",
@@ -804,22 +799,11 @@
 		"/C/Users/dbrdarski/Desktop/bbww/estimation - BBWW",
 		"/C/Users/dbrdarski/Desktop/bbww/packery.js",
 		"/C/Users/dbrdarski/Desktop/Trash bin/Tricode Foundation/xml/contacts.employees.xml",
-		"/C/Users/dbrdarski/Desktop/Trash bin/xml/!tricode-website/generic/linkToContact.xml",
-		"/C/Users/dbrdarski/Desktop/bbww/gallery-fix/js/main.js",
-		"/C/Users/dbrdarski/Desktop/bbww/twitter-post.html",
-		"/C/Users/dbrdarski/Downloads/expcontribtweets.nikolavasilev.732881897655836672..xml",
-		"/C/Users/dbrdarski/Desktop/twitter-menu-icon.svg",
-		"/C/Users/dbrdarski/Desktop/more-icon.svg",
-		"/C/Users/dbrdarski/Desktop/bbww/style.scss",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/views/step1.html",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/js/app.js",
-		"/C/Users/dbrdarski/Desktop/Projects/nolet/api/index.php",
-		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.structure.pageSection.areas.pageSectionArea.availableComponents.textBox.xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.tricode-site.templates.components.structure.pageSection.areas.pageSectionArea.availableComponents.sectionIntro.xml"
+		"/C/Users/dbrdarski/Desktop/Trash bin/xml/!tricode-website/generic/linkToContact.xml"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -834,6 +818,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@",
+			"autoslug",
+			"asd",
+			"console",
+			"autosl",
+			"(name",
+			"(name)",
+			"name",
+			"autoslug",
+			"console",
+			"overrideSlug",
+			"autoslug",
+			"overr",
+			"console.log",
+			"-bind",
+			"overr",
+			"customSlug",
+			"ustomS]",
+			"ustomS",
+			",",
+			"$c",
+			"seondary",
+			"ol",
+			"'title' =>",
+			"content",
+			"@content",
+			"media-max",
+			"min",
+			"ul",
+			"user_course",
+			"user_co",
+			"$user",
+			"Table",
 			"Lecturer",
 			"this",
 			" ",
@@ -928,40 +945,7 @@
 			"veenendaal<",
 			"veenen",
 			"veen",
-			"contact<",
-			"contact",
-			"Homepage ",
-			"latestBlogs",
-			"vacancyTeaser",
-			"accordion",
-			"slider",
-			"pricingTables",
-			"tricode-site:components/content/pricingTables",
-			"pricingTables",
-			"columns",
-			"blockgrid",
-			"videoUrl",
-			"tabVideo",
-			"video<",
-			">video",
-			"video",
-			">HTML",
-			"HTML",
-			"tabLink",
-			">link",
-			"link",
-			"SubNavigation",
-			"listChildPages",
-			"LinkedIn",
-			"linkedin",
-			"followUsLinkedIn",
-			"subscribe2newsletter",
-			"downloadForm",
-			"Teaser",
-			"callme",
-			"callMeForm",
-			"Contacts Teaser\n",
-			"."
+			"contact<"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1001,54 +985,24 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/config.php",
+					"file": "core/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 394,
+						"buffer_size": 4937,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								165,
-								165
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "core/Install/CoreInstaller.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1319,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								911,
-								911
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1057,91 +1011,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 132.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bootstrap/app.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 540,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								403,
-								403
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "core/Models/Course.php",
+					"buffer": 1,
+					"file": "resources/views/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 537,
+						"buffer_size": 481,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								534,
-								534
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "core/Models/Subscription.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 534,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								499,
-								499
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -1152,121 +1048,149 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "core/Models/User.php",
+					"buffer": 2,
+					"file": "resources/views/course.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 752,
+						"buffer_size": 1153,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								140,
-								140
+								1153,
+								1153
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "core/Models/Lecturer.php",
+					"buffer": 3,
+					"file": "resources/views/newcourse.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 426,
+						"buffer_size": 6071,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								245,
-								245
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2038.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "core/Models/Student.php",
+					"buffer": 4,
+					"file": "core/Install/CoreInstaller.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 435,
+						"buffer_size": 2846,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								360,
-								360
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 78.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "core/routes.php",
+					"buffer": 5,
+					"file": "resources/views/sections/head.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1329,
+						"buffer_size": 416,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								452,
-								452
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/css/main.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5018,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
