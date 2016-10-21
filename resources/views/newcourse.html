@@ -102,7 +102,7 @@
       return title.toLowerCase().replace(/[\s-]+/g,'-').replace(/[^\w-]+/g,'').replace(/(^[-]+)|([-]+$)/g, '');
     }
 
-    var compare = memo(function(x, y){ return x === y; });
+    // var compare = memo(function(x, y){ return x === y; });
     var vm = new Vue({
       el: '#edit-panel',
       data: {
@@ -117,7 +117,7 @@
         color : 'default',
         image : "{{image}}",
         courseURL : '#',
-        level : 0        
+        level : 0
       },
       methods:{
         getImg : function(image){

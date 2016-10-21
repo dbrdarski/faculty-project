@@ -9,7 +9,8 @@ class Lession extends Model
     protected $table = 'lessions';
 
     protected $fillable = [
-        'name',
+        'title',
+        'slug',
         'description',
         'video'
     ];

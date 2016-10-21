@@ -38,6 +38,14 @@ class Course extends Model
     {
         return $this->belongsTo(User::class, 'lecturer_id', 'id');
     }
+    public function students()
+    {
+        return $this->belongsToMany(User::class, 'student_id', 'id');
+    }
+    public function lessions()
+    {
+        return $this->hasMany(Lession::class);
+    }
     // public function students()
     // {
     //     return $this->belongsToMany(Student::class);
@@ -54,6 +62,14 @@ class Course extends Model
         return $t->id;
     }
 
+    public function createLession($p){
+        return $this->lessions()->create([
+            'title' => $p['title'],
+            'slug' => $p['slug'],
+            'description' => isset($p['description']) ? $p['description'] : "",
+            'video' => isset($p['video']) ? $p['video'] : "",
+        ]);
+    }    
     // public function subscriptions()
     // {
     //     return $this->hasMany(Subscription::class);

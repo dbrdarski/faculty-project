@@ -5,7 +5,8 @@ namespace Core\Install;
 use Core\Tasks\TaskManager;
 use Core\Tasks\Task;
 use Core\Tasks\Table;
-use Core\Models\Lecturer;
+use Core\Models\User;
+use Core\Models\Course;
 
 class CoreInstaller{
 
@@ -57,6 +58,7 @@ class CoreInstaller{
 				$table->increments('id');
 				$table->integer('course_id')->unsigned();
 				$table->string('title');
+				$table->string('slug');
 				$table->string('description');
 				$table->string('video');
 				$table->timestamps();
@@ -76,8 +78,8 @@ class CoreInstaller{
 		)
 		->add(new Task('add_users_and_courses',
 			function(){
-			    $lecturer = new \Core\Models\Lecturer;
-			    $student = new \Core\Models\Student;
+			    $lecturer = (new \Core\Models\User)->lecturer();
+			    $student = (new \Core\Models\User)->student();
 			    $student->add('student@course.plus', 'Pepe', 'Biserov', 'qwertybanana');
 			    $dane = $lecturer->add('me@course.plus', 'Dane', 'Brdarski', 'qwertybanana');
 			    $alex = $lecturer->add('alex@course.plus', 'Alex', 'Pffeipher', 'qwertybanana');
@@ -87,15 +89,71 @@ class CoreInstaller{
 
 			    $course = new \Core\Models\Course;
 
-			    Lecturer::find($alex)->createCourse([
+			    $c = User::find($alex)->createCourse([
 			    	'title'=>'Laravel 101',
 			    	'slug' => 'laravel-101',
 			    	'description' => 'Dive into the Laravel essentials with this course by one of the core contributors.',
 			 		'level' => 0,
 			 		'color' => 3,
 			 		'image' => 'laravel.png'
+			    ]);			    
+
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Introduction', 
+			    	'slug' => 'introduction', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
 			    ]);
-			    Lecturer::find($jack)->createCourse([
+
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Composer & Laravel Installer', 
+			    	'slug' => 'composer-and-laravel-installer', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Laravel File Structure', 
+			    	'slug' => 'laravel-file-structure', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Routing',
+			    	'slug' => 'routing', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Models',
+			    	'slug' => 'models', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Relations',
+			    	'slug' => 'relations', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Views',
+			    	'slug' => 'views', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Blade Templating',
+			    	'slug' => 'blade-templating', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Controllers',
+			    	'slug' => 'controllers', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Authentication',
+			    	'slug' => 'authentication', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Middleware',
+			    	'slug' => 'middleware', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+			    Course::find($c->id)->createLession([
+			    	'title'=>'Put it all together!',
+			    	'slug' => 'put-it-all-together', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    ]);
+
+
+			    User::find($jack)->createCourse([
 			 		'title' => 'Laravel Database Essentials',
 			    	'slug' => 'laravel-database-essentials',
 			 		'description' => 'Learn how take advantage of Laravel\'s built in model classes, schema builder and migration manager.',
@@ -103,7 +161,7 @@ class CoreInstaller{
 			 		'color' => 1,
 			 		'image' => 'database.png'
 		    	]);
-			    Lecturer::find($kirby)->createCourse([
+			    User::find($kirby)->createCourse([
 			 		'title' => 'ZURB Foudation Fundamentals',
 			    	'slug' => 'zurb-foudation-fundamentals',
 			 		'description' => 'Build responsive websites with one of the most advanced front end mobile frameworks.',
@@ -111,7 +169,7 @@ class CoreInstaller{
 			 		'color' => 6,
 			 		'image' => 'zurb.png'
 		    	]);
-			    Lecturer::find($jack)->createCourse([
+			    User::find($jack)->createCourse([
 			 		'title' => 'Laravel Templates',
 			    	'slug' => 'laravel-templates',
 			 		'description' => 'Laravel templating done right. Authored by the godfather of Laravel\'s own Blade templating engine.',
@@ -119,7 +177,7 @@ class CoreInstaller{
 			 		'color' => 4,
 			 		'image' => 'laravel.png'
 		    	]);
-			    Lecturer::find($alex)->createCourse([
+			    User::find($alex)->createCourse([
 			 		'title' => 'Laravel 401',
 			    	'slug' => 'laravel-401',
 			 		'description' => 'Dive into the Laravel essentials with this course by one of the core contributors.',
@@ -127,7 +185,7 @@ class CoreInstaller{
 			 		'color' => 2,
 			 		'image' => 'grunt.png'
 		    	]);
-			    Lecturer::find($kirby)->createCourse([
+			    User::find($kirby)->createCourse([
 			 		'title' => 'SaSS is awesome!',
 			    	'slug' => 'sass-is-awesome',
 			 		'description' => 'Build responsive websites with one of the most advanced front end mobile frameworks.',
@@ -135,7 +193,7 @@ class CoreInstaller{
 			 		'color' => 4,
 			 		'image' => 'sass.png'
 		    	]);
-			    Lecturer::find($larry)->createCourse([
+			    User::find($larry)->createCourse([
 			 		'title' => 'Angular Pet Shop',
 			    	'slug' => 'angular-pet-shop',
 			 		'description' => 'Build your first Angular app. Dive into the most popular application framework developed by Google.',
@@ -143,7 +201,7 @@ class CoreInstaller{
 			 		'color' => 2,
 			 		'image' => 'angular.png'
 		    	]);
-			    Lecturer::find($larry)->createCourse([
+			    User::find($larry)->createCourse([
 			 		'title' => 'Advanced Angular Directives',
 			    	'slug' => 'advanced-angular-directives',
 			 		'description' => 'This course will teach you everything you need to know about directives in Angular.',

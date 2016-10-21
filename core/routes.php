@@ -27,34 +27,12 @@ $app->get('/course/{slug}', 'CourseController:editCourseIndex');
 // 	$this->view->render($res, "newcourse", []);
 // });
 
-$app->get('/course', function($req, $res){
+$app->get('/library/{slug}', function($req, $res, $args){
 
-	$this->view->render($res, "course", [
- 		'name' => 'Laravel 101',
- 		'courseURL' => '#',
- 		'description' => 'Dive into the Laravel essentials with this course by one of the core contributors.',
- 		'author' => 'Alex Pffeipher',
- 		'level' => 'Beginner',
- 		'bg' => 'red',
- 		'img' => 'laravel.png',
- 		'video' => 'lnf1GdNxDbc',
- 		'lessions' => indexArr([
- 			['url'=>"#", 'title' => 'Introduction'],
- 			['url'=>"#", 'title' => 'Composer & Laravel Installer'],
- 			['url'=>"#", 'title' => 'Laravel File Structure'],
- 			['url'=>"#", 'title' => 'Routing'],
- 			['url'=>"#", 'title' => 'Models'],
- 			['url'=>"#", 'title' => 'Relationships'],
- 			['url'=>"#", 'title' => 'Views'],
- 			['url'=>"#", 'title' => 'Blade Templating'],
- 			['url'=>"#", 'title' => 'Controllers'],
- 			['url'=>"#", 'title' => 'Authentication'],
- 			['url'=>"#", 'title' => 'Middleware'],
- 			['url'=>"#", 'title' => 'Put it all together!'], 			
- 		])
-	]);
+	$this->view->render($res, "course", \Core\Models\Course::with('lessions', 'users')->where('slug', $args['slug'])->get()->first()->toArray());
 	return $res;
 });
+
 $app->get('/', function($req, $res){
 
     // // $course = \Core\Models\Course::find(1);
