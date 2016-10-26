@@ -3,6 +3,7 @@
 namespace Core\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
+use \Core\Options\OptionManager;
 
 class Course extends Model
 {
@@ -12,16 +13,17 @@ class Course extends Model
         'title',
         'slug',
         'description',
-        'video',
-        'image',
         'level',
-        'color'
+        'color',
+        'image',
+        'video'
     ];
 
-    static private $colors = ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue'];
-    static private $levels = ['Beginner', 'Intermediate', 'Advanced'];
-
     public function getColorAttribute($value)
+    {
+        return OptionManager::getOption('colors')[$value];
+    }
+    public function getColorIndexAttribute($value)
     {
         return self::$colors[$value];
     }
@@ -31,8 +33,21 @@ class Course extends Model
     }
     public function getLevelAttribute($value)
     {
-        return self::$levels[$value];
+        return OptionManager::getOption('levels')[$value];
     }
+
+    public function setLevelAttribute($value)
+    {
+        $this->attributes['level'] = array_search($value, OptionManager::getOption('levels'));
+    }
+
+    public function setColorAttribute($value)
+    {
+        // echo "<pre>";
+        // var_dump($this->attributes);
+        // die();
+        $this->attributes['color'] = array_search($value, OptionManager::getOption('colors'));
+    }    
 
     public function users()
     {

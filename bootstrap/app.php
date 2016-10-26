@@ -26,6 +26,18 @@ $container['view'] = function ($c) {
         '../resources/views', // Template path
         array('charset' => 'UTF-8'), array('extension' => '.html')
     );
+ //    $mustache->addHelper('arr', [
+	//     'index' => function($arr) { 
+	//     	$output = [];
+	//     	foreach ($arr as $k => $v) {
+	//     		$output[] = ['index' => $k, 'value' => $v];
+	//     	}
+	//     	return $output;
+	//     },
+	//     'json' => function($arr){
+	//     	return json_encode($arr);
+	//     }
+	// ]);
     return $mustache;
 };
 
@@ -34,16 +46,26 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+\Core\Options\OptionManager::setOption('siteUrl', '/');
+\Core\Options\OptionManager::setOption('colors', ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue']);
+\Core\Options\OptionManager::setOption('levels', ['Beginner', 'Intermediate', 'Advanced']);
+
 $install = new \Core\Install\CoreInstaller; // create the Core install tasks
 
 $container['InstallerController'] = function ($container) {
     return new \Core\Controllers\InstallerController($container);
 };
 
+// $container['OptionsController'] = function ($container) {
+//     return new \Core\Controllers\OptionsController($container);
+// };
+
 $container['validator'] = function ($container) {
     return new \Core\Validation\Validator;
 };
-
+$container['HomeController'] = function ($container) {
+    return new \Core\Controllers\HomeController($container);
+};
 $container['CourseController'] = function ($container) {
     return new \Core\Controllers\CourseController($container);
 };

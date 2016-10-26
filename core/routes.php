@@ -17,34 +17,16 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     return $response;
 });
 
-$app->post('/course/new', 'CourseController:createCourse');
-$app->get('/course/new', 'CourseController:createCourseIndex');
-$app->post('/course/{slug}', 'CourseController:editCourse');
-$app->get('/course/{slug}', 'CourseController:editCourseIndex');
-
-
-// $app->get('/course/new', function($req, $res){
-// 	$this->view->render($res, "newcourse", []);
-// });
-
+$app->get('/', 'HomeController:homeIndex');
 $app->get('/library/{slug}', function($req, $res, $args){
-
 	$this->view->render($res, "course", \Core\Models\Course::with('lessions', 'users')->where('slug', $args['slug'])->get()->first()->toArray());
 	return $res;
 });
 
-$app->get('/', function($req, $res){
-
-    // // $course = \Core\Models\Course::find(1);
-    // $student = \Core\Models\Student::find(1);
-    // $student->courses()->attach(1);
-
-    // return $res->withJson($student);
-    
-	
-	$this->view->render($res, "index", ["courses" => \Core\Models\Course::with('users')->get()->toArray() ]);
-	return $res;
-});
+$app->post('/course/new', 'CourseController:createCourse');
+$app->get('/course/new', 'CourseController:createCourseIndex');
+$app->post('/course/{slug}', 'CourseController:editCourse');
+$app->get('/course/{slug}', 'CourseController:editCourseIndex');
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');
 $app->get('/install/{table}', 'InstallerController:install')->setName('install');

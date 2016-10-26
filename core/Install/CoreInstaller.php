@@ -93,8 +93,8 @@ class CoreInstaller{
 			    	'title'=>'Laravel 101',
 			    	'slug' => 'laravel-101',
 			    	'description' => 'Dive into the Laravel essentials with this course by one of the core contributors.',
-			 		'level' => 0,
-			 		'color' => 3,
+			 		'level' => 'Begginer',
+			 		'color' => 'red',
 			 		'image' => 'laravel.png'
 			    ]);			    
 
@@ -157,56 +157,56 @@ class CoreInstaller{
 			 		'title' => 'Laravel Database Essentials',
 			    	'slug' => 'laravel-database-essentials',
 			 		'description' => 'Learn how take advantage of Laravel\'s built in model classes, schema builder and migration manager.',
-			 		'level' => 1,
-			 		'color' => 1,
+			 		'level' => 'Intermediate',
+			 		'color' => 'yellow',
 			 		'image' => 'database.png'
 		    	]);
 			    User::find($kirby)->createCourse([
 			 		'title' => 'ZURB Foudation Fundamentals',
 			    	'slug' => 'zurb-foudation-fundamentals',
 			 		'description' => 'Build responsive websites with one of the most advanced front end mobile frameworks.',
-			 		'level' => 0,
-			 		'color' => 6,
+			 		'level' => 'Begginer',
+			 		'color' => 'cyan',
 			 		'image' => 'zurb.png'
 		    	]);
 			    User::find($jack)->createCourse([
 			 		'title' => 'Laravel Templates',
 			    	'slug' => 'laravel-templates',
 			 		'description' => 'Laravel templating done right. Authored by the godfather of Laravel\'s own Blade templating engine.',
-			 		'level' => 1,
-			 		'color' => 4,
+			 		'level' => 'Intermediate',
+			 		'color' => 'violet',
 			 		'image' => 'laravel.png'
 		    	]);
 			    User::find($alex)->createCourse([
 			 		'title' => 'Laravel 401',
 			    	'slug' => 'laravel-401',
 			 		'description' => 'Dive into the Laravel essentials with this course by one of the core contributors.',
-			 		'level' => 1,
-			 		'color' => 2,
+			 		'level' => 'Intermediate',
+			 		'color' => 'orange',
 			 		'image' => 'grunt.png'
 		    	]);
 			    User::find($kirby)->createCourse([
 			 		'title' => 'SaSS is awesome!',
 			    	'slug' => 'sass-is-awesome',
 			 		'description' => 'Build responsive websites with one of the most advanced front end mobile frameworks.',
-			 		'level' => 1,
-			 		'color' => 4,
+			 		'level' => 'Intermediate',
+			 		'color' => 'violet',
 			 		'image' => 'sass.png'
 		    	]);
 			    User::find($larry)->createCourse([
 			 		'title' => 'Angular Pet Shop',
 			    	'slug' => 'angular-pet-shop',
 			 		'description' => 'Build your first Angular app. Dive into the most popular application framework developed by Google.',
-			 		'level' => 2,
-			 		'color' => 2,
+			 		'level' => 'Advanced',
+			 		'color' => 'orange',
 			 		'image' => 'angular.png'
 		    	]);
 			    User::find($larry)->createCourse([
 			 		'title' => 'Advanced Angular Directives',
 			    	'slug' => 'advanced-angular-directives',
 			 		'description' => 'This course will teach you everything you need to know about directives in Angular.',
-			 		'level' => 2,
-			 		'color' => 1,
+			 		'level' => 'Advanced',
+			 		'color' => 'yellow',
 			 		'image' => 'angular.png'
 		    	]);
 			})
