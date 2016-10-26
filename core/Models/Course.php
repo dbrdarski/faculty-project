@@ -23,14 +23,6 @@ class Course extends Model
     {
         return OptionManager::getOption('colors')[$value];
     }
-    public function getColorIndexAttribute($value)
-    {
-        return self::$colors[$value];
-    }
-    public function getAuthorAttribute($value)
-    {
-        return "";
-    }
     public function getLevelAttribute($value)
     {
         return OptionManager::getOption('levels')[$value];
@@ -43,9 +35,6 @@ class Course extends Model
 
     public function setColorAttribute($value)
     {
-        // echo "<pre>";
-        // var_dump($this->attributes);
-        // die();
         $this->attributes['color'] = array_search($value, OptionManager::getOption('colors'));
     }    
 

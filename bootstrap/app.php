@@ -26,18 +26,6 @@ $container['view'] = function ($c) {
         '../resources/views', // Template path
         array('charset' => 'UTF-8'), array('extension' => '.html')
     );
- //    $mustache->addHelper('arr', [
-	//     'index' => function($arr) { 
-	//     	$output = [];
-	//     	foreach ($arr as $k => $v) {
-	//     		$output[] = ['index' => $k, 'value' => $v];
-	//     	}
-	//     	return $output;
-	//     },
-	//     'json' => function($arr){
-	//     	return json_encode($arr);
-	//     }
-	// ]);
     return $mustache;
 };
 
@@ -55,10 +43,6 @@ $install = new \Core\Install\CoreInstaller; // create the Core install tasks
 $container['InstallerController'] = function ($container) {
     return new \Core\Controllers\InstallerController($container);
 };
-
-// $container['OptionsController'] = function ($container) {
-//     return new \Core\Controllers\OptionsController($container);
-// };
 
 $container['validator'] = function ($container) {
     return new \Core\Validation\Validator;
