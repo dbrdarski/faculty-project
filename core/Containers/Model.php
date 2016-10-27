@@ -18,9 +18,9 @@ Class Model{
 		return $this->model = $this->toArray($model);
 	}
 
-	private function toArray($model)
+	private function toArray($data)
 	{
-		return is_array($model) ? $model : ( method_exists($model, 'toArray') ? $model->toArray() : (array) $model );
+		return is_object($data) && method_exists($data, 'toArray') ? $data->toArray() : $data;
 	}
 
 	function append($name, $value)

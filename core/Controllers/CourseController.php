@@ -14,15 +14,16 @@ class CourseController extends Controller{
 
     public function createCourseIndex($req, $res)
     {
-        return $this->view->render($res, "newcourse", []);
+        $view = new View($res, $this);
+        return $view("newcourse", ['saveButton' => 'Save']);
     }
 
     public function editCourseIndex($req, $res, $args)
     {
-        $course =  Course::with('users')->where('slug', $args['slug'])->get()->first()->toArray();
+        $course = Course::with('users')->where('slug', $args['slug'])->get()->first();
         $view = new View($res, $this);
         $model = new Model($course);
-
+        $model->append('saveButton', 'Create');
         return $view('newcourse', $model());
     }
         
@@ -75,8 +76,8 @@ class CourseController extends Controller{
 
         return $res->withJson(['redirect' => '/course/' .  $c['slug']]);
     }
-    public function createLession($req, $res)
-    {   
+    // public function createLession($req, $res)
+    // {   
 
-    }    
+    // }    
 }

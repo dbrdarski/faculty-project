@@ -54,7 +54,7 @@
             </div>
             <div id="side-panel">
               <div class="buttons">
-                <input type="submit" class="btn btn-primary btn-alt btn-lg" value="Create">
+                <input type="submit" class="btn btn-primary btn-alt btn-lg" value="{{saveButton}}">
                 <a href="#" class="btn btn-primary btn-lg" v-on:click="logSlug">Publish</a>
               </div>
               <h2 class="h5 title">Thumbnail preview</h2>
@@ -112,7 +112,7 @@
         colors: [{{#colors}}"{{.}}",{{/colors}}],
         image : "{{image}}",
         courseURL : '#',
-        level : "{{level}}"
+        level : "{{level}}" || "Beginner"
       },
       methods:{
         getImg : function(image){
