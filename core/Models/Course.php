@@ -16,7 +16,8 @@ class Course extends Model
         'level',
         'color',
         'image',
-        'video'
+        'video',
+        'active'
     ];
 
     public function getColorAttribute($value)
@@ -50,9 +51,19 @@ class Course extends Model
     {
         return $this->hasMany(Lession::class);
     }
-    // public function students()
+    public function publish()
+    {
+        $this->active = true;
+        return $this;
+    }
+    public function unpublish()
+    {
+        $this->active = false;
+        return $this;
+    }
+    // public function subscriptions()
     // {
-    //     return $this->belongsToMany(Student::class);
+    //     return $this->hasMany(Subscription::class);
     // }
 
     public function addCourse($title, $slug)
@@ -74,9 +85,4 @@ class Course extends Model
             'video' => isset($p['video']) ? $p['video'] : "",
         ]);
     }    
-    // public function subscriptions()
-    // {
-    //     return $this->hasMany(Subscription::class);
-    // }
-
 }

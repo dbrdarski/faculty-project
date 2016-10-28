@@ -327,7 +327,7 @@ ul.lessions li a {
 .buttons .btn {
   display: block;
   float: left;
-  width: 130px;
+  width: auto;
 }
 .buttons .btn + .btn {
   margin-left: 10px;
@@ -354,4 +354,38 @@ label {
 }
 select#color {
   text-transform: capitalize;
+}
+.lessions-table td,
+.lessions-table th {
+  border-top: 1px solid #ccc;
+  vertical-align: middle;
+}
+.lessions-table .table-detail {
+  font-size: 13px;
+  color: #666;
+}
+.lessions-table .edit {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: no-repeat url(../img/edit.svg) center;
+  transition: background .2s;
+  content: url();
+}
+.lessions-table .edit:hover {
+  background-image: url(../img/edit-active.svg);
+}
+.lessions-table .thead-inverse th {
+  background-color: #1168a1;
+  border: 0 none;
+}
+.sortable > * {
+  cursor: move;
+}
+.sortable .sortable-chosen {
+  background: rgba(0, 0, 0, 0.03);
+}
+.sortable .sortable-ghost {
+  opacity: 0.4;
+  background-color: rgba(241, 196, 15, 0.15);
 }

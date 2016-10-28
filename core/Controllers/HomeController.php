@@ -13,7 +13,7 @@ class HomeController extends Controller{
 
     public function homeIndex($req, $res)
     {
-        $courses = Course::with('users')->get();
+        $courses = Course::with('users')->where('active', true)->get();
         $view = new View($res, $this);
         $model = (new Model)->append('courses', $courses);
         

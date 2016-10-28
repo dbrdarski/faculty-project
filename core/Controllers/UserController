@@ -2,44 +2,30 @@
 
 namespace Core\Controllers;
 
-// use \Slim\Mustache\Mustache as View;
-// use \Core\Models\Lecturer;
-use \Core\Models\Course;
+use \Core\Models\User;
+// use Respect\Validation\Validator as v;
 use \Core\Options\OptionManager;
-use Respect\Validation\Validator as v;
 use \Core\Containers\View;
 use \Core\Containers\Model;
 
-class CourseController extends Controller{
+class UserController extends Controller{
 
-    public function createCourseIndex($req, $res)
+    public function createUserIndex($req, $res)
     {
         $view = new View($res, $this);
-        return $view(
-            "newcourse", 
-            [
-                'id' => null,
-                'action' => 'Create',
-                'saveButton' => 'Create'
-            ]
-        );
+        return $view("newUser", ['saveButton' => 'Save']);
     }
 
-    public function editCourseIndex($req, $res, $args)
+    public function editUserIndex($req, $res, $args)
     {
-        $course = Course::with('users')->with('lessions')->where('slug', $args['slug'])->get()->first();
+        $User = User::with('users')->where('slug', $args['slug'])->get()->first();
         $view = new View($res, $this);
-        $model = new Model($course);
-        $model
-            ->append('action', 'Edit')
-            ->append('saveButton', 'Save')
-            ->append('publishButton', $model('active') ? 'Unpublish' : 'Publish')
-        ;
-
-        return $view('newcourse', $model());
+        $model = new Model($User);
+        $model->append('saveButton', 'Create');
+        return $view('newUser', $model());
     }
         
-    public function editCourse($req, $res)
+    public function editUser($req, $res)
     {
         $args = $req->getParams();
         $validation = $this->validator->validate($req, [
@@ -51,7 +37,7 @@ class CourseController extends Controller{
             //faliure
         }
 
-        $c = Course::findOrFail($args['id']);
+        $c = User::findOrFail($args['id']);
         $c->title = $args['title'];
         $c->slug = $args['slug'];
         $c->description = isset($args['description']) ? $args['description'] : "";
@@ -61,10 +47,10 @@ class CourseController extends Controller{
         $c->level = isset($args['level']) ? $args['level'] : 0;
         $c->save();
 
-        return $res->withJson(['redirect' => '/course/' .  $c['slug']]);
+        return $res->withJson(['redirect' => '/User/' .  $c['slug']]);
     }
         
-    public function createCourse($req, $res)
+    public function createUser($req, $res)
     {   
         $args = $req->getParams();
         $validation = $this->validator->validate($req, [
@@ -76,7 +62,7 @@ class CourseController extends Controller{
             //faliure
         }
 
-        $c = new Course;
+        $c = new User;
         $c->title = $args['title'];
         $c->slug = $args['slug'];
         $c->description = isset($args['description']) ? $args['description'] : "";
@@ -86,7 +72,7 @@ class CourseController extends Controller{
         $c->level = isset($args['level']) ? $args['level'] : 0;
         $c->save();
 
-        return $res->withJson(['redirect' => '/course/' .  $c['slug']]);
+        return $res->withJson(['redirect' => '/User/' .  $c['slug']]);
     }
     // public function createLession($req, $res)
     // {   

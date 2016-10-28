@@ -7,7 +7,7 @@
     {{> sections/header}}
     <div id="courses">
       <div class="container">
-        <h1 class="h3 punchline">Create course</h1>
+        <h1 class="h3 punchline">{{action}} course</h1>
         <form action="#" action="" method="POST" id="edit-course">
           <div id="edit-panel">
             <div id="main-panel">
@@ -51,11 +51,43 @@
                 <div class="form-group">                
                 </div>
               </div>
+              <h2 class="h3 punchline">Lessions</h2>
+              {{#id}}
+              <div class="lessions-section">
+                {{^lessions}}Currently there are no lessions{{/lessions}}
+                {{#lessions.0}}
+                <div class="form-group">
+                  <table class="lessions-table table">
+                    <thead class="thead-inverse">
+                      <tr>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Description</th>
+                        <th>Video</th>
+                        <th>Edit</th>
+                      </tr>
+                    </thead>
+                    <tbody class="tbody-default sortable">
+                      {{#lessions}}
+                      <tr>
+                        <td><span class="table-detail">{{title}}</span></td>
+                        <td><span class="table-detail">{{slug}}</span></td>
+                        <td><span class="table-detail">{{description}}</span></td>
+                        <td><span class="table-detail">{{video}}</span></td>
+                        <td><a href="#" class="edit">Edit</a></td>
+                      </tr>
+                      {{/lessions}}
+                    </tbody>
+                  </table>
+                </div>
+                {{/lessions.0}}
+              </div>
+              {{/id}}
             </div>
             <div id="side-panel">
               <div class="buttons">
                 <input type="submit" class="btn btn-primary btn-alt btn-lg" value="{{saveButton}}">
-                <a href="#" class="btn btn-primary btn-lg" v-on:click="logSlug">Publish</a>
+                {{#id}}<a href="#" class="btn btn-primary btn-lg" v-on:click="logSlug">{{publishButton}}</a>{{/id}}
               </div>
               <h2 class="h5 title">Thumbnail preview</h2>
               {{=<% %>=}}
@@ -67,7 +99,7 @@
                   </a>
                   <div class="inner">
                     <ul>
-                      <li class="description">{{description||descDefault}}</li>
+                      <li class="description">{{description || descDefault}}</li>
                       <li class="author">by <a href="{{authorURL}}">{{author}}</a></li>
                       <li class="level">Level: {{level}}</li>
                     </ul>
@@ -79,7 +111,7 @@
           </div>
         </form>
       </div>
-    </div>   
+    </div>
     {{> sections/scripts}}
   </body>
   <script>
@@ -101,6 +133,7 @@
     var vm = new Vue({
       el: '#edit-panel',
       data: {
+        active : "{{active}}" || false,
         title : "{{title}}",
         titleDefault : "Sample course",
         author : '{{users.first_name}} {{users.last_name}}',
@@ -130,7 +163,7 @@
             this.overrideSlug = true;
             this.customSlug = e.target.value;
           }
-        }        
+        }
       },
       computed:{
         autoslug : function(){
@@ -145,6 +178,10 @@
         }
       }
     });
+    var sortable = document.querySelector('.sortable');
+    sortable = sortable && Sortable.create(sortable, {
+      animation: 150
+    });
 
     var $form = $('#edit-course');
     $form.on('submit', function(e){
@@ -156,7 +193,7 @@
         success: function(data){
           console.log(data);
           if(data.redirect){
-            // window.location.pathname = data.redirect;
+            window.location.pathname = data.redirect;
           }
         }
       });

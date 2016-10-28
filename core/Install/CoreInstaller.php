@@ -19,7 +19,6 @@ class CoreInstaller{
 				$table->string('password');
 				$table->string('first_name');
 				$table->string('last_name');
-				// $table->string('gender');
 				$table->integer('type');
 				$table->boolean('active');
 				$table->timestamps();
@@ -97,7 +96,7 @@ class CoreInstaller{
 			 		'color' => 'red',
 			 		'image' => 'laravel.png',
 			 		'video' => 'lnf1GdNxDbc'
-			    ]);			    
+			    ]);
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Introduction', 
@@ -169,6 +168,7 @@ class CoreInstaller{
 			    	'video' => 'xDiqf74nfE0'
 			    ]);
 
+			    $c->publish()->save();
 
 			    User::find($jack)->createCourse([
 			 		'title' => 'Laravel Database Essentials',
@@ -177,7 +177,7 @@ class CoreInstaller{
 			 		'level' => 'Intermediate',
 			 		'color' => 'yellow',
 			 		'image' => 'database.png'
-		    	]);
+		    	])->publish()->save();
 			    User::find($kirby)->createCourse([
 			 		'title' => 'ZURB Foudation Fundamentals',
 			    	'slug' => 'zurb-foudation-fundamentals',
@@ -185,7 +185,7 @@ class CoreInstaller{
 			 		'level' => 'Begginer',
 			 		'color' => 'cyan',
 			 		'image' => 'zurb.png'
-		    	]);
+		    	])->publish()->save();
 			    User::find($jack)->createCourse([
 			 		'title' => 'Laravel Templates',
 			    	'slug' => 'laravel-templates',
@@ -193,7 +193,7 @@ class CoreInstaller{
 			 		'level' => 'Intermediate',
 			 		'color' => 'violet',
 			 		'image' => 'laravel.png'
-		    	]);
+		    	])->publish()->save();
 			    User::find($alex)->createCourse([
 			 		'title' => 'Laravel 401',
 			    	'slug' => 'laravel-401',
@@ -201,7 +201,7 @@ class CoreInstaller{
 			 		'level' => 'Intermediate',
 			 		'color' => 'orange',
 			 		'image' => 'grunt.png'
-		    	]);
+		    	])->publish()->save();
 			    User::find($kirby)->createCourse([
 			 		'title' => 'SaSS is awesome!',
 			    	'slug' => 'sass-is-awesome',
@@ -209,7 +209,7 @@ class CoreInstaller{
 			 		'level' => 'Intermediate',
 			 		'color' => 'violet',
 			 		'image' => 'sass.png'
-		    	]);
+		    	])->publish()->save();
 			    User::find($larry)->createCourse([
 			 		'title' => 'Angular Pet Shop',
 			    	'slug' => 'angular-pet-shop',
@@ -217,7 +217,7 @@ class CoreInstaller{
 			 		'level' => 'Advanced',
 			 		'color' => 'orange',
 			 		'image' => 'angular.png'
-		    	]);
+		    	])->publish()->save();
 			    User::find($larry)->createCourse([
 			 		'title' => 'Advanced Angular Directives',
 			    	'slug' => 'advanced-angular-directives',
@@ -225,7 +225,7 @@ class CoreInstaller{
 			 		'level' => 'Advanced',
 			 		'color' => 'yellow',
 			 		'image' => 'angular.png'
-		    	]);
+		    	])->publish()->save();
 			})
 		);
 	}
