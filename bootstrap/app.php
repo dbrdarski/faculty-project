@@ -35,6 +35,7 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 \Core\Options\OptionManager::setOption('siteUrl', '/');
+// \Core\Options\OptionManager::setOption('404-template', '404');
 \Core\Options\OptionManager::setOption('colors', ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue']);
 \Core\Options\OptionManager::setOption('levels', ['Beginner', 'Intermediate', 'Advanced']);
 
@@ -52,6 +53,14 @@ $container['HomeController'] = function ($container) {
 };
 $container['CourseController'] = function ($container) {
     return new \Core\Controllers\CourseController($container);
+};
+
+$container['LecturerController'] = function ($container) {
+    return new \Core\Controllers\LecturerController($container);
+};
+
+$container['LessionController'] = function ($container) {
+    return new \Core\Controllers\LessionController($container);
 };
 
 require __DIR__ . '/../core/routes.php';

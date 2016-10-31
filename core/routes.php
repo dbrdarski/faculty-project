@@ -18,10 +18,10 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 });
 
 $app->get('/', 'HomeController:homeIndex');
-$app->get('/library/{slug}', function($req, $res, $args){
-	$this->view->render($res, "course", \Core\Models\Course::with('lessions', 'users')->where('slug', $args['slug'])->get()->first()->toArray());
-	return $res;
-});
+$app->get('/library/{slug}', 'CourseController:courseIndex');
+$app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
+$app->get('/lecturers', 'LecturerController:lecturerListIndex');
+$app->get('/lecturers/{id}', 'LecturerController:lecturerIndex');
 
 $app->post('/course/new', 'CourseController:createCourse');
 $app->get('/course/new', 'CourseController:createCourseIndex');

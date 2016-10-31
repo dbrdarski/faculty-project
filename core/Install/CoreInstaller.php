@@ -57,7 +57,7 @@ class CoreInstaller{
 				$table->increments('id');
 				$table->integer('course_id')->unsigned();
 				$table->string('title');
-				$table->string('slug');
+				$table->string('lession_slug');
 				$table->string('description');
 				$table->string('video');
 				$table->timestamps();
@@ -100,72 +100,72 @@ class CoreInstaller{
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Introduction', 
-			    	'slug' => 'introduction', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.'
+			    	'lession_slug' => 'introduction', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'video' => 'lnf1GdNxDbc'
 			    ]);
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Composer & Laravel Installer', 
-			    	'slug' => 'composer-and-laravel-installer', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'composer-and-laravel-installer', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'FKUAAZSJiGY'
 			    ]);
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Laravel File Structure', 
-			    	'slug' => 'laravel-file-structure', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'laravel-file-structure', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'qmkAkoT9fjc'
 			    ]);
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Routing',
-			    	'slug' => 'routing', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'routing', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'UyuVR1a1lRM'
 			    ]);
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Models',
-			    	'slug' => 'models', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
-			    	'video' => 'TZNr_ZvYp'
+			    	'lession_slug' => 'models', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'video' => 'TZNr_ZvYp-A'
 			    ]);
 
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Relations',
-			    	'slug' => 'relations', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'relations', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'fZO19FGOLUU'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Views',
-			    	'slug' => 'views', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'views', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => '_SlJJi_cLng'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Blade Templating',
-			    	'slug' => 'blade-templating', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'blade-templating', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'kTPM2ynqZoc'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Controllers',
-			    	'slug' => 'controllers', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'controllers', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'Yuku0C89jpw'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Authentication',
-			    	'slug' => 'authentication', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'authentication', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'bqkt6eSsRZs'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Middleware',
-			    	'slug' => 'middleware', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'middleware', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'bWhJJJwMvco'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Migrations',
-			    	'slug' => 'migrations', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
+			    	'lession_slug' => 'migrations', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
 			    	'video' => 'IQnSruWG5O4'
 			    ]);
 			    Course::find($c->id)->createLession([
 			    	'title'=>'Put it all together!',
-			    	'slug' => 'put-it-all-together', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.',
-			    	'video' => 'xDiqf74nfE0'
+			    	'lession_slug' => 'put-it-all-together', 'description' => 'Lorem ispum dor sit amet, essentials with this course by one of the core contributors.', 'video' => 'xDiqf74nfE0'
 			    ]);
 
 			    $c->publish()->save();

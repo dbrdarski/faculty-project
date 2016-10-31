@@ -22,6 +22,11 @@ class User extends Model
     {
         return $this->hasMany(Course::class, 'lecturer_id');
     }
+    // public function lessions()
+    // {
+    //     // return $this->hasManyThrugh(Lessions::class, Course::class, 'id', 'course', 'lecturer_id');
+    //     return $this->belongsToMany(Lessions::class, 'id', 'lecturer_id');
+    // }
     public function lecturer()
     {
         $this->type = 2;

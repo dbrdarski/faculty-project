@@ -49,7 +49,7 @@ class Course extends Model
     }
     public function lessions()
     {
-        return $this->hasMany(Lession::class);
+        return $this->hasMany(Lession::class, 'course_id', 'id');
     }
     public function publish()
     {
@@ -80,7 +80,7 @@ class Course extends Model
     public function createLession($p){
         return $this->lessions()->create([
             'title' => $p['title'],
-            'slug' => $p['slug'],
+            'lession_slug' => $p['lession_slug'],
             'description' => isset($p['description']) ? $p['description'] : "",
             'video' => isset($p['video']) ? $p['video'] : "",
         ]);

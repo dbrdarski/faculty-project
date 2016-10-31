@@ -12,6 +12,15 @@ use \Core\Containers\Model;
 
 class CourseController extends Controller{
 
+    public function courseIndex($req, $res, $args)
+    {
+        $view = new View($res, $this);
+        $course = Course::with('lessions', 'users')->where('slug', $args['slug'])->first();
+        $model = new Model($course);
+        $model->append('course_slug', $model('slug'));
+        return $view("course", $model());
+    }
+
     public function createCourseIndex($req, $res)
     {
         $view = new View($res, $this);
@@ -27,8 +36,13 @@ class CourseController extends Controller{
 
     public function editCourseIndex($req, $res, $args)
     {
-        $course = Course::with('users')->with('lessions')->where('slug', $args['slug'])->get()->first();
+        $course = Course::with('users')->with('lessions')->where('slug', $args['slug'])->first();
         $view = new View($res, $this);
+        
+        if($course === null){
+            return $view('404');
+        }
+        
         $model = new Model($course);
         $model
             ->append('action', 'Edit')
@@ -88,6 +102,7 @@ class CourseController extends Controller{
 
         return $res->withJson(['redirect' => '/course/' .  $c['slug']]);
     }
+
     // public function createLession($req, $res)
     // {   
 

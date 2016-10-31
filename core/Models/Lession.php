@@ -10,7 +10,7 @@ class Lession extends Model
 
     protected $fillable = [
         'title',
-        'slug',
+        'lession_slug',
         'description',
         'video'
     ];
@@ -29,7 +29,7 @@ class Lession extends Model
 
     public function courses()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Course::class, 'course_id', 'id');
     }
     public function students()
     {
