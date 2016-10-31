@@ -389,3 +389,48 @@ select#color {
   opacity: 0.4;
   background-color: rgba(241, 196, 15, 0.15);
 }
+.lecturer-info {
+  padding-bottom: 30px;
+}
+.lecturer-info:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.lecturer-info .user-name {
+  padding-top: 10px;
+  margin-bottom: 0;
+  line-height: 1.25em;
+}
+.user-thumb {
+  display: block;
+  float: left;
+  padding-right: 15px;
+}
+.user-thumb img {
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  transition: all .4s;
+}
+.user-thumb:hover img {
+  filter: brightness(0.92);
+}
+.user-image {
+  border-radius: 1000px;
+}
+.lectuerer-info {
+  padding: 50px 0;
+}
+.lectuerer-info .description {
+  font-size: 23px;
+  font-weight: 300;
+  color: #888;
+}
+.lecturer-courses {
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #aaa;
+  margin-bottom: 30px;
+}

@@ -8,7 +8,7 @@
     <div id="courses">
       <div class="container">
         <h1 class="punchline">{{title}}</h1>
-        <p>by <a href="{{siteUrl}}lecturers/{{users.id}}">{{users.first_name}} {{users.last_name}}</a></p>
+        {{>components/lecturer-info}}
         <div class="row">
           <div class="col-md-9">
             <div id="course-video">
@@ -21,7 +21,7 @@
           </div>
           <div class="col-md-3">
           <h3 class="h6 title">Course contents</h3>          
-            <ul class="lessions">            
+            <ul class="lessions">
               {{#lessions}}
               <li><a href="{{siteUrl}}library/{{slug}}/{{lession_slug}}">{{title}}</a></li>
               {{/lessions}}

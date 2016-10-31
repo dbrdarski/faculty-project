@@ -21,9 +21,6 @@ class LecturerController extends Controller{
         }])
         
         ->first();
-        // echo '<pre>';
-        // var_dump($args['id'], $lecturer);
-        // die();
         $model = new Model($lecturer);
         return $view("lecturer", $model());
     }

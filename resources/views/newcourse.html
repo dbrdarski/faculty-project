@@ -12,7 +12,7 @@
           <div id="edit-panel">
             <div id="main-panel">
               <div class="form-group form-group-title">
-              <input type="hidden" name="id" value="{{id}}">
+                <input type="hidden" id="course-id" name="id" value="{{id}}">
                 <input type="text" class="form-control form-control-lg" id="title" name="title" aria-describedby="couseTitle" value="{{title}}" placeholder="Title" v-model="title">
                 <small id="couseTitle" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
@@ -87,7 +87,7 @@
             <div id="side-panel">
               <div class="buttons">
                 <input type="submit" class="btn btn-primary btn-alt btn-lg" value="{{saveButton}}">
-                {{#id}}<a href="#" class="btn btn-primary btn-lg" v-on:click="logSlug">{{publishButton}}</a>{{/id}}
+                {{#id}}<a href="#" class="btn btn-primary btn-lg" v-on:click="publishCourse" data-action="{{publishAction}}">{{publishButton}}</a>{{/id}}
               </div>
               <h2 class="h5 title">Thumbnail preview</h2>
               {{=<% %>=}}
@@ -116,6 +116,9 @@
   </body>
   <script>
   (function($){
+
+    var $form = $('#edit-course');
+
     var memo = function(fn){
       var args = Array(fn.length);
       return function Replace(){
@@ -149,10 +152,23 @@
       },
       methods:{
         getImg : function(image){
-          return 'url(/uploads/' + (this.image || "default.png") + ')';
+          return 'url(/uploads/courses/' + (this.image || "default.png") + ')';
         },
-        logSlug: function(){
-          console.log(slug.value);
+        publishCourse: function(e){
+          e.preventDefault();
+          var el = $(e.target);
+          var action = el.data('action');
+          $.ajax({
+            method: "POST",
+            url: window.location.pathname + '/publish',
+            data: { id : $('#course-id').val(), action : action },
+            success: function(data){
+              console.log(data);
+              if(data.redirect){
+                window.location.pathname = data.redirect;
+              }
+            }
+          });          
           return false;
         },
         slugBlur : function(e){          
@@ -183,7 +199,6 @@
       animation: 150
     });
 
-    var $form = $('#edit-course');
     $form.on('submit', function(e){
       e.preventDefault();
       $.ajax({

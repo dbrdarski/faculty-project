@@ -26,6 +26,7 @@ $app->get('/lecturers/{id}', 'LecturerController:lecturerIndex');
 $app->post('/course/new', 'CourseController:createCourse');
 $app->get('/course/new', 'CourseController:createCourseIndex');
 $app->post('/course/{slug}', 'CourseController:editCourse');
+$app->post('/course/{slug}/publish', 'CourseController:publishCourse');
 $app->get('/course/{slug}', 'CourseController:editCourseIndex');
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');

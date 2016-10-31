@@ -2,8 +2,6 @@
 
 namespace Core\Controllers;
 
-// use \Slim\Mustache\Mustache as View;
-// use \Core\Models\Lecturer;
 use \Core\Models\Course;
 use \Core\Options\OptionManager;
 use Respect\Validation\Validator as v;
@@ -48,6 +46,7 @@ class CourseController extends Controller{
             ->append('action', 'Edit')
             ->append('saveButton', 'Save')
             ->append('publishButton', $model('active') ? 'Unpublish' : 'Publish')
+            ->append('publishAction', $model('active') ? 0 : 1)
         ;
 
         return $view('newcourse', $model());
@@ -91,6 +90,9 @@ class CourseController extends Controller{
         }
 
         $c = new Course;
+
+        $c->lecturer_id = 2;
+
         $c->title = $args['title'];
         $c->slug = $args['slug'];
         $c->description = isset($args['description']) ? $args['description'] : "";
@@ -103,6 +105,13 @@ class CourseController extends Controller{
         return $res->withJson(['redirect' => '/course/' .  $c['slug']]);
     }
 
+    public function publishCourse($req, $res)
+    {   
+        $c = Course::find($req->getParam('id'));
+        $c->active = $req->getParam('action');
+        $c->save();
+        return $res->withJson(['redirect' => '/course/' .  $c['slug']]);
+    }
     // public function createLession($req, $res)
     // {   
 

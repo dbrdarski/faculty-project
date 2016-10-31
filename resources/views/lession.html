@@ -9,7 +9,7 @@
       {{#lessions}}
       <div class="container">
         <h1 class="punchline">{{title}}</h1>
-        <p>by <a href="{{authorURL}}">{{users.first_name}} {{users.last_name}}</a></p>
+        {{>components/lecturer-info}}
         <div class="row">
           <div class="col-md-9">
             <div id="course-video">

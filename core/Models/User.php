@@ -13,7 +13,9 @@ class User extends Model
         'password',
         'first_name',
         'last_name',
-        'type'
+        'type',
+        'image',
+        'description'
     ];
 
     private $userRoles = ['admin', 'lecturer', 'student'];
@@ -22,11 +24,6 @@ class User extends Model
     {
         return $this->hasMany(Course::class, 'lecturer_id');
     }
-    // public function lessions()
-    // {
-    //     // return $this->hasManyThrugh(Lessions::class, Course::class, 'id', 'course', 'lecturer_id');
-    //     return $this->belongsToMany(Lessions::class, 'id', 'lecturer_id');
-    // }
     public function lecturer()
     {
         $this->type = 2;
@@ -50,14 +47,29 @@ class User extends Model
         ]);
     }
 
-    public function add($email, $fname, $lname, $password)
+    public function setDescription($description)
+    {
+        $this->update([
+            'description' => $description
+        ]);
+    }
+    public function setImage($image)
+    {
+        $this->update([
+            'image' => $image
+        ]);
+    }
+
+    public function add($email, $fname, $lname, $password, $image = '', $description = '')
     {
         $user = $this->create([
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'type' => $this->type,
             'first_name' => $fname,
-            'last_name' => $lname            
+            'last_name' => $lname,
+            'image' => $image,
+            'description' => $description
         ]);
         return $user['attributes']['id'];
     }
