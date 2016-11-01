@@ -87,7 +87,7 @@ class CoreInstaller{
 			    $alex = $lecturer->add('alex@course.plus', 'Alex', 'Pffeipher', 'qwertybanana', 'jack.jpg', 
 			    'Alex is the Founder & CEO of Wayward Wild, a media incubator and content studio helping young websites, podcasts, web series, and publications stay true to their DNA.');
 			    $jack = $lecturer->add('jack@course.plus', 'Jack', 'Dunham', 'qwertybanana', 'dunham.jpg', 
-			    'My name is Zachary Kniebel and I am a full-stack Web Application Developer and Software Developer, currently living in Philadelphia, PA. I have a Bachelor of Science in Computer Science from Northeastern University, and my primary focus and inspiration for my studies is Web Development.');			    
+			    'My name is Jack Dunham and I am a full-stack Web Application Developer and Software Developer, currently living in Philadelphia, PA. I have a Bachelor of Science in Computer Science from Northeastern University, and my primary focus and inspiration for my studies is Web Development.');			    
 			    $kirby = $lecturer->add('kirby@course.plus', 'Kirby', 'Jones', 'qwertybanana', 'kirby.jpg',
 		    	'Kirby Jones is a San Francisco based fine artist whose projects have received international attention. The 1000 Journals Project, launched in 2000, has been exhibited at the San Francisco Museum of Modern Art and the Skirball Cultural Center in Los Angeles.');
 			    $larry = $lecturer->add('larry@course.plus', 'Larry', 'Smith', 'qwertybanana', 'larry.jpg',
