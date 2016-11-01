@@ -23,6 +23,8 @@ $app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
 $app->get('/lecturers', 'LecturerController:lecturerListIndex');
 $app->get('/lecturers/{id}', 'LecturerController:lecturerIndex');
 
+$app->get('/signup', 'AuthController:signUpIndex');
+
 $app->post('/course/new', 'CourseController:createCourse');
 $app->get('/course/new', 'CourseController:createCourseIndex');
 $app->post('/course/{slug}', 'CourseController:editCourse');

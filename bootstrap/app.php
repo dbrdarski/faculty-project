@@ -15,6 +15,14 @@
 // echo $e();
 // die();
 
+// function printer() {
+//     echo "I'm printer!".PHP_EOL;
+//     while (true) {
+//         $string = yield;
+//         echo $string.PHP_EOL;
+//     }
+// }
+
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config/config.php';
 
@@ -47,6 +55,9 @@ $container['InstallerController'] = function ($container) {
 
 $container['validator'] = function ($container) {
     return new \Core\Validation\Validator;
+};
+$container['AuthController'] = function ($container) {
+    return new \Core\Controllers\AuthController($container);
 };
 $container['HomeController'] = function ($container) {
     return new \Core\Controllers\HomeController($container);

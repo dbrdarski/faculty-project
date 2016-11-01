@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  {{> sections/head}}
+  </head>
+  <body>
+    {{> sections/header}}
+    <div id="courses">
+      <form action="POST">
+        <input type="text" name="username">
+        <input type="text" name="first_name">
+        <input type="text" name="last_name">
+        <input type="email" name="email">
+        <input type="password" name="password">
+      </form>
+    </div>   
+    {{> sections/scripts}}
+  </body>
+</html>
