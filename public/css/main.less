@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,500,700');
 
 @primary : #3a5d71;
 @primary : #16a085;
@@ -16,6 +17,9 @@
 @cyan: #2C82C9;
 @blue: #2969B0;
 
+@font-primary: Ubuntu, sans serif;
+@font-alt: 'Oxygen', sans-serif;
+
 @xs : 0;
 @sm : 544px;	
 @md : 768px;
@@ -29,6 +33,33 @@
 	    clear:both;
 	}
 }
+
+.keyframes(@name, @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+
+.bounce(@t) {
+  -moz-animation: bounce @t;
+  -webkit-animation: bounce @t;
+  animation: bounce @t;
+}
+
+.keyframes(bounce, {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }	
+});
 
 .media-max(@s, @content){
 	@media (max-width: @s){
@@ -76,7 +107,7 @@
 }
 
 body, *{
-	font-family: Ubuntu, sans serif;
+	font-family: @font-primary;
 	color: #555;
 }
 
@@ -157,10 +188,14 @@ h1,h2,h3,h4,h5,h6{
 #course-video{
 	margin-bottom: 40px;
 }
-#courses{
+
+.section-main{
 	background: @light;
+	padding-bottom: 40px;	
 	// padding-top: 30px;
-	padding-bottom: 40px;
+}
+#courses{
+	.section-main;
 	.course{
 	    border-radius: 3px;
 	    overflow: hidden;
@@ -405,7 +440,7 @@ select#color{
 .user-image {
 	border-radius: 1000px;
 }
-.lectuerer-info{
+.lecturer-info{
 	padding: 50px 0;
  	.description{
  		font-size: 23px;
@@ -420,4 +455,90 @@ select#color{
     padding-bottom: 20px;
     border-bottom: 2px solid #aaa;
     margin-bottom: 30px;	
+}
+
+.sign-box{	
+	float: right;
+	margin: 0 auto 20px;
+	width: 100%;
+	@media (min-width: 768px){
+		width: 400px;
+	}
+}
+
+#signup{
+	position: relative;
+	margin-left: 30px;
+	&:before{
+		display: block;
+		position: absolute;
+		left: 0; bottom: 30px;
+		margin-left: -100%;
+		width: 420px; 			
+		height: 350px;
+		background: url(../img/desk-guy.png) bottom right no-repeat;
+		background-size: contain;
+		@media (min-width: 768px){
+			content: "";
+		}
+		@media (min-width: 992px){
+			height: 407px;
+		}
+	}
+	.card .card-header{
+	    background: #40494f;
+	    color: white;
+	    font-weight: 500;
+	    font-size: 19px;		
+	}
+	.card.error{
+		.bounce(1s);
+	}
+}
+
+.section-signup{
+	padding: 50px 20px;
+	@media (min-width: 768px){
+		padding: 50px 0;
+		.sign-box{
+			margin-bottom: 0px;
+		}
+	}	
+	.page-content{
+		h1{
+			font-family: @font-alt;
+			font-weight: 300;
+			font-size: 36px;
+			color: #666;
+			margin-bottom: .4em;
+		}
+		.description{
+			font-family: @font-alt;
+			font-weight: 400;
+			font-size: 22px;
+			color: #999;
+			line-height: 1.25em;
+			margin-bottom: 1em;
+		}
+		padding-right: 20px;
+		float: left;
+		@media (min-width: 768px){
+			width: 40%;
+			h1{
+				font-size: 48px;
+			}
+			.description{
+				font-size: 27px;
+			}			
+		}
+		@media (min-width: 992px){
+			width: 480px;
+			h1{
+				font-size: 60px;
+			}
+			.description{
+				font-size: 34px;
+			}			
+		}
+	}
 }

@@ -2,22 +2,8 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-function indexArr($arr){
-	return array_map(function($v, $k){
-		$v['index'] = $k + 1;
-		return $v;
-	}, $arr, array_keys($arr));
-}
-
-$app->get('/hello/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name');
-    // ->setName('hello');
-    $response->getBody()->write("Hello, $name");
-
-    return $response;
-});
-
 $app->get('/', 'HomeController:homeIndex');
+
 $app->get('/library/{slug}', 'CourseController:courseIndex');
 $app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
 $app->get('/lecturers', 'LecturerController:lecturerListIndex');

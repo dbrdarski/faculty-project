@@ -5,15 +5,58 @@
   </head>
   <body>
     {{> sections/header}}
-    <div id="courses">
-      <form action="POST">
-        <input type="text" name="username">
-        <input type="text" name="first_name">
-        <input type="text" name="last_name">
-        <input type="email" name="email">
-        <input type="password" name="password">
-      </form>
-    </div>   
+    <div class="section-main">
+      <div class="section-signup container">
+        <div class="page-content">
+          <h1>Get Started</h1>
+          <div class="description">
+            Sign up now and get instant access to 100+ free online courses. 
+          </div>            
+        </div>      
+        <form action="POST" id="signup" class="sign-box" data-toggle="validator">
+        <div class="card">
+          <div class="card-header">
+            Create Account
+          </div>
+          <div class="card-block">
+            <!-- <h4 class="card-title">Sign Up</h4>           -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input class="form-control" type="text" name="username" id="username" required>
+            </div>
+            <div class="grid">
+              <div class="col-1">
+                <div class="form-group">
+                  <label for="first_name">First name</label>
+                  <input class="form-control" type="text" name="first_name" id="first_name" required pattern="^[_A-z]{1,}$">
+                </div>
+              </div>
+              <div class="col-1">
+                <div class="form-group">
+                  <label for="last_name">Last name</label>
+                  <input class="form-control" type="text" name="last_name" id="last_name" required pattern="^[_A-z]{1,}$">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input class="form-control" type="email" name="email" id="email" required pattern="^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$" placeholder="your.name@domain.com">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" name="password" id="password" required>
+            </div>
+            <div class="form-group">
+              <label for="password-confirm">Confirm</label>
+              <input class="form-control" type="password" name="password-confirm" id="password-confirm" required data-match="#password">
+            </div>
+            <p class="card-text small">By clicking here you accept our <a href="#">User Agreement</a>.</p>
+            <a href="#" class="btn btn-primary btn-lg">Continue</a>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
     {{> sections/scripts}}
   </body>
 </html>
