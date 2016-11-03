@@ -15,6 +15,7 @@ class CoreInstaller{
 		$tm->add(new Table('users',
 			function ($table){
 				$table->increments('id');
+				$table->string('username')->unique();
 				$table->string('email')->unique();
 				$table->string('password');
 				$table->string('first_name');
@@ -81,16 +82,16 @@ class CoreInstaller{
 			function(){
 			    $lecturer = (new \Core\Models\User)->lecturer();
 			    $student = (new \Core\Models\User)->student();
-			    $student->add('student@course.plus', 'Pepe', 'Biserov', 'qwertybanana');
-			    $dane = $lecturer->add('me@course.plus', 'Dane', 'Brdarski', 'qwertybanana', 'dane.jpg',
+			    $student->add('student','student@course.plus', 'Pepe', 'Biserov', 'qwertybanana');
+			    $dane = $lecturer->add('dane', 'me@course.plus', 'Dane', 'Brdarski', 'qwertybanana', 'dane.jpg',
 			    'Dane is a front end developer at Tricode and the author of this awesome app. His expertese ranges from design, HTML, CSS, to JavaScript and most recently PHP.');
-			    $alex = $lecturer->add('alex@course.plus', 'Alex', 'Pffeipher', 'qwertybanana', 'jack.jpg', 
+			    $alex = $lecturer->add('alex', 'alex@course.plus', 'Alex', 'Pffeipher', 'qwertybanana', 'jack.jpg', 
 			    'Alex is the Founder & CEO of Wayward Wild, a media incubator and content studio helping young websites, podcasts, web series, and publications stay true to their DNA.');
-			    $jack = $lecturer->add('jack@course.plus', 'Jack', 'Dunham', 'qwertybanana', 'dunham.jpg', 
+			    $jack = $lecturer->add('jack', 'jack@course.plus', 'Jack', 'Dunham', 'qwertybanana', 'dunham.jpg', 
 			    'My name is Jack Dunham and I am a full-stack Web Application Developer and Software Developer, currently living in Philadelphia, PA. I have a Bachelor of Science in Computer Science from Northeastern University, and my primary focus and inspiration for my studies is Web Development.');			    
-			    $kirby = $lecturer->add('kirby@course.plus', 'Kirby', 'Jones', 'qwertybanana', 'kirby.jpg',
+			    $kirby = $lecturer->add('kirby', 'kirby@course.plus', 'Kirby', 'Jones', 'qwertybanana', 'kirby.jpg',
 		    	'Kirby Jones is a San Francisco based fine artist whose projects have received international attention. The 1000 Journals Project, launched in 2000, has been exhibited at the San Francisco Museum of Modern Art and the Skirball Cultural Center in Los Angeles.');
-			    $larry = $lecturer->add('larry@course.plus', 'Larry', 'Smith', 'qwertybanana', 'larry.jpg',
+			    $larry = $lecturer->add('larry', 'larry@course.plus', 'Larry', 'Smith', 'qwertybanana', 'larry.jpg',
 			    'Larry Smith is a veteran software developer and designer. Once upon a time, he was the co-founder and CEO of Virb (2007-2013), a DIY website builder for creatives which was acquired by GoDaddy in late 2013. He’s on twitter at @LarryTheSmith.');
 
 			    $course = new \Core\Models\Course;

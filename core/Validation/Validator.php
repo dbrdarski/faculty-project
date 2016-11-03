@@ -9,7 +9,7 @@ class Validator
 {
     protected $errors;
 
-    public function validate($request, array $rules)
+    public function validateRequest($request, $rules)
     {
         foreach ($rules as $field => $rule) {
             try {
@@ -18,10 +18,30 @@ class Validator
                 $this->errors[$field] = $e->getMessages();
             }
         }
-
         $_SESSION['errors'] = $this->errors;
 
         return $this;
+    }
+
+    public function validate($field, $rule, $value)
+    {
+        try {
+            $rule->setName(ucfirst($field))->assert($value);
+        } catch (NestedValidationException $e) {
+            $this->errors = $e->getMessages();
+        }
+        $_SESSION['errors'] = $this->errors;
+
+        return $this;
+    }
+    public function errors()
+    {
+        return $this->errors;
+    }
+
+    public function success()
+    {
+        return empty($this->errors);
     }
 
     public function failed()

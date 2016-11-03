@@ -10,6 +10,7 @@ $app->get('/lecturers', 'LecturerController:lecturerListIndex');
 $app->get('/lecturers/{id}', 'LecturerController:lecturerIndex');
 
 $app->get('/signup', 'AuthController:signUpIndex');
+$app->get('/signup/v', 'AuthController:signUpValidator');
 
 $app->post('/course/new', 'CourseController:createCourse');
 $app->get('/course/new', 'CourseController:createCourseIndex');

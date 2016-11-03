@@ -9,6 +9,7 @@ class User extends Model
     protected $table = 'users';
 
     protected $fillable = [
+        'username',
         'email',
         'password',
         'first_name',
@@ -60,9 +61,10 @@ class User extends Model
         ]);
     }
 
-    public function add($email, $fname, $lname, $password, $image = '', $description = '')
+    public function add($username, $email, $fname, $lname, $password, $image = '', $description = '')
     {
         $user = $this->create([
+            'username' => $username,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'type' => $this->type,

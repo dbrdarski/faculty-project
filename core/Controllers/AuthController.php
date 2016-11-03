@@ -10,13 +10,41 @@ use \Core\Containers\Model;
 
 class AuthController extends Controller{
 
+    public function __construct($container)
+    {
+        $this->container = $container;
+        self::$v = [
+            'first_name' => v::notEmpty()->alpha(),
+            'last_name' => v::notEmpty()->alpha(),
+            'username' => v::notEmpty()->noWhitespace()->alnum()->usernameAvailable(),
+            'email' => v::notEmpty()->email()->emailAvailable(),
+            'password' => v::noWhitespace()->notEmpty(), 
+            'confirm-password' => v::noWhitespace()->notEmpty()
+        ];
+    }
+
+    static private $v;
+
     public function signUpIndex($req, $res, $args)
     {
         $view = new View($res, $this);
-        $model = new Model();        
+        $model = new Model();
         return $view("signup", $model());
-                
     }
+    
+    public function signUpValidator($req, $res)
+    {
+        $args = $req->getParams();
+        reset($args);
+        $field = key($args);
+        $value = $args[$field];
+        $validation = isset(self::$v[$field]) ? $this->validator->validate($field, self::$v[$field], $value) : false;
+        // if(isset(self::$v[$field]) && self::$v[$field]->validate($value) === true){
+        //     return $res->withStatus(200);
+        // }
+        return $validation && $validation->success() ? $res->withStatus(200) : $res->withStatus(404)->withJson($validation->errors());
+    }
+
     public function createUser($req, $res, $args)
     {
         $view = new View($res, $this);

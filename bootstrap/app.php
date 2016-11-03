@@ -15,13 +15,8 @@
 // echo $e();
 // die();
 
-// function printer() {
-//     echo "I'm printer!".PHP_EOL;
-//     while (true) {
-//         $string = yield;
-//         echo $string.PHP_EOL;
-//     }
-// }
+use Respect\Validation\Validator as v;
+session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config/config.php';
@@ -73,5 +68,7 @@ $container['LecturerController'] = function ($container) {
 $container['LessionController'] = function ($container) {
     return new \Core\Controllers\LessionController($container);
 };
+
+v::with('Core\\Validation\\Rules\\');
 
 require __DIR__ . '/../core/routes.php';
