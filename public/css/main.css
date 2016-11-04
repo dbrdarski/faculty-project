@@ -496,10 +496,10 @@ select#color {
 .user-image {
   border-radius: 1000px;
 }
-.lecturer-info {
+.lecturer-details {
   padding: 50px 0;
 }
-.lecturer-info .description {
+.lecturer-details .description {
   font-size: 23px;
   font-weight: 300;
   color: #888;
