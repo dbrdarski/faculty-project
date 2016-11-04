@@ -55,7 +55,7 @@ class CourseController extends Controller{
     public function editCourse($req, $res)
     {
         $args = $req->getParams();
-        $validation = $this->validator->validate($req, [
+        $validation = $this->validator->validateRequest($req, [
             'name' => v::notEmpty()->alpha(),
             'slug' => v::notEmpty()->slug()
         ]);

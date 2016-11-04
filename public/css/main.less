@@ -16,6 +16,7 @@
 @green: #41A85F;
 @cyan: #2C82C9;
 @blue: #2969B0;
+@warning: #e37e7b;
 
 @font-primary: Ubuntu, sans serif;
 @font-alt: 'Oxygen', sans-serif;
@@ -310,6 +311,11 @@ ul.lessions{
 	}
 }
 
+input+.help-block{
+	font-size: 13px;
+	padding-top: 5px;
+}
+
 .btn-primary{
 	border: 0 none;
 	border-bottom: .2em solid;
@@ -551,4 +557,7 @@ select#color{
 
 .has-danger .form-control {
     box-shadow: 0 0 0 1px #d9534f inset;
+    box-shadow: 0 0 0 1px @warning inset;
+    border-color: @warning;
+    background-color: fade(@warning, 25);
 }

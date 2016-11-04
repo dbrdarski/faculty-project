@@ -316,6 +316,10 @@ ul.lessions li a {
   width: 100%;
   height: 100%;
 }
+input + .help-block {
+  font-size: 13px;
+  padding-top: 5px;
+}
 .btn-primary {
   border: 0 none;
   border-bottom: .2em solid;
@@ -607,4 +611,7 @@ select#color {
 }
 .has-danger .form-control {
   box-shadow: 0 0 0 1px #d9534f inset;
+  box-shadow: 0 0 0 1px #e37e7b inset;
+  border-color: #e37e7b;
+  background-color: rgba(227, 126, 123, 0.25);
 }

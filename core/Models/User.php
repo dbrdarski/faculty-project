@@ -41,12 +41,17 @@ class User extends Model
         return $this;
     }
 
-    public function setPassword($password)
+    public function setPasswordAttribute($password)
     {
-        $this->update([
-            'password' => password_hash($password, PASSWORD_DEFAULT)
-        ]);
+        $this->attributes['password'] = password_hash($password, PASSWORD_DEFAULT);
     }
+
+    // public function setPassword($password)
+    // {
+    //     $this->update([
+    //         'password' => password_hash($password, PASSWORD_DEFAULT)
+    //     ]);
+    // }
 
     public function setDescription($description)
     {
