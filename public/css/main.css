@@ -331,9 +331,16 @@ ul.lessions li a {
   border-color: #212f51;
 }
 .btn-primary:active {
+  background: #2b395b !important;
+}
+.btn-primary:not(.disabled):not(:disabled):active {
   border: 0 none;
   margin-top: .2em;
-  background: #2b395b !important;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background: #3c4a6c !important;
+  border-color: #243254 !important;
 }
 .btn-alt {
   outline: 0 none;
@@ -348,9 +355,16 @@ ul.lessions li a {
   border-color: #0e659e;
 }
 .btn-alt:active {
+  background: #186fa8 !important;
+}
+.btn-alt:not(.disabled):not(:disabled):active {
   border: 0 none;
   margin-top: .2em;
-  background: #186fa8 !important;
+}
+.btn-alt.disabled,
+.btn-alt:disabled {
+  background: #2980b9 !important;
+  border-color: #1168a1 !important;
 }
 #main-panel,
 #side-panel {
@@ -510,7 +524,7 @@ select#color {
 #signup:before {
   display: block;
   position: absolute;
-  left: 0;
+  left: -20px;
   bottom: 30px;
   margin-left: -100%;
   width: 420px;

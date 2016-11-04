@@ -42,7 +42,7 @@ class AuthController extends Controller{
         // if(isset(self::$v[$field]) && self::$v[$field]->validate($value) === true){
         //     return $res->withStatus(200);
         // }
-        return $validation && $validation->success() ? $res->withStatus(200) : $res->withStatus(404)->withJson($validation->errors());
+        return $validation && $validation->success() ? $res->withStatus(200) : $res->withStatus(410)->withJson($validation->errors());
     }
 
     public function createUser($req, $res, $args)
