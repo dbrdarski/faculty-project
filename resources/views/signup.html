@@ -55,6 +55,7 @@
               <input class="form-control" type="password" name="password-confirm" id="password-confirm" required data-match="#password">
               <div class="help-block with-errors"></div>
             </div>
+            {{> components/csrf}}
             <p class="card-text small">By clicking here you accept our <a href="#">User Agreement</a>.</p>
             <button type=submit class="btn btn-primary btn-lg">Continue</button>
           </div>

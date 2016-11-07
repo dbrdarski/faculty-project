@@ -69,6 +69,15 @@ $container['LessionController'] = function ($container) {
     return new \Core\Controllers\LessionController($container);
 };
 
+$container['csrf'] = function ($container) {
+    return new \Slim\Csrf\Guard;
+};
+
+$app->add(new \Core\Middleware\CsrfMiddleware($container));
+
+$app->add($container->csrf);
+
+
 v::with('Core\\Validation\\Rules\\');
 
 require __DIR__ . '/../core/routes.php';
