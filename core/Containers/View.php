@@ -2,7 +2,7 @@
 
 namespace Core\Containers;
 
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 
 Class View{
 
@@ -18,7 +18,7 @@ Class View{
 			$this->container->view->render($this->res, '404', []);
 			return $this->res->withStatus(404);
 		}
-		$this->container->view->render($this->res, $template, array_merge(OptionManager::getOptions(), $model));
+		$this->container->view->render($this->res, $template, array_merge(Environment::getGlobals(), $model));
 		return $this->res;
 	}
 }

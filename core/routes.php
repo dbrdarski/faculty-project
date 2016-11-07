@@ -4,12 +4,8 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/', 'HomeController:homeIndex');
 
-$app->get('/user', function($req, $res){
-	return $res->withJson(['asd']);
-})->setName('user');
-$app->get('/user/{username}', function($req, $res){
-	return $res->withJson($req->getAttribute('username'));
-});
+$app->get('/user', 'UserController:userIndex')->setName('user');
+$app->get('/user/{username}', 'UserController:userIndex');
 
 $app->get('/library/{slug}', 'CourseController:courseIndex');
 $app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');

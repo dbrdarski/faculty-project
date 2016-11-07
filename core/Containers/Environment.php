@@ -1,19 +1,19 @@
 <?php
 
-namespace Core\Options;
+namespace Core\Containers;
 
-class OptionManager{
+class Environment{
 	static private $options = [];
 	
-	static function setOption($name, $value)
+	static function setGlobal($name, $value)
 	{		
 		self::$options[$name] = $value;
 	}
-	static function getOption($name)
+	static function getGlobal($name)
 	{
 		return self::$options[$name];
 	}
-	static function getOptions()
+	static function getGlobals()
 	{
 		return self::$options;
 	}

@@ -3,7 +3,7 @@
 namespace Core\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 
 class Course extends Model
 {
@@ -22,21 +22,21 @@ class Course extends Model
 
     public function getColorAttribute($value)
     {
-        return OptionManager::getOption('colors')[$value];
+        return Environment::getGlobal('colors')[$value];
     }
     public function getLevelAttribute($value)
     {
-        return OptionManager::getOption('levels')[$value];
+        return Environment::getGlobal('levels')[$value];
     }
 
     public function setLevelAttribute($value)
     {
-        $this->attributes['level'] = array_search($value, OptionManager::getOption('levels'));
+        $this->attributes['level'] = array_search($value, Environment::getGlobal('levels'));
     }
 
     public function setColorAttribute($value)
     {
-        $this->attributes['color'] = array_search($value, OptionManager::getOption('colors'));
+        $this->attributes['color'] = array_search($value, Environment::getGlobal('colors'));
     }    
 
     public function users()

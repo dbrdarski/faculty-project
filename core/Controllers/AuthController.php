@@ -3,7 +3,7 @@
 namespace Core\Controllers;
 
 use \Core\Models\User;
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 use Respect\Validation\Validator as v;
 use \Core\Containers\View;
 use \Core\Containers\Model;

@@ -2,7 +2,7 @@
 
 namespace Core\Containers;
 
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 
 Class Model{
 

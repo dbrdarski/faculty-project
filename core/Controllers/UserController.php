@@ -4,16 +4,19 @@ namespace Core\Controllers;
 
 use \Core\Models\User;
 // use Respect\Validation\Validator as v;
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 use \Core\Containers\View;
 use \Core\Containers\Model;
 
 class UserController extends Controller{
 
-    public function createUserIndex($req, $res)
+    public function userIndex($req, $res, $args)
     {
         $view = new View($res, $this);
-        return $view("newUser", ['saveButton' => 'Save']);
+        $user = User::where('username', $args['username'])->first();
+        $model = new Model($user);
+        
+        return $view("user", $model());
     }
 
     public function editUserIndex($req, $res, $args)

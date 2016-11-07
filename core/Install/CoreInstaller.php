@@ -27,6 +27,32 @@ class CoreInstaller{
 				$table->timestamps();
 			})
 		)
+		->add(new Table('roles',
+			function ($table){
+				$table->increments('id');
+				$table->string('name')->unsigned();
+				$table->string('description')->unsigned();
+				$table->timestamps();
+			})
+		)
+		->add(new Table('permission',
+			function ($table){
+				$table->increments('id');
+				$table->string('name');
+				$table->string('description')->unsigned();
+				$table->timestamps();
+			})
+		)
+		->add(new Table('role_permission',
+			function ($table){
+				$table->increments('id');
+				$table->integer('role_id')->unsigned();
+				$table->integer('permission_id')->unsigned();
+				$table->boolean('access');
+				// $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+				$table->timestamps();
+			})
+		)
 		->add(new Table('courses', 
 			function ($table){
 				$table->increments('id');

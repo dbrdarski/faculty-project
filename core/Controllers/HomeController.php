@@ -4,7 +4,7 @@ namespace Core\Controllers;
 
 // use \Slim\Mustache\Mustache as View;
 use \Core\Models\Course;
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 use \Core\Containers\View;
 use \Core\Containers\Model;
 // use Respect\Validation\Validator as v;

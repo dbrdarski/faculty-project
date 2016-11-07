@@ -2,13 +2,13 @@
 
 namespace Core\Middleware;
 
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 
 class CsrfMiddleware extends Middleware
 {
     public function __invoke($request, $response, $next)
     {
-        OptionManager::setOption('csfr', [
+        Environment::setGlobal('csrf', [
             'tokenNameKey' => $this->container->csrf->getTokenNameKey(),
             'tokenName' => $this->container->csrf->getTokenName(),
             'tokenValueKey' => $this->container->csrf->getTokenValueKey(),

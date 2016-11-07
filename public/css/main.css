@@ -191,8 +191,10 @@ ul li {
 }
 .punchline {
   margin: 0;
-  padding: 30px 0;
   letter-spacing: -0.03em;
+}
+.section-header {
+  padding: 30px 0;
 }
 #logo {
   display: block;
@@ -495,6 +497,7 @@ select#color {
 }
 .user-image {
   border-radius: 1000px;
+  max-width: 100%;
 }
 .lecturer-details {
   padding: 50px 0;
@@ -614,4 +617,28 @@ select#color {
   box-shadow: 0 0 0 1px #e37e7b inset;
   border-color: #e37e7b;
   background-color: rgba(227, 126, 123, 0.25);
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.v-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.v-container .v-block {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#edit-user .user-image {
+  width: 160px;
+  max-width: 90%;
 }

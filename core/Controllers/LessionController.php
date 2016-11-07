@@ -4,7 +4,7 @@ namespace Core\Controllers;
 
 use \Core\Models\Course;
 use \Core\Models\Lession;
-use \Core\Options\OptionManager;
+use \Core\Containers\Environment;
 // use Respect\Validation\Validator as v;
 use \Core\Containers\View;
 use \Core\Containers\Model;

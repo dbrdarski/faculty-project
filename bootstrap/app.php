@@ -8,7 +8,7 @@
 // 		return is_callable($this->fn) ? new Curried(call_user_func($this->fn, func_get_args())) : $this->fn;
 // 	}
 // 	public function _(){		
-// 		return is_callable($this->fn) ? new Curried(call_user_func($this->fn, func_get_args())) : new Curried($this->fn);
+// 		return is_callable($this->fn) ? new Curried(call_user_func($this->fn, func_get_args())) : $this;
 // 	}
 // }
 // $e = (new Curried(function(){return 1;}))->_(1)->_(1)->_(1);
@@ -37,10 +37,10 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
-\Core\Options\OptionManager::setOption('siteUrl', '/');
-// \Core\Options\OptionManager::setOption('404-template', '404');
-\Core\Options\OptionManager::setOption('colors', ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue']);
-\Core\Options\OptionManager::setOption('levels', ['Beginner', 'Intermediate', 'Advanced']);
+\Core\Containers\Environment::setGlobal('siteUrl', '/');
+// \Core\Containers\Environment::setGlobal('404-template', '404');
+\Core\Containers\Environment::setGlobal('colors', ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue']);
+\Core\Containers\Environment::setGlobal('levels', ['Beginner', 'Intermediate', 'Advanced']);
 
 $install = new \Core\Install\CoreInstaller; // create the Core install tasks
 
@@ -51,6 +51,9 @@ $container['InstallerController'] = function ($container) {
 $container['validator'] = function ($container) {
     return new \Core\Validation\Validator;
 };
+$container['UserController'] = function ($container) {
+    return new \Core\Controllers\UserController($container);
+};
 $container['AuthController'] = function ($container) {
     return new \Core\Controllers\AuthController($container);
 };
@@ -60,11 +63,9 @@ $container['HomeController'] = function ($container) {
 $container['CourseController'] = function ($container) {
     return new \Core\Controllers\CourseController($container);
 };
-
 $container['LecturerController'] = function ($container) {
     return new \Core\Controllers\LecturerController($container);
 };
-
 $container['LessionController'] = function ($container) {
     return new \Core\Controllers\LessionController($container);
 };

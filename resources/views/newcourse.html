@@ -6,8 +6,10 @@
   <body>
     {{> sections/header}}
     <div id="courses">
-      <div class="container">
-        <h1 class="h3 punchline">{{action}} course</h1>
+      <div class="container">      
+        <div class="section-header">
+          <h1 class="h3 punchline">{{action}} course</h1>
+        </div>
         <form action="#" action="" method="POST" id="edit-course">
           <div id="edit-panel">
             <div id="main-panel">
@@ -51,7 +53,9 @@
                 <div class="form-group">                
                 </div>
               </div>
-              <h2 class="h3 punchline">Lessions</h2>
+              <div class="section-header">
+                <h2 class="h3 punchline">Lessions</h2>
+              </div>
               {{#id}}
               <div class="lessions-section">
                 {{^lessions}}Currently there are no lessions{{/lessions}}
@@ -109,6 +113,7 @@
               <%={{ }}=%>
             </div>
           </div>
+          {{> components/csrf}}
         </form>
       </div>
     </div>
