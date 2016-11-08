@@ -122,6 +122,14 @@
   <script>
   (function($){
 
+    function getCsfrData(data){
+      var name = $('#csrf-name'),
+          value = $('#csrf-value');
+      var data = data || {};
+      data[name.attr('name')] = name.val();
+      data[value.attr('name')] = value.val();
+      return data;
+    }
     var $form = $('#edit-course');
 
     var memo = function(fn){
@@ -163,10 +171,11 @@
           e.preventDefault();
           var el = $(e.target);
           var action = el.data('action');
+
           $.ajax({
             method: "POST",
             url: window.location.pathname + '/publish',
-            data: { id : $('#course-id').val(), action : action },
+            data: getCsfrData({ id : $('#course-id').val(), action : action }),
             success: function(data){
               console.log(data);
               if(data.redirect){
