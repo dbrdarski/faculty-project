@@ -4,7 +4,7 @@ namespace Core\Controllers;
 
 use \Core\Models\User;
 // use Respect\Validation\Validator as v;
-use \Core\Containers\Environment;
+// use \Core\Containers\Environment;
 use \Core\Containers\View;
 use \Core\Containers\Model;
 

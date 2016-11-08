@@ -25,6 +25,10 @@ class User extends Model
     {
         return $this->hasMany(Course::class, 'lecturer_id');
     }
+    public function roles()
+    {
+        return $this->hasOne(Role::class, 'id', 'type');
+    }
     public function lecturer()
     {
         $this->type = 2;

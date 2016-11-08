@@ -6,21 +6,20 @@ use Illuminate\Database\Eloquent\Model as Model;
 
 class Permission extends Model
 {
-    protected $table = 'users';
+    protected $table = 'permissions';
 
     protected $fillable = [
         'name',
         'description'
     ];
 
-
     public function roles(){
-        return $this->belongsToMany(Role::class, 'permission_id', 'id');
+        return $this->belongsToMany(Role::class, 'permission_role', 'permission_id','role_id');
     }
-    public function addRole($p){
-        return $this->courses()->create([
-            'name' => $p['name'],
-            'description' => isset($p['description']) ? $p['description'] : ""
+    public function add($name, $description){
+        return $this->create([
+            'name' => $name,
+            'description' => isset($description) ? $description : ""
         ]);
     }    
 }

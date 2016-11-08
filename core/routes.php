@@ -7,6 +7,13 @@ $app->get('/', 'HomeController:homeIndex');
 $app->get('/user', 'UserController:userIndex')->setName('user');
 $app->get('/user/{username}', 'UserController:userIndex');
 
+$app->get('/asd', function($req, $res){
+	// $admins = \Core\Models\Role::find(1);
+	echo "<pre>";
+	var_dump(\Core\Models\User::with(['roles' => function($q){ $q->with('permissions'); }])->find(1)->toArray());
+	die();
+});
+
 $app->get('/library/{slug}', 'CourseController:courseIndex');
 $app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
 $app->get('/lecturers', 'LecturerController:lecturerListIndex');

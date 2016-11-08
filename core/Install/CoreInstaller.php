@@ -7,6 +7,8 @@ use Core\Tasks\Task;
 use Core\Tasks\Table;
 use Core\Models\User;
 use Core\Models\Course;
+use Core\Models\Role;
+use Core\Models\Permission;
 
 class CoreInstaller{
 
@@ -30,27 +32,27 @@ class CoreInstaller{
 		->add(new Table('roles',
 			function ($table){
 				$table->increments('id');
-				$table->string('name')->unsigned();
-				$table->string('description')->unsigned();
+				$table->string('name');
+				$table->string('description');
 				$table->timestamps();
 			})
 		)
-		->add(new Table('permission',
+		->add(new Table('permissions',
 			function ($table){
 				$table->increments('id');
 				$table->string('name');
-				$table->string('description')->unsigned();
+				$table->string('description');
 				$table->timestamps();
 			})
 		)
-		->add(new Table('role_permission',
+		->add(new Table('permission_role',
 			function ($table){
 				$table->increments('id');
 				$table->integer('role_id')->unsigned();
 				$table->integer('permission_id')->unsigned();
-				$table->boolean('access');
+				// $table->boolean('access');
 				// $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-				$table->timestamps();
+				// $table->timestamps();
 			})
 		)
 		->add(new Table('courses', 
@@ -102,6 +104,39 @@ class CoreInstaller{
 				$table->boolean('complete');
 				$table->integer('grade');
 				$table->timestamps();
+			})
+		)
+		->add(new Task('roles_and_permissions',
+			function(){
+
+				$permission = new Permission;
+				$manageUsers = $permission->add("manageUsers", "Manage Users");
+				$manageCourses = $permission->add("manageCourses", "Manage Courses");
+				$subscribeCourses = $permission->add("listenCourses", "Listen Courses");
+
+				$admin = new Role;
+				$admin->name = "admin";
+				$admin->description = "Administrator";
+				$admin->save();
+
+				$admin->permissions()->attach(\Core\Models\Permission::all());
+
+				$lecturer = new Role;
+				$lecturer->name = "lecturer";
+				$lecturer->description = "Lecturer";
+				$lecturer->save();
+
+				$lecturer->permissions()->attach(\Core\Models\Permission::where('name', 'manageCourses')->first());
+
+				$student = new Role;
+				$student->name = "student";
+				$student->description = "Student";
+				$student->save();
+				
+				$student->permissions()->attach(\Core\Models\Permission::where('name', 'listenCourses')->first());
+
+				// $manageCourse =$permission->add("manageCourse", "Manage Course");
+				// $manageCourse =$permission->add("manageCourse", "Manage Course");
 			})
 		)
 		->add(new Task('add_users_and_courses',
