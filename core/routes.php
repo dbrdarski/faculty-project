@@ -1,8 +1,10 @@
 <?php
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
+use \Core\Middleware\GuestMiddleware;
+use \Core\Middleware\AuthenticatedMiddleware;
 
-$app->get('/', 'HomeController:homeIndex');
+$app->get('/', 'HomeController:homeIndex')->setName('home');
 
 $app->get('/user', 'UserController:userIndex')->setName('user');
 $app->get('/user/{username}', 'UserController:userIndex');
@@ -14,21 +16,38 @@ $app->get('/asd', function($req, $res){
 	die();
 });
 
+$app->group('/admin', function(){
+		$this->get('/users', 'AdminController:adminUsersIndex');
+		$this->get('/roles', 'AdminController:adminUsersIndex');
+	})
+	->add(new AuthenticatedMiddleware($container))
+	// ->add(new AuthenticatedMiddleware($container))
+;
+
 $app->get('/library/{slug}', 'CourseController:courseIndex');
 $app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
 $app->get('/lecturers', 'LecturerController:lecturerListIndex');
 $app->get('/lecturers/{id}', 'LecturerController:lecturerIndex');
 
-$app->get('/signup', 'AuthController:signUpIndex');
-$app->post('/signup', 'AuthController:signUp');
-$app->get('/signup/v', 'AuthController:signUpValidator');
-$app->post('/signup/v', 'AuthController:signUpValidator');
+$app->group('', function(){
+	$this->get('/signup', 'AuthController:signUpIndex');
+	$this->post('/signup', 'AuthController:signUp');
+	$this->get('/signup/v', 'AuthController:signUpValidator');
+	$this->post('/signup/v', 'AuthController:signUpValidator');
+	$this->get('/signin', 'AuthController:signInIndex');
+	$this->post('/signin', 'AuthController:signIn');
+})->add(new GuestMiddleware($container));
 
-$app->post('/course/new', 'CourseController:createCourse');
-$app->get('/course/new', 'CourseController:createCourseIndex');
-$app->post('/course/{slug}', 'CourseController:editCourse');
-$app->post('/course/{slug}/publish', 'CourseController:publishCourse');
-$app->get('/course/{slug}', 'CourseController:editCourseIndex');
+$app->group('', function(){
+	$this->get('/signout', 'AuthController:getSignOut');
+	$this->post('/signout', 'AuthController:signOut');
+	$this->post('/course/new', 'CourseController:createCourse');
+	$this->get('/course/new', 'CourseController:createCourseIndex');
+	$this->post('/course/{slug}', 'CourseController:editCourse');
+	$this->post('/course/{slug}/publish', 'CourseController:publishCourse');
+	$this->get('/course/{slug}', 'CourseController:editCourseIndex');
+})->add(new AuthenticatedMiddleware($container));
+
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');
 $app->get('/install/{table}', 'InstallerController:install')->setName('install');

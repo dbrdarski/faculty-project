@@ -48,6 +48,18 @@ $container['InstallerController'] = function ($container) {
     return new \Core\Controllers\InstallerController($container);
 };
 
+$container['auth'] = function ($container) {
+    return new \Core\Authentication\Auth;
+};
+
+\Core\Containers\Environment::setGlobal(
+    'auth', 
+    [
+        'signed' => $container->auth->signed(),
+        'user' => $container->auth->user()
+    ]
+);
+
 $container['validator'] = function ($container) {
     return new \Core\Validation\Validator;
 };

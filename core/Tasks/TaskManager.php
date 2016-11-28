@@ -14,7 +14,7 @@ Class TaskManagerInstance{
 		$t = $this->tasks;
 		if(isset($t[$name])){
 			return $t[$name];
-		} else{
+		} else {
 			die('Burn in hell!!!!!!!!!!!!');
 		}
 	}

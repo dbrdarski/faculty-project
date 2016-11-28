@@ -6,6 +6,7 @@ use \Core\Models\User;
 // use \Core\Containers\Environment;
 use Respect\Validation\Validator as v;
 use \Core\Containers\View;
+use \Core\Containers\Environment;
 use \Core\Containers\Model;
 
 class AuthController extends Controller{
@@ -24,6 +25,45 @@ class AuthController extends Controller{
     }
 
     static private $v;
+
+    public function signInIndex($req, $res)
+    {
+        $view = new View($res, $this);
+        $model = new Model();
+        return $view("signin", $model());        
+    }
+    public function getSignOut($req, $res)
+    {
+        $this->auth->sign_out();
+        return $res->withRedirect($this->router->pathFor('home'));
+    }
+    public function signOut($req, $res)
+    {
+        $this->auth->sign_out();
+
+        return $res->withJson(['redirect' => $this->router->pathFor('home')]);
+    }
+    public function signIn($req, $res)
+    {
+        $user = $this->auth->attempt(
+            $req->getParam('username'),
+            $req->getParam('password')
+        );
+
+        if(!$user){
+            
+            return $res->withJson([
+                'success' => false,
+                'message' => "Username and password don't match.",
+                'csrf' => Environment::getGlobal('csrf')
+            ]);
+        } else {
+            return $res->withJson([
+                'success' => true,
+                'redirect'=> $this->router->pathFor('home')
+            ]);
+        }
+    }
 
     public function signUpIndex($req, $res, $args)
     {

@@ -185,6 +185,13 @@ ul li {
   height: 25px;
   line-height: 25px;
 }
+#header .dropdown-menu {
+  margin-top: 10px;
+}
+#header .dropdown-menu a {
+  color: #666;
+  opacity: 1;
+}
 .logo,
 .navigation {
   height: 25px;
@@ -549,16 +556,21 @@ select#color {
     height: 407px;
   }
 }
-#signup .card .card-header {
+#signup .card .card-header,
+#signin .card .card-header {
   background: #40494f;
   color: white;
   font-weight: 500;
   font-size: 19px;
 }
-#signup .card.error {
+#signup .card.error,
+#signin .card.error {
   -moz-animation: bounce 1s;
   -webkit-animation: bounce 1s;
   animation: bounce 1s;
+}
+#signin.sign-box {
+  float: none !important;
 }
 .section-signup {
   padding: 50px 20px;
