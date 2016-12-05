@@ -8,7 +8,7 @@ Class Auth{
 
     public function user()
     {   
-        return $this->signed() ? User::with(['roles' => function($q){ $q->with('permissions'); }])->find($_SESSION['user']) : null;
+        return $this->signed() ? User::with(['role' => function($q){ $q->with('permissions'); }])->find($_SESSION['user']) : null;
     }
 
     public function signed()

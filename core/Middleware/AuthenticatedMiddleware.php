@@ -6,13 +6,14 @@ use \Core\Containers\Environment;
 
 class AuthenticatedMiddleware extends Middleware
 {
-    public function __invoke($request, $response, $next)
+    public function __invoke($req, $res, $next)
     {
         if(!$this->container->auth->signed()){
-            return $response->withRedirect('/signin');
+        	$_SESSION['sign.redirect'] = $_SERVER['REQUEST_URI'];
+            return $res->withRedirect('/signin');
         }
 
-        $response = $next($request, $response);
-        return $response;
+        $res = $next($req, $res);
+        return $res;
     }
 }

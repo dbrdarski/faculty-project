@@ -204,7 +204,7 @@ h1,h2,h3,h4,h5,h6{
 	padding-bottom: 40px;	
 	// padding-top: 30px;
 }
-#courses{
+#courses, #main{
 	.section-main;
 	.course{
 	    border-radius: 3px;
@@ -273,6 +273,7 @@ h1,h2,h3,h4,h5,h6{
 		}
 	}
 }
+
 ul.lessions{
 	li{
 		padding-left: .5em;
@@ -298,7 +299,6 @@ ul.lessions{
 	}
 }
 #btn(@c){
-	outline: 0 none;
 	&, &:focus{
 		background: @c;
 		border-color: @c - #181818;
@@ -325,9 +325,20 @@ input+.help-block{
 	padding-top: 5px;
 }
 
-.btn-primary{
+.btn{
 	border: 0 none;
 	border-bottom: .2em solid;
+	background: #eee;
+	outline: 0 none !important;
+	#btn(#e3e3e3);
+}
+
+.btn-alert{
+	#btn(@primary - #111);
+	color: white;
+}
+
+.btn-primary{
 	#btn(@secondary);
 }
 
@@ -395,6 +406,30 @@ label{
 select#color{
 	text-transform: capitalize;
 }
+.icon{
+	display: inline-block;
+	width: 32px; height: 32px;
+	background: no-repeat  center;
+	transition: background .2s;
+}
+
+.icon-edit{
+	.icon;
+	background-image: url(../img/edit.svg);
+	content: url();
+	&:hover{
+		background-image: url(../img/edit-active.svg);
+	}	
+}
+
+.icon-remove{
+	.icon;
+	background-image: url(../img/remove.svg);
+	content: url();
+	&:hover{
+		background-image: url(../img/remove-active.svg);
+	}	
+}
 
 .lessions-table{
 	td, th{
@@ -406,14 +441,7 @@ select#color{
 		color: #666;
 	}
 	.edit{
-		display: inline-block;
-		width: 32px; height: 32px;
-		background: no-repeat url(../img/edit.svg) center;
-		transition: background .2s;
-		content: url();
-		&:hover{
-			background-image: url(../img/edit-active.svg);
-		}
+		.icon-edit;
 	}
 	.thead-inverse th{
 		background-color: #1168a1;
@@ -603,4 +631,14 @@ select#color{
 #edit-user .user-image{
 	width: 160px;
     max-width: 90%;	
+}
+.table td{
+	padding: .25rem .75rem;
+	vertical-align: middle;
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: fade(black, 2.5);
+}
+.table-striped td, .table-striped th{
+	border: 0 none;
 }

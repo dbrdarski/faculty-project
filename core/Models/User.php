@@ -25,7 +25,7 @@ class User extends Model
     {
         return $this->hasMany(Course::class, 'lecturer_id');
     }
-    public function roles()
+    public function role()
     {
         return $this->hasOne(Role::class, 'id', 'type');
     }
@@ -36,12 +36,12 @@ class User extends Model
     }
     public function admin()
     {
-        $this->type = 0;
+        $this->type = 1;
         return $this;
     }
     public function student()
     {
-        $this->type = 1;
+        $this->type = 3;
         return $this;
     }
 

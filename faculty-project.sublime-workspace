@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"unse",
+				"unset"
+			],
+			[
 				"import",
 				"important"
 			],
@@ -510,73 +514,34 @@
 			[
 				"bottom",
 				"bottom-rounded-corners"
-			],
-			[
-				"box-",
-				"box-shadow"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "core/routes.php",
-			"settings":
-			{
-				"buffer_size": 1933,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Authentication/Auth.php",
-			"settings":
-			{
-				"buffer_size": 738,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Middleware/MIddleware.php",
-			"settings":
-			{
-				"buffer_size": 178,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "bootstrap/app.php",
-			"settings":
-			{
-				"buffer_size": 2938,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "core/Controllers/AuthController.php",
 			"settings":
 			{
-				"buffer_size": 3291,
+				"buffer_size": 3791,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/sections/header.html",
+			"file": "core/Controllers/AdminController.php",
 			"settings":
 			{
-				"buffer_size": 649,
+				"buffer_size": 493,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/signin.html",
+			"file": "resources/views/admin/users.html",
 			"settings":
 			{
-				"buffer_size": 2364,
+				"buffer_size": 1436,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -585,24 +550,43 @@
 			"file": "public/css/main.less",
 			"settings":
 			{
-				"buffer_size": 9388,
+				"buffer_size": 9612,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "core/Tasks/Table.php",
+			"file": "core/Authentication/Auth.php",
 			"settings":
 			{
-				"buffer_size": 418,
+				"buffer_size": 844,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "core/Tasks/Task.php",
+			"file": "core/Models/Role.php",
 			"settings":
 			{
-				"buffer_size": 447,
+				"buffer_size": 657,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/User.php",
+			"settings":
+			{
+				"buffer_size": 2458,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bootstrap/app.php",
+			"settings":
+			{
+				"buffer_size": 3061,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -614,7 +598,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
+		"height": 380.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -659,7 +643,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 512.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -686,16 +670,31 @@
 	[
 		"/D/Projects/faculty-project",
 		"/D/Projects/faculty-project/bootstrap",
+		"/D/Projects/faculty-project/config",
 		"/D/Projects/faculty-project/core",
-		"/D/Projects/faculty-project/core/Middleware",
-		"/D/Projects/faculty-project/resources",
 		"/D/Projects/faculty-project/resources/views",
 		"/D/Projects/faculty-project/resources/views/sections"
 	],
 	"file_history":
 	[
-		"/D/Projects/faculty-project/core/Models/Permission.php",
+		"/D/Projects/faculty-project/core/routes.php",
+		"/D/Projects/faculty-project/core/Controllers/UserController.php",
+		"/D/Projects/faculty-project/core/Middleware/AuthenticatedMiddleware.php",
+		"/D/Projects/faculty-project/config/config.php",
+		"/D/Projects/faculty-project/core/Tasks/Task.php",
+		"/D/Projects/faculty-project/core/Tasks/Table.php",
+		"/D/Projects/faculty-project/public/css/main.less",
+		"/D/Projects/faculty-project/resources/views/signin.html",
+		"/D/Projects/faculty-project/resources/views/sections/header.html",
+		"/D/Projects/faculty-project/core/Controllers/AuthController.php",
+		"/D/Projects/faculty-project/core/Middleware/GuestMiddleware.php",
+		"/D/Projects/faculty-project/core/Middleware/CsrfMiddleware.php",
+		"/D/Projects/faculty-project/resources/views/user.html",
+		"/D/Projects/faculty-project/core/Middleware/Middleware.php",
+		"/D/Projects/faculty-project/core/Authentication/Auth.php",
 		"/D/Projects/faculty-project/bootstrap/app.php",
+		"/D/Projects/faculty-project/core/Middleware/MIddleware.php",
+		"/D/Projects/faculty-project/core/Models/Permission.php",
 		"/D/Projects/faculty-project/resources/views/signup.html",
 		"/D/Projects/faculty-project/core/Tasks/TaskManager.php",
 		"/C/Program Files (x86)/VideoLAN/VLC/lua/extensions/VLSub.luac",
@@ -703,16 +702,10 @@
 		"/D/Projects/faculty-project/core/Models/Course.php",
 		"/D/Projects/faculty-project/core/Models/Role.php",
 		"/D/Projects/faculty-project/core/Install/CoreInstaller.php",
-		"/D/Projects/faculty-project/core/Controllers/AuthController.php",
-		"/D/Projects/faculty-project/core/Controllers/UserController.php",
 		"/D/Projects/faculty-project/core/Controllers/InstallerController.php",
 		"/D/Projects/faculty-project/resources/views/sections/head.html",
-		"/D/Projects/faculty-project/core/routes.php",
-		"/D/Projects/faculty-project/core/Tasks/Table.php",
-		"/D/Projects/faculty-project/core/Tasks/Task.php",
 		"/D/Projects/faculty-project/core/Containers/View.php",
 		"/D/Projects/faculty-project/core/Containers/Environment.php",
-		"/D/Projects/faculty-project/public/css/main.less",
 		"/D/Projects/faculty-project/resources/views/components/course.html",
 		"/D/Projects/faculty-project/resources/views/course.html",
 		"/D/Projects/faculty-project/core/Validation/Rules/EmailAvailable.php",
@@ -733,9 +726,7 @@
 		"/D/Projects/faculty-project/core/Models/Student.php",
 		"/D/Projects/faculty-project/core/Models/Lecturer.php",
 		"/D/Projects/faculty-project/core/Containers/Model.php",
-		"/D/Projects/faculty-project/resources/views/sections/header.html",
 		"/D/Projects/faculty-project/core/Models/Subscription.php",
-		"/D/Projects/faculty-project/config/config.php",
 		"/D/Projects/faculty-project/composer.json",
 		"/D/Projects/php-cms/core/Models/User.php",
 		"/D/Projects/faculty-project/config/setup.php",
@@ -813,19 +804,11 @@
 		"/C/Users/dbrdarski/Downloads/config.modules (1).xml",
 		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.dialogs.pages.home (1).xml",
 		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.dialogs.pages.category.xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.templates.pages.advisory.home.xml",
-		"/C/Users/dbrdarski/Downloads/website.advisory.search0.xml",
-		"/C/Users/dbrdarski/Desktop/bbww/search-header.html",
-		"/C/Users/dbrdarski/Desktop/bbww/style.css",
-		"/C/Users/dbrdarski/Downloads/userroles.tricode-editor-role.xml",
-		"/C/xampp/htdocs/cms/index.bak.php",
-		"/C/xampp/htdocs/cms/index.php",
-		"/C/Users/dbrdarski/Desktop/PXL/#css-framework/css/_functions.scss",
-		"/C/Projects/magnolia-tricode-website/magnolia-tricode-website-webapp/target/magnolia-tricode-website-webapp-1.0.18-SNAPSHOT/WEB-INF/bootstrap/common/contacts.mmonroe.thumbnail.xml"
+		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.templates.pages.advisory.home.xml"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -843,6 +826,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"roles",
+			"'roles'",
+			"'role'",
+			"with(\"role",
+			"with('role",
+			"$user",
+			"user",
+			"courses",
+			"uth",
+			"// use \\Core\\Containers\\Environment;",
+			"response",
+			"request",
+			"$_session",
+			"$app",
+			"check",
+			"signed",
 			"auth",
 			"bounce",
 			"/signup",
@@ -954,23 +953,7 @@
 			".load",
 			"setquality",
 			"player",
-			"[playerID]",
-			"playaID",
-			"pause",
-			"paseVideo",
-			"selected",
-			".",
-			":",
-			"\n#",
-			"#",
-			"\n#",
-			"#<",
-			"#",
-			"\n",
-			"php.cms",
-			"#Archive\\php-cms",
-			"Projects\\#Archive\\php-cms\\",
-			"P6lB35y7y8E"
+			"[playerID]"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1010,52 +993,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "core/routes.php",
+					"file": "core/Controllers/AuthController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1933,
+						"buffer_size": 3791,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								396,
-								396
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "core/Authentication/Auth.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 738,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								142,
-								142
+								26,
+								29
 							]
 						],
 						"settings":
@@ -1072,20 +1027,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "core/Middleware/MIddleware.php",
+					"buffer": 1,
+					"file": "core/Controllers/AdminController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 178,
+						"buffer_size": 493,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								178,
-								178
+								437,
+								437
 							]
 						],
 						"settings":
@@ -1096,113 +1051,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "bootstrap/app.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2938,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1755,
-								1755
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "core/Controllers/AuthController.php",
+					"buffer": 2,
+					"file": "resources/views/admin/users.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3291,
+						"buffer_size": 1436,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1315,
-								1315
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 377.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "resources/views/sections/header.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 649,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								376,
-								376
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "resources/views/signin.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2364,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1871,
-								1871
+								642,
+								642
 							]
 						],
 						"settings":
@@ -1212,27 +1078,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 560.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 3,
 					"file": "public/css/main.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9388,
+						"buffer_size": 9612,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8161,
-								8161
+								9592,
+								9592
 							]
 						],
 						"settings":
@@ -1241,48 +1107,49 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9777.0,
+						"translation.y": 11438.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "core/Tasks/Table.php",
+					"buffer": 4,
+					"file": "core/Authentication/Auth.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 418,
+						"buffer_size": 844,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								157,
+								157
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "core/Tasks/Task.php",
+					"buffer": 5,
+					"file": "core/Models/Role.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 447,
+						"buffer_size": 657,
 						"regions":
 						{
 						},
@@ -1303,7 +1170,71 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "core/Models/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2458,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1175,
+								1175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 997.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "bootstrap/app.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2209,
+								2209
+							],
+							[
+								2286,
+								2286
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 978.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1362,28 +1293,48 @@
 		"selected_items":
 		[
 			[
-				"permi",
-				"core\\Models\\Permission.php"
+				"main",
+				"public\\css\\main.less"
 			],
 			[
 				"auth",
 				"core\\Authentication\\Auth.php"
 			],
 			[
+				"user",
+				"core\\Models\\User.php"
+			],
+			[
+				"role",
+				"core\\Models\\Role.php"
+			],
+			[
+				"app",
+				"bootstrap\\app.php"
+			],
+			[
+				"authc",
+				"core\\Controllers\\AuthController.php"
+			],
+			[
+				"authm",
+				"core\\Middleware\\AuthenticatedMiddleware.php"
+			],
+			[
+				"route",
+				"core\\routes.php"
+			],
+			[
+				"permi",
+				"core\\Models\\Permission.php"
+			],
+			[
 				"signup",
 				"resources\\views\\signup.html"
 			],
 			[
-				"main",
-				"public\\css\\main.less"
-			],
-			[
 				"",
 				"bootstrap\\app.php"
-			],
-			[
-				"user",
-				"core\\Models\\User.php"
 			],
 			[
 				"rou",
@@ -1400,10 +1351,6 @@
 			[
 				"permiss",
 				"core\\Models\\Permission.php"
-			],
-			[
-				"role",
-				"core\\Models\\Role.php"
 			],
 			[
 				"rout",
@@ -1428,10 +1375,6 @@
 			[
 				"cours",
 				"resources\\views\\components\\course.html"
-			],
-			[
-				"app",
-				"bootstrap\\app.php"
 			],
 			[
 				"lessionc",

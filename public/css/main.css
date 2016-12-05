@@ -231,11 +231,13 @@ h6.title {
   background: #ecf0f1;
   padding-bottom: 40px;
 }
-#courses {
+#courses,
+#main {
   background: #ecf0f1;
   padding-bottom: 40px;
 }
-#courses .course {
+#courses .course,
+#main .course {
   border-radius: 3px;
   overflow: hidden;
   background: white;
@@ -243,24 +245,29 @@ h6.title {
   margin-bottom: 30px;
 }
 @media (max-width: 543px) {
-  #courses .course {
+  #courses .course,
+  #main .course {
     margin-bottom: 17px;
   }
 }
-#courses .course .inner {
+#courses .course .inner,
+#main .course .inner {
   padding: 20px;
 }
-#courses .course .thumb {
+#courses .course .thumb,
+#main .course .thumb {
   position: relative;
   height: 8em;
   display: block;
   text-decoration: none;
   padding: 0 0.5em;
 }
-#courses .course .thumb:hover .thumb-img {
+#courses .course .thumb:hover .thumb-img,
+#main .course .thumb:hover .thumb-img {
   opacity: 1;
 }
-#courses .course .thumb-img {
+#courses .course .thumb-img,
+#main .course .thumb-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -270,7 +277,8 @@ h6.title {
   opacity: .8;
   transform: translateZ(0);
 }
-#courses .course .name {
+#courses .course .name,
+#main .course .name {
   position: relative;
   display: inline;
   font-size: 23px;
@@ -281,22 +289,27 @@ h6.title {
   text-decoration: none;
   transform: translateZ(0);
 }
-#courses .course .name > * {
+#courses .course .name > *,
+#main .course .name > * {
   color: white;
 }
-#courses .course .thumb-img {
+#courses .course .thumb-img,
+#main .course .thumb-img {
   transition: opacity .3s;
 }
-#courses .course .description {
+#courses .course .description,
+#main .course .description {
   min-height: 6.4em;
   line-height: 1.25em;
   padding: 0;
 }
-#courses .course li {
+#courses .course li,
+#main .course li {
   line-height: 1em;
   padding-top: 10px;
 }
-#courses .course a {
+#courses .course a,
+#main .course a {
   text-decoration: none;
 }
 ul.lessions li {
@@ -329,10 +342,56 @@ input + .help-block {
   font-size: 13px;
   padding-top: 5px;
 }
-.btn-primary {
+.btn {
   border: 0 none;
   border-bottom: .2em solid;
-  outline: 0 none;
+  background: #eee;
+  outline: 0 none !important;
+}
+.btn,
+.btn:focus {
+  background: #e3e3e3;
+  border-color: #cbcbcb;
+}
+.btn:hover {
+  background: #d8d8d8;
+  border-color: #c8c8c8;
+}
+.btn:active {
+  background: #d2d2d2 !important;
+}
+.btn:not(.disabled):not(:disabled):active {
+  border: 0 none;
+  margin-top: .2em;
+}
+.btn.disabled,
+.btn:disabled {
+  background: #e3e3e3 !important;
+  border-color: #cbcbcb !important;
+}
+.btn-alert {
+  color: white;
+}
+.btn-alert,
+.btn-alert:focus {
+  background: #c03730;
+  border-color: #a81f18;
+}
+.btn-alert:hover {
+  background: #b52c25;
+  border-color: #a51c15;
+}
+.btn-alert:active {
+  background: #af261f !important;
+}
+.btn-alert:not(.disabled):not(:disabled):active {
+  border: 0 none;
+  margin-top: .2em;
+}
+.btn-alert.disabled,
+.btn-alert:disabled {
+  background: #c03730 !important;
+  border-color: #a81f18 !important;
 }
 .btn-primary,
 .btn-primary:focus {
@@ -354,9 +413,6 @@ input + .help-block {
 .btn-primary:disabled {
   background: #3c4a6c !important;
   border-color: #243254 !important;
-}
-.btn-alt {
-  outline: 0 none;
 }
 .btn-alt,
 .btn-alt:focus {
@@ -441,6 +497,37 @@ label {
 select#color {
   text-transform: capitalize;
 }
+.icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: no-repeat center;
+  transition: background .2s;
+}
+.icon-edit {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: no-repeat center;
+  transition: background .2s;
+  background-image: url(../img/edit.svg);
+  content: url();
+}
+.icon-edit:hover {
+  background-image: url(../img/edit-active.svg);
+}
+.icon-remove {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: no-repeat center;
+  transition: background .2s;
+  background-image: url(../img/remove.svg);
+  content: url();
+}
+.icon-remove:hover {
+  background-image: url(../img/remove-active.svg);
+}
 .lessions-table td,
 .lessions-table th {
   border-top: 1px solid #ccc;
@@ -454,8 +541,9 @@ select#color {
   display: inline-block;
   width: 32px;
   height: 32px;
-  background: no-repeat url(../img/edit.svg) center;
+  background: no-repeat center;
   transition: background .2s;
+  background-image: url(../img/edit.svg);
   content: url();
 }
 .lessions-table .edit:hover {
@@ -653,4 +741,15 @@ select#color {
 #edit-user .user-image {
   width: 160px;
   max-width: 90%;
+}
+.table td {
+  padding: .25rem .75rem;
+  vertical-align: middle;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+.table-striped td,
+.table-striped th {
+  border: 0 none;
 }

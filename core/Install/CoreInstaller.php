@@ -141,9 +141,15 @@ class CoreInstaller{
 		)
 		->add(new Task('add_users_and_courses',
 			function(){
+			    $admin = (new \Core\Models\User)->admin();
 			    $lecturer = (new \Core\Models\User)->lecturer();
 			    $student = (new \Core\Models\User)->student();
-			    $student->add('student','student@course.plus', 'Pepe', 'Biserov', 'qwertybanana');
+			    
+			    $administrator = $admin->add('admin', 'admin@course.plus', 'Dane', 'Brdarski', 'qwertybanana', 'dane.jpg',
+			    'All-seeing, All-knowing. The Admin.');
+			    
+			    $student->add('student','student@course.plus', 'Pepe', 'Biserov', 'qwertybanana');			    
+			    
 			    $dane = $lecturer->add('dane', 'me@course.plus', 'Dane', 'Brdarski', 'qwertybanana', 'dane.jpg',
 			    'Dane is a front end developer at Tricode and the author of this awesome app. His expertese ranges from design, HTML, CSS, to JavaScript and most recently PHP.');
 			    $alex = $lecturer->add('alex', 'alex@course.plus', 'Alex', 'Pffeipher', 'qwertybanana', 'jack.jpg', 

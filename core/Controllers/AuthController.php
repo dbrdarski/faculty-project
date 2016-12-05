@@ -3,10 +3,9 @@
 namespace Core\Controllers;
 
 use \Core\Models\User;
-// use \Core\Containers\Environment;
+use \Core\Containers\Environment;
 use Respect\Validation\Validator as v;
 use \Core\Containers\View;
-use \Core\Containers\Environment;
 use \Core\Containers\Model;
 
 class AuthController extends Controller{
@@ -58,9 +57,11 @@ class AuthController extends Controller{
                 'csrf' => Environment::getGlobal('csrf')
             ]);
         } else {
+            $redirect = isset($_SESSION['sign.redirect']) ? $_SESSION['sign.redirect'] : $this->router->pathFor('home');
+            unset($_SESSION['sign.redirect']);
             return $res->withJson([
                 'success' => true,
-                'redirect'=> $this->router->pathFor('home')
+                'redirect'=> $redirect
             ]);
         }
     }
@@ -100,6 +101,7 @@ class AuthController extends Controller{
         $user->email = $args['email'];
         $user->username = $args['username'];
         $user->password = $args['password'];
+        $user->type = 3;
         $user->save();
         
         return $res->withStatus(200)->withRedirect($this->router->pathFor('user')."/".$args['username']);

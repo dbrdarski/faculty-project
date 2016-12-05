@@ -12,12 +12,15 @@ $app->get('/user/{username}', 'UserController:userIndex');
 $app->get('/asd', function($req, $res){
 	// $admins = \Core\Models\Role::find(1);
 	echo "<pre>";
-	var_dump(\Core\Models\User::with(['roles' => function($q){ $q->with('permissions'); }])->find(1)->toArray());
+	var_dump(\Core\Models\User::with(['role' => function($q){ $q->with('permissions'); }])->find(1)->toArray());
 	die();
 });
 
 $app->group('/admin', function(){
 		$this->get('/users', 'AdminController:adminUsersIndex');
+		$this->post('/users', 'AdminController:adminUsers');
+		$this->post('/users/delete', 'AdminController:deleteUser');
+		$this->get('/users/2', 'AdminController:deleteUser');
 		$this->get('/roles', 'AdminController:adminUsersIndex');
 	})
 	->add(new AuthenticatedMiddleware($container))
