@@ -3,6 +3,7 @@
 namespace Core\Controllers;
 
 use \Core\Models\User;
+use \Core\Models\Role;
 use \Core\Containers\Environment;
 use Respect\Validation\Validator as v;
 use \Core\Containers\View;
@@ -23,9 +24,11 @@ class AdminController extends Controller
 	public function adminUsers($req, $res)
     {
         $users = User::with('role')->get(['id', 'email', 'first_name', 'last_name', 'username', 'type']);
+        $roles = Role::all();
 
         return $res->withJson([
         	'users' => $users, 
+            'roles' => $roles,
         	'csrf' => Environment::getGlobal('csrf')
         ]);
 
@@ -35,8 +38,10 @@ class AdminController extends Controller
     {
         $user = User::where('username', $req->getParam('username'))->delete();
         $users = User::with('role')->get(['id', 'email', 'first_name', 'last_name', 'username', 'type']);
+        $roles = Role::all();
         return $res->withJson([
         	'users' => $users, 
+            'roles' => $roles,
         	'csrf' => Environment::getGlobal('csrf')
         ]);
     }
