@@ -8,7 +8,7 @@
     <div id="main">
       <div class="container">
         <div class="section-header">
-          <h1 class="punchline">Manage Users</h1>
+          <h1 class="punchline">Manage Roles</h1>
         </div>      
 <!--         <div class="lecturer-details row">
           <div class="col-sm-6 col-lg-8">
@@ -17,33 +17,25 @@
         </div>
         <h2 class="lecturer-courses">Users</h2> -->
         {{=<% %>=}}
-        <div id="users" class="row">
+        <div id="roles" class="row">
           <div class="col-sm-12">
             <table class="table table-striped">
                 <thead class="thead-inverse">
                   <tr>
                     <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Account</th>
-                    <th>User Role</th>
+                    <th>Role</th>
+                    <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="user in users">
-                    <td>{{user.id}}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.first_name}}</td>
-                    <td>{{user.last_name}}</td>
-                    <td>{{user.state}}</td>
-                    <td>{{user.role && user.role.name}}</td>
-                    <td><a href="#" data-action="edit-user" v-bind:data-user="user.id" class="icon-edit" v-on:click="editUserModal">Edit</a></td>
-                    <td><a href="#" data-action="remove-user" v-bind:data-user="user.id" class="icon-remove" v-on:click="deleteUserModal">Delete</a></td>
+                  <tr v-for="role in roles">
+                    <td>{{role.id}}</td>
+                    <td>{{role.name}}</td>
+                    <td>{{role.description}}</td>
+                    <td><a href="#" data-action="edit-user" v-bind:data-role="role.id" class="icon-edit" v-on:click="editRoleModal">Edit</a></td>
+                    <td><a href="#" data-action="remove-user" v-bind:data-role="role.id" class="icon-remove" v-on:click="deleteRoleModal">Delete</a></td>
                   </tr>                
                 <!-- {{/users}} -->
                 </tbody>
@@ -61,7 +53,7 @@
                     <h4 class="modal-title" id="delete-modal-title">Confirm action</h4>
                   </div>
                   <div class="modal-body">
-                    Delete user <strong>{{user.username}}</strong>?
+                    <!-- Delete user <strong>{{user.username}}</strong>? -->
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -94,20 +86,20 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>{{user.id}}</td>
+<!--                             <td>{{user.id}}</td>
                             <td>{{user.username}}</td>
                             <td>{{user.email}}</td>
                             <td>{{user.first_name}} {{user.last_name}}</td>
-                            <td>
-                              <select class="custom-select" name="state" v-model="user_state">
+ -->                            <td>
+<!--                               <select class="custom-select" name="state" v-model="user_state">
                                 <option v-for="state in states" v-bind:value="state">{{state}}</option>
                               </select>                                                          
-                            </td>
+ -->                            </td>
                             <td>
-                              <select class="custom-select" name="role" v-model="role">
+<!--                               <select class="custom-select" name="role" v-model="role">
                                 <option v-for="role in roles" v-bind:value="role.name" v-bind:selected="role.selected">{{role.description}}</option>
                               </select>                            
-                            </td>
+ -->                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -155,27 +147,21 @@
       })();
 
       var vm = new Vue({
-        el: '#users',
+        el: '#roles',
         created: function () {
           $.ajax({
             method : "POST",
             data : csrf(),
-            success : this.updateUsers
+            success : this.updateRoles
           });
         },
         data: {
           userID : '',
-          users: [],
           roles : [],
-          states : [],
-          role : null,
-          user_state : null,
-          user : []
+          role : null
         },
         methods: {
-          updateUsers : function(data){
-            this.users = data.users;
-            this.states = data.states;
+          updateRoles : function(data){
             this.roles = data.roles;
             csrf.set(data.csrf);
           },
@@ -183,24 +169,23 @@
             var self = this;
             return function(data){
               modal.modal('hide');
-              self.updateUsers(data);
+              self.updateRoles(data);
             };
           },
-          filterUser : function(user){
-            return this.users.filter(function(u){
-              return u.id === user;
+          filterRole : function(role){
+            return this.roles.filter(function(r){
+              return r.id === role;
             })[0];
           },
-          editUserModal : function(e){
-            var user = this.filterUser($(e.target).data('user'));
-            this.user_state = user.state;
-            this.role = user.role.name;
-            this.user = user;
+          editRoleModal : function(e){
+            var role = this.filterRole($(e.target).data('role'));
+            // this.role = role.name;
+            // this.user = user;
             $('#edit-modal').modal();
           },
-          deleteUserModal : function(e){
+          deleteRoleModal : function(e){
             var uid = $(e.target).data('user');
-            var user = this.filterUser(uid)
+            var user = this.filterRole(uid)
             this.user = user;
             this.userID = uid;
             $('#delete-modal').modal();
@@ -218,9 +203,7 @@
               method : "POST",
               url :  window.location.pathname + "/edit",
               data : csrf({
-                userID : this.user.id,
-                role : this.role,
-                state : this.user_state
+                role : this.role
               }),
               success : this.closeModal($('#edit-modal'))
             });

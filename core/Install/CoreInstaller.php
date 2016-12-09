@@ -25,7 +25,7 @@ class CoreInstaller{
 				$table->string('image');
 				$table->text('description');
 				$table->integer('type');
-				$table->boolean('active');
+				$table->integer('state')->default(0);
 				$table->timestamps();
 			})
 		)

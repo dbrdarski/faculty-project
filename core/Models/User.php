@@ -3,6 +3,7 @@
 namespace Core\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
+use \Core\Containers\Environment;
 
 class User extends Model
 {
@@ -16,10 +17,12 @@ class User extends Model
         'last_name',
         'type',
         'image',
-        'description'
+        'description',
+        'state'
     ];
 
-    private $userRoles = ['admin', 'lecturer', 'student'];
+    // private $userRoles = ['admin', 'lecturer', 'student'];
+
 
     public function courses()
     {
@@ -43,6 +46,15 @@ class User extends Model
     {
         $this->type = 3;
         return $this;
+    }
+    public function getStateAttribute($value)
+    {
+        return Environment::getGlobal('account_states')[$value];
+    }
+
+    public function setStateAttribute($value)
+    {
+        $this->attributes['state'] = array_search($value, Environment::getGlobal('account_states'));
     }
 
     public function setPasswordAttribute($password)

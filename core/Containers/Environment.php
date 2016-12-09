@@ -11,7 +11,7 @@ class Environment{
 	}
 	static function getGlobal($name)
 	{
-		return self::$options[$name];
+		return isset(self::$options[$name]) ? self::$options[$name] : null;
 	}
 	static function getGlobals()
 	{

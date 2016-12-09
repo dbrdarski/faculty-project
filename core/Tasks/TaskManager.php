@@ -48,6 +48,7 @@ Class TaskManagerInstance{
 	}
 	public function uninstallAll()
 	{
+		session_destroy();
 		array_map(function($t){
 			$t->down();
 		}, $this->getTasks());
@@ -55,6 +56,7 @@ Class TaskManagerInstance{
 	}
 	public function reinstallAll()
 	{
+		session_destroy();
 		array_map(function($t){
 			$t->down()->up();
 		}, $this->getTasks());

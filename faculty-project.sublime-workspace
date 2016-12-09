@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"delete",
+				"deleteModal"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"edit-",
+				"edit-user"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
 				"unse",
 				"unset"
 			],
@@ -34,10 +50,6 @@
 			[
 				"edit",
 				"editSlug"
-			],
-			[
-				"margin",
-				"margin-bottom"
 			],
 			[
 				"text",
@@ -502,18 +514,6 @@
 			[
 				"transla",
 				"translateY"
-			],
-			[
-				"border-r",
-				"border-bottom-right-radius"
-			],
-			[
-				"border-t",
-				"border-top"
-			],
-			[
-				"bottom",
-				"bottom-rounded-corners"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "core/Controllers/AuthController.php",
 			"settings":
 			{
-				"buffer_size": 3791,
+				"buffer_size": 3816,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,8 +532,34 @@
 			"file": "core/Controllers/AdminController.php",
 			"settings":
 			{
-				"buffer_size": 493,
+				"buffer_size": 1927,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Install/CoreInstaller.php",
+			"settings":
+			{
+				"buffer_size": 12944,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/User.php",
+			"settings":
+			{
+				"buffer_size": 2795,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Models/Course.php",
+			"settings":
+			{
+				"buffer_size": 2085,
 				"line_ending": "Windows"
 			}
 		},
@@ -541,7 +567,7 @@
 			"file": "resources/views/admin/users.html",
 			"settings":
 			{
-				"buffer_size": 1436,
+				"buffer_size": 9457,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +576,7 @@
 			"file": "public/css/main.less",
 			"settings":
 			{
-				"buffer_size": 9612,
+				"buffer_size": 10299,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -573,19 +599,10 @@
 			}
 		},
 		{
-			"file": "core/Models/User.php",
-			"settings":
-			{
-				"buffer_size": 2458,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "bootstrap/app.php",
 			"settings":
 			{
-				"buffer_size": 3061,
+				"buffer_size": 3155,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -671,13 +688,17 @@
 		"/D/Projects/faculty-project",
 		"/D/Projects/faculty-project/bootstrap",
 		"/D/Projects/faculty-project/config",
-		"/D/Projects/faculty-project/core",
-		"/D/Projects/faculty-project/resources/views",
-		"/D/Projects/faculty-project/resources/views/sections"
+		"/D/Projects/faculty-project/core"
 	],
 	"file_history":
 	[
+		"/D/Projects/faculty-project/resources/views/newcourse.html",
 		"/D/Projects/faculty-project/core/routes.php",
+		"/D/Projects/faculty-project/core/Models/User.php",
+		"/D/Projects/faculty-project/core/Controllers/CourseController.php",
+		"/D/Projects/faculty-project/core/Controllers/LecturerController.php",
+		"/D/Projects/faculty-project/core/Install/CoreInstaller.php",
+		"/C/Users/dane/Desktop/icon-remove.svg",
 		"/D/Projects/faculty-project/core/Controllers/UserController.php",
 		"/D/Projects/faculty-project/core/Middleware/AuthenticatedMiddleware.php",
 		"/D/Projects/faculty-project/config/config.php",
@@ -698,10 +719,8 @@
 		"/D/Projects/faculty-project/resources/views/signup.html",
 		"/D/Projects/faculty-project/core/Tasks/TaskManager.php",
 		"/C/Program Files (x86)/VideoLAN/VLC/lua/extensions/VLSub.luac",
-		"/D/Projects/faculty-project/core/Models/User.php",
 		"/D/Projects/faculty-project/core/Models/Course.php",
 		"/D/Projects/faculty-project/core/Models/Role.php",
-		"/D/Projects/faculty-project/core/Install/CoreInstaller.php",
 		"/D/Projects/faculty-project/core/Controllers/InstallerController.php",
 		"/D/Projects/faculty-project/resources/views/sections/head.html",
 		"/D/Projects/faculty-project/core/Containers/View.php",
@@ -712,17 +731,14 @@
 		"/D/Projects/faculty-project/core/Validation/Rules/MatchesPassword.php",
 		"/D/Projects/faculty-project/vendor/respect/validation/library/Rules/AbstractRule.php",
 		"/D/Projects/faculty-project/core/Validation/Exceptions/EmailAvailableException.php",
-		"/D/Projects/faculty-project/core/Controllers/LecturerController.php",
 		"/D/Projects/faculty-project/resources/views/lession.html",
 		"/D/Projects/faculty-project/core/Models/Lession.php",
 		"/D/Projects/faculty-project/core/Controllers/LessionController.php",
-		"/D/Projects/faculty-project/core/Controllers/CourseController.php",
 		"/D/Projects/faculty-project/resources/views/404.html",
 		"/D/Projects/faculty-project/resources/views/sections/scripts.html",
 		"/D/Projects/faculty-project/resources/views/index.html",
 		"/D/Projects/faculty-project/resources/views/lecturers.html",
 		"/D/Projects/faculty-project/resources/views/lecturer.html",
-		"/D/Projects/faculty-project/resources/views/newcourse.html",
 		"/D/Projects/faculty-project/core/Models/Student.php",
 		"/D/Projects/faculty-project/core/Models/Lecturer.php",
 		"/D/Projects/faculty-project/core/Containers/Model.php",
@@ -803,8 +819,7 @@
 		"/C/Users/dbrdarski/Downloads/config.modules (2).xml",
 		"/C/Users/dbrdarski/Downloads/config.modules (1).xml",
 		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.dialogs.pages.home (1).xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.dialogs.pages.category.xml",
-		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.templates.pages.advisory.home.xml"
+		"/C/Users/dbrdarski/Downloads/config.modules.eybbww-templating-module.dialogs.pages.category.xml"
 	],
 	"find":
 	{
@@ -826,134 +841,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"editModa",
+			"ame",
+			"updateUser",
+			"editUser",
+			"edit-modal",
+			"role",
+			"state",
+			"role",
+			"roles ",
+			"this.roles",
+			"this.role",
+			"role",
+			".username",
+			"user.",
+			"user",
+			"user.",
+			"user.roles",
+			"this.roles",
+			"this.roles =",
 			"roles",
-			"'roles'",
-			"'role'",
-			"with(\"role",
-			"with('role",
-			"$user",
-			"user",
-			"courses",
-			"uth",
-			"// use \\Core\\Containers\\Environment;",
-			"response",
-			"request",
-			"$_session",
-			"$app",
-			"check",
-			"signed",
-			"auth",
-			"bounce",
-			"/signup",
-			"::with(",
-			"$p['description']",
-			"$permission",
-			"\t\t\t\t// $manageCourse =$permission->add(\"manageCourse\", \"Manage Course\");\n\t\t\t\t// $manageCourse =$permission->add(\"manageCourse\", \"Manage Course\");",
-			" new Permission",
-			"manageCourse",
-			"$manageCourse = new Permission(\"manageCourse\", \"Manage Course\");",
-			"lecturer",
-			"$lecturer",
-			"lecturer",
-			"TaskManager",
-			"attach(",
-			"attach",
-			"Environment",
-			"getGlobal",
-			"left: 0",
-			"404",
-			"lecturers}",
-			"lecturers",
-			"        // echo '<pre>';\n        // var_dump($lecturer);\n        // die();\n",
-			"lessions",
-			"Course",
-			"lession",
-			"Lession",
-			"ssion",
-			"introd",
-			"->get()->first()",
-			"models",
-			"lession",
-			"  ",
+			"user.roles",
+			"user.",
+			".state",
+			"state",
+			"roles",
+			"state.",
+			".selected",
+			"user.states",
+			"roles",
+			"user.",
+			"this.role",
+			"updateUsers",
+			"states",
+			"state",
+			"states",
+			"roles",
+			"selected",
+			"account_state",
+			"account",
+			"account_state",
+			"account",
 			"index",
-			"with(",
-			"Course'",
-			"with",
-			"$p",
-			"    '",
-			"@",
-			"autoslug",
-			"asd",
-			"console",
-			"autosl",
-			"(name",
-			"(name)",
-			"name",
-			"autoslug",
-			"console",
-			"overrideSlug",
-			"autoslug",
-			"overr",
-			"console.log",
-			"-bind",
-			"overr",
-			"customSlug",
-			"ustomS]",
-			"ustomS",
-			",",
-			"$c",
-			"seondary",
-			"ol",
-			"'title' =>",
-			"content",
-			"@content",
-			"media-max",
-			"min",
-			"ul",
-			"user_course",
-			"user_co",
-			"$user",
-			"Table",
-			"Lecturer",
-			"this",
-			" ",
-			"\"user",
-			"User",
+			"state",
+			"account",
+			"state",
+			"$userRoles",
+			"active",
 			"user",
-			"\"collation",
-			"collation",
-			"Collation",
-			"collation",
-			"DB",
-			"$settings",
-			"\"charset",
-			"Charset",
-			"charset",
-			"\"password",
-			"Password",
-			"password",
-			"\"password",
-			"Password",
-			"password",
-			"exampleInputPassword1",
-			"Password",
-			"password",
-			"driver",
-			"exampleInputEmail1",
-			"$response",
-			"$request",
-			"root",
-			"faculty",
-			"->run",
-			"rtv.example",
-			".rtv.example",
-			"'click",
-			"getPlaybackQuality",
-			"qualitychange",
-			".load",
-			"setquality",
-			"player",
-			"[playerID]"
+			"active",
+			"edit-user",
+			"updateUser",
+			"update",
+			"admin",
+			"username",
+			"data('user",
+			"username",
+			"updateUsers",
+			"action",
+			"actio",
+			"action",
+			"username",
+			"data.user",
+			"user.username",
+			"username",
+			"id:",
+			"id=",
+			"users",
+			"updateUser",
+			"set",
+			"$users",
+			".href",
+			"delete",
+			"deleteUser",
+			"{\"users\":[{\"id\":1,\"email\":\"student@course.plus\",\"first_name\":\"Pepe\",\"last_name\":\"Biserov\",\"username\":\"student\",\"type\":1,\"role\":{\"id\":1,\"name\":\"admin\",\"description\":\"Administrator\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":2,\"email\":\"me@course.plus\",\"first_name\":\"Dane\",\"last_name\":\"Brdarski\",\"username\":\"dane\",\"type\":2,\"role\":{\"id\":2,\"name\":\"lecturer\",\"description\":\"Lecturer\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":3,\"email\":\"alex@course.plus\",\"first_name\":\"Alex\",\"last_name\":\"Pffeipher\",\"username\":\"alex\",\"type\":2,\"role\":{\"id\":2,\"name\":\"lecturer\",\"description\":\"Lecturer\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":4,\"email\":\"jack@course.plus\",\"first_name\":\"Jack\",\"last_name\":\"Dunham\",\"username\":\"jack\",\"type\":2,\"role\":{\"id\":2,\"name\":\"lecturer\",\"description\":\"Lecturer\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":5,\"email\":\"kirby@course.plus\",\"first_name\":\"Kirby\",\"last_name\":\"Jones\",\"username\":\"kirby\",\"type\":2,\"role\":{\"id\":2,\"name\":\"lecturer\",\"description\":\"Lecturer\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":6,\"email\":\"larry@course.plus\",\"first_name\":\"Larry\",\"last_name\":\"Smith\",\"username\":\"larry\",\"type\":2,\"role\":{\"id\":2,\"name\":\"lecturer\",\"description\":\"Lecturer\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":7,\"email\":\"dane.brdarski@gmail.com\",\"first_name\":\"Dane\",\"last_name\":\"Brdarski\",\"username\":\"debird\",\"type\":3,\"role\":{\"id\":3,\"name\":\"student\",\"description\":\"Student\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":8,\"email\":\"dane.brdarski@gmail.com2\",\"first_name\":\"Dane\",\"last_name\":\"Brdarski\",\"username\":\"dane11\",\"type\":3,\"role\":{\"id\":3,\"name\":\"student\",\"description\":\"Student\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}},{\"id\":9,\"email\":\"joco@gmail.com\",\"first_name\":\"Jovica\",\"last_name\":\"Ruteski\",\"username\":\"joco\",\"type\":3,\"role\":{\"id\":3,\"name\":\"student\",\"description\":\"Student\",\"created_at\":\"2016-11-26 19:49:18\",\"updated_at\":\"2016-11-26 19:49:18\"}}],\"csrf\":{\"tokenNameKey\":\"csrf_name\",\"tokenName\":\"csrf5844addcdc810\",\"tokenValueKey\":\"csrf_value\",\"tokenValue\":\"1b60ea95a27fb4b90248a1b53fa2c311\"}}",
+			"{\"id\":",
+			"e",
+			"console",
+			"console.log",
+			"crsf",
+			"Name",
+			"console.l",
+			"username",
+			"-user",
+			"user",
+			"ajax",
+			"csrf(",
+			"users",
+			"csrf",
+			"getcsrfData",
+			"getcs",
+			"csrf",
+			"Csfr",
+			"csfr",
+			"data",
+			"getCsfrData",
+			"Failed CSRF check!",
+			"deleteUser",
+			"$args",
+			"self",
+			"deleteUser",
+			"lecturer",
+			"$admin = new Role;",
+			"student",
+			"\">",
+			"data(",
+			"data",
+			"{{",
+			"deleteUser",
+			"username",
+			"name",
+			"getCsfrData",
+			"csrf",
+			"{{",
+			"editModal",
+			"primary",
+			"data-action",
+			"acton",
+			"data-acton",
+			"data-action",
+			"myModalLabel",
+			"<tr>",
+			"edit",
+			"edit-icon",
+			".edit-icon",
+			"edit",
+			"description",
+			"table",
+			"edit"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -993,7 +1008,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1002,15 +1017,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3791,
+						"buffer_size": 3816,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26,
-								29
+								3365,
+								3369
 							]
 						],
 						"settings":
@@ -1020,10 +1035,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1517.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1032,15 +1047,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 493,
+						"buffer_size": 1927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								437,
-								437
+								988,
+								988
 							]
 						],
 						"settings":
@@ -1048,27 +1063,116 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "resources/views/admin/users.html",
+					"file": "core/Install/CoreInstaller.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1436,
+						"buffer_size": 12944,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								642,
-								642
+								6432,
+								6432
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2897.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "core/Models/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2795,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1016,
+								1016
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "core/Models/Course.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2085,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1275,
+								1277
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 657.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "resources/views/admin/users.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8892,
+								8892
 							]
 						],
 						"settings":
@@ -1078,27 +1182,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3857.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 6,
 					"file": "public/css/main.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9612,
+						"buffer_size": 10299,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9592,
-								9592
+								9682,
+								9682
 							]
 						],
 						"settings":
@@ -1107,14 +1211,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 11438.0,
+						"translation.y": 12198.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 7,
 					"file": "core/Authentication/Auth.php",
 					"semi_transient": false,
 					"settings":
@@ -1126,8 +1230,8 @@
 						"selection":
 						[
 							[
-								157,
-								157
+								284,
+								284
 							]
 						],
 						"settings":
@@ -1140,11 +1244,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 8,
 					"file": "core/Models/Role.php",
 					"semi_transient": false,
 					"settings":
@@ -1170,58 +1274,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "core/Models/User.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2458,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1175,
-								1175
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 997.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "bootstrap/app.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3061,
+						"buffer_size": 3155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2209,
-								2209
-							],
-							[
-								2286,
-								2286
+								1452,
+								1452
 							]
 						],
 						"settings":
@@ -1231,10 +1301,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 978.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1293,24 +1363,56 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"core\\Models\\User.php"
+			],
+			[
+				"adminco",
+				"core\\Controllers\\AdminController.php"
+			],
+			[
+				"authcon",
+				"core\\Controllers\\AuthController.php"
+			],
+			[
+				"core",
+				"core\\Install\\CoreInstaller.php"
+			],
+			[
+				"app",
+				"bootstrap\\app.php"
+			],
+			[
+				"corei",
+				"core\\Install\\CoreInstaller.php"
+			],
+			[
+				"course",
+				"core\\Models\\Course.php"
+			],
+			[
 				"main",
 				"public\\css\\main.less"
+			],
+			[
+				"users",
+				"resources\\views\\admin\\users.html"
+			],
+			[
+				"lect",
+				"core\\Controllers\\LecturerController.php"
+			],
+			[
+				"route",
+				"core\\routes.php"
 			],
 			[
 				"auth",
 				"core\\Authentication\\Auth.php"
 			],
 			[
-				"user",
-				"core\\Models\\User.php"
-			],
-			[
 				"role",
 				"core\\Models\\Role.php"
-			],
-			[
-				"app",
-				"bootstrap\\app.php"
 			],
 			[
 				"authc",
@@ -1319,10 +1421,6 @@
 			[
 				"authm",
 				"core\\Middleware\\AuthenticatedMiddleware.php"
-			],
-			[
-				"route",
-				"core\\routes.php"
 			],
 			[
 				"permi",
@@ -1339,10 +1437,6 @@
 			[
 				"rou",
 				"core\\routes.php"
-			],
-			[
-				"course",
-				"core\\Models\\Course.php"
 			],
 			[
 				"per",

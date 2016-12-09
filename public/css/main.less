@@ -642,3 +642,21 @@ select#color{
 .table-striped td, .table-striped th{
 	border: 0 none;
 }
+
+#edit-user-form{
+
+	.table thead th {
+    	border-top: 0 none;
+    	background: #f6f6f6;	
+	}
+	.form-control, .custom-select{
+		margin: 0 -.75rem;
+		transition: border .2s;
+		&:not(:focus){
+			border-color: fade(black, 10);			
+		}
+		&:not(:focus):not(:hover){
+			border-color: transparent;
+		}
+	}
+}

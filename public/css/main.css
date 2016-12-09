@@ -753,3 +753,20 @@ select#color {
 .table-striped th {
   border: 0 none;
 }
+#edit-user-form .table thead th {
+  border-top: 0 none;
+  background: #f6f6f6;
+}
+#edit-user-form .form-control,
+#edit-user-form .custom-select {
+  margin: 0 -0.75rem;
+  transition: border .2s;
+}
+#edit-user-form .form-control:not(:focus),
+#edit-user-form .custom-select:not(:focus) {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+#edit-user-form .form-control:not(:focus):not(:hover),
+#edit-user-form .custom-select:not(:focus):not(:hover) {
+  border-color: transparent;
+}

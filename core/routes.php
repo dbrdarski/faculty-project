@@ -20,8 +20,10 @@ $app->group('/admin', function(){
 		$this->get('/users', 'AdminController:adminUsersIndex');
 		$this->post('/users', 'AdminController:adminUsers');
 		$this->post('/users/delete', 'AdminController:deleteUser');
-		$this->get('/users/2', 'AdminController:deleteUser');
-		$this->get('/roles', 'AdminController:adminUsersIndex');
+		$this->post('/users/edit', 'AdminController:editUser');
+		$this->get('/users/2', 'AdminController:editUser');
+		$this->get('/roles', 'AdminController:adminRolesIndex');
+		$this->post('/roles', 'AdminController:adminRoles');
 	})
 	->add(new AuthenticatedMiddleware($container))
 	// ->add(new AuthenticatedMiddleware($container))

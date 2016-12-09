@@ -41,6 +41,7 @@ $capsule->bootEloquent();
 // \Core\Containers\Environment::setGlobal('404-template', '404');
 \Core\Containers\Environment::setGlobal('colors', ['default', 'yellow', 'orange', 'red', 'violet', 'green', 'cyan', 'blue']);
 \Core\Containers\Environment::setGlobal('levels', ['Beginner', 'Intermediate', 'Advanced']);
+\Core\Containers\Environment::setGlobal('account_states', ['Pending', 'Active', 'Disabled']);
 
 $install = new \Core\Install\CoreInstaller; // create the Core install tasks
 

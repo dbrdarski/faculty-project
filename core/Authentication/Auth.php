@@ -3,6 +3,8 @@
 namespace Core\Authentication;
 
 use \Core\Models\User;
+use \Core\Models\Role;
+use \Core\Models\Permission;
 
 Class Auth{
 
@@ -10,6 +12,22 @@ Class Auth{
     {   
         return $this->signed() ? User::with(['role' => function($q){ $q->with('permissions'); }])->find($_SESSION['user']) : null;
     }
+
+    // public static function roles()
+    // {   
+    //     if ( Environment::getGlobal('roles') == null) {
+    //         Environment::setGlobal('roles', Role::all());
+    //     }
+    //     return Environment::getGlobal('roles');
+    // }
+
+    // public static function permissions()
+    // {   
+    //     if ( Environment::getGlobal('permissions') == null) {
+    //         Environment::getGlobal('permissions', Permission::all());
+    //     }
+    //     return Environment::getGlobal('permissions');
+    // }
 
     public function signed()
     {

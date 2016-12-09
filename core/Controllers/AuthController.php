@@ -103,6 +103,8 @@ class AuthController extends Controller{
         $user->password = $args['password'];
         $user->type = 3;
         $user->save();
+
+        $this->auth->attempt($user->username, $args['password']);
         
         return $res->withStatus(200)->withRedirect($this->router->pathFor('user')."/".$args['username']);
     }
