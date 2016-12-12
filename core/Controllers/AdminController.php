@@ -5,6 +5,7 @@ namespace Core\Controllers;
 use \Core\Authentication\Auth;
 use \Core\Models\User;
 use \Core\Models\Role;
+use \Core\Models\Permission;
 use \Core\Containers\Environment;
 use Respect\Validation\Validator as v;
 use \Core\Containers\View;
@@ -34,8 +35,49 @@ class AdminController extends Controller
 	public function adminRoles($req, $res)
     {
         $roles = Role::with('permissions')->get();        
+        $permissions = Permission::all();        
         return $res->withJson([
         	'roles' => $roles, 
+        	'permissions' => $permissions,
+        	'csrf' => Environment::getGlobal('csrf')
+        ]);
+    }
+
+	public function editPermissions($req, $res)
+    {
+        $roles = Role::find($req->getParam('roleID'))->with('permissions')->first();
+        $args = getParams();
+        // $permissions = Permission::all();
+        return $res->withJson([
+        	'asd'=>$args['roleID']
+        	// 'roles' => $roles, 
+        	// 'permissions' => $permissions,
+        	// 'csrf' => Environment::getGlobal('csrf')
+        ]);
+    }
+
+	public function newRole($req, $res)
+    {
+    	$args = $req->getParams();
+    	
+    	$role = new Role;
+    	$role->name = $args['name'];
+    	$role->description = $args['description'];
+    	$role->save();
+
+        $roles = Role::with('permissions')->get();        
+        return $res->withJson([
+        	'roles' => $roles, 
+        	'csrf' => Environment::getGlobal('csrf')
+        ]);
+    }
+
+	public function deleteRole($req, $res)
+    {
+        $role = Role::find($req->getParam('roleID'))->delete();        
+        return $res->withJson([
+            'roles' => Role::all(),
+            'states' => Environment::getGlobal('account_states'),
         	'csrf' => Environment::getGlobal('csrf')
         ]);
     }

@@ -24,8 +24,12 @@ $app->group('/admin', function(){
 		$this->get('/users/2', 'AdminController:editUser');
 		$this->get('/roles', 'AdminController:adminRolesIndex');
 		$this->post('/roles', 'AdminController:adminRoles');
+		$this->post('/roles/new', 'AdminController:newRole');
+		$this->post('/roles/edit', 'AdminController:editPermissions');
+		$this->post('/roles/delete', 'AdminController:deleteRole');
 	})
 	->add(new AuthenticatedMiddleware($container))
+
 	// ->add(new AuthenticatedMiddleware($container))
 ;
 
