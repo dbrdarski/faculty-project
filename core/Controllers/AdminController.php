@@ -35,7 +35,7 @@ class AdminController extends Controller
 	public function adminRoles($req, $res)
     {
         $roles = Role::with('permissions')->get();        
-        $permissions = Permission::all();        
+        $permissions = Permission::all();
         return $res->withJson([
         	'roles' => $roles, 
         	'permissions' => $permissions,
@@ -45,14 +45,32 @@ class AdminController extends Controller
 
 	public function editPermissions($req, $res)
     {
-        $roles = Role::find($req->getParam('roleID'))->with('permissions')->first();
-        $args = getParams();
-        // $permissions = Permission::all();
+        $args = $req->getParams();
+        $role = Role::with('permissions')->find($req->getParam('roleID'));
+        $permissions = Permission::all();
+        $pnames = array_map(function($p) use ($role, $args){
+        	$pname = $p['name'];
+        	// if(isset($role->permissions[$pname]) && !isset($args[$pname])){
+        	// 	$role->permissions()->detach($p['id']);
+        	// 	return $p['name'] . ' - off';
+        	// }
+        	if(!isset($role->permissions[$pname]) && isset($args[$pname])){
+        		$role->permissions()->attach($p['id']);
+        		return $p['name'] . ' - on';
+        	} else {
+        		$role->permissions()->detach($p['id']);        		
+        	}
+
+        }, $permissions->toArray());
+        $roles = Role::with('permissions')->get();
+
+        $permissions = Permission::all();
         return $res->withJson([
-        	'asd'=>$args['roleID']
-        	// 'roles' => $roles, 
-        	// 'permissions' => $permissions,
-        	// 'csrf' => Environment::getGlobal('csrf')
+        	'asd'=>$pnames,
+        	'role' => $role,
+        	'roles' => $roles, 
+        	'permissions' => $permissions,
+        	'csrf' => Environment::getGlobal('csrf')
         ]);
     }
 
@@ -65,9 +83,11 @@ class AdminController extends Controller
     	$role->description = $args['description'];
     	$role->save();
 
-        $roles = Role::with('permissions')->get();        
+        $roles = Role::with('permissions')->get();
+        $permissions = Permission::all();
         return $res->withJson([
         	'roles' => $roles, 
+        	'permissions' => $permissions,
         	'csrf' => Environment::getGlobal('csrf')
         ]);
     }
@@ -75,8 +95,11 @@ class AdminController extends Controller
 	public function deleteRole($req, $res)
     {
         $role = Role::find($req->getParam('roleID'))->delete();        
+        $roles = Role::with('permissions')->get();
+        $permissions = Permission::all();
         return $res->withJson([
-            'roles' => Role::all(),
+        	'roles' => $roles, 
+        	'permissions' => $permissions,
             'states' => Environment::getGlobal('account_states'),
         	'csrf' => Environment::getGlobal('csrf')
         ]);

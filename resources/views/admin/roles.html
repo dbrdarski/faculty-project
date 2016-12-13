@@ -24,7 +24,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Role</th>
-                  <th>Description</th>
+                  <th>Name</th>
                   <th class="text-center">Edit Permissions</th>
                   <th class="text-center">Delete</th>
                 </tr>
@@ -103,7 +103,7 @@
                   </div>
                   <div class="modal-body">
                     <form action="edit" id="edit-role-form">
-                        <div class="caption">Role: {{role.name}}</div>
+                        <p class="caption">{{role.description}} can:</p>
                         <input type="hidden" name="roleID" v-bind:value="role.id">
                         <div class="form-group" v-for="p in permissions">
                           <label class="custom-control custom-checkbox">
@@ -116,7 +116,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" v-on:click="editPermissions">Add new role</button>
+                    <button type="button" class="btn btn-primary" v-on:click="editPermissions">Save role</button>
                   </div>
                 </div>
               </div>
@@ -208,7 +208,7 @@
             $('#edit-role-modal').modal();
           },
           newRoleModal : function(e){
-            var role = this.filterRole($(e.target).data('role'));
+            // var role = this.filterRole($(e.target).data('role'));
             $('#new-role-modal').modal();
           },
           deleteRoleModal : function(e){
@@ -240,7 +240,7 @@
           },
           editPermissions : function(e){
             var formData = {};
-            $('#add-role-form').serializeArray().forEach(function(x){
+            $('#edit-role-form').serializeArray().forEach(function(x){
               formData[x.name] = x.value;
             });
             $.ajax({
@@ -248,6 +248,7 @@
               url :  window.location.pathname + "/edit",
               data : csrf(formData),
               success : this.closeModal($('#edit-role-modal'))
+              // 
             });
           }
         }
