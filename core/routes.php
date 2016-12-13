@@ -17,16 +17,18 @@ $app->get('/asd', function($req, $res){
 });
 
 $app->group('/admin', function(){
+
 		$this->get('/users', 'AdminController:adminUsersIndex');
 		$this->post('/users', 'AdminController:adminUsers');
 		$this->post('/users/delete', 'AdminController:deleteUser');
 		$this->post('/users/edit', 'AdminController:editUser');
-		$this->get('/users/2', 'AdminController:editUser');
+
 		$this->get('/roles', 'AdminController:adminRolesIndex');
 		$this->post('/roles', 'AdminController:adminRoles');
 		$this->post('/roles/new', 'AdminController:newRole');
 		$this->post('/roles/edit', 'AdminController:editPermissions');
 		$this->post('/roles/delete', 'AdminController:deleteRole');
+
 	})
 	->add(new AuthenticatedMiddleware($container))
 
