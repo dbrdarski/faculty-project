@@ -32,7 +32,7 @@ class CoreInstaller{
 		->add(new Table('roles',
 			function ($table){
 				$table->increments('id');
-				$table->string('name');
+				$table->string('name')->unique();
 				$table->string('description');
 				$table->timestamps();
 			})
@@ -40,7 +40,7 @@ class CoreInstaller{
 		->add(new Table('permissions',
 			function ($table){
 				$table->increments('id');
-				$table->string('name');
+				$table->string('name')->unique();
 				$table->string('description');
 				$table->timestamps();
 			})
