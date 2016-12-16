@@ -21,7 +21,17 @@ session_start();
 require __DIR__ . '/../vendor/autoload.php';
 
 use \Core\Validation\CustomValidator as v;
-$v = v::email()->validate('mehome.alone');
+
+v::addMethod('minlength', function($min){
+    return $min <= strlen($this->input);
+});
+
+v::addMethod('maxlength', function($max){
+    return $max >= strlen($this->input);
+});
+
+$v = v::email()->maxlength(15)->validate('me@tricode.nl');
+
 echo $v->isValid() ? 'true' : $v->error;
 die();
 

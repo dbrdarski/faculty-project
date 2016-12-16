@@ -50,10 +50,6 @@ class AdminController extends Controller
         $permissions = Permission::all();
         $pnames = array_map(function($p) use ($role, $args){
         	$pname = $p['name'];
-        	// if(isset($role->permissions[$pname]) && !isset($args[$pname])){
-        	// 	$role->permissions()->detach($p['id']);
-        	// 	return $p['name'] . ' - off';
-        	// }
         	if(!isset($role->permissions[$pname]) && isset($args[$pname])){
         		$role->permissions()->attach($p['id']);
         		return $p['name'] . ' - on';
