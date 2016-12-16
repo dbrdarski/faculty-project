@@ -15,10 +15,16 @@
 // echo $e();
 // die();
 
-use Respect\Validation\Validator as v;
+// use Respect\Validation\Validator as v;
 session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
+
+use \Core\Validation\CustomValidator as v;
+$v = v::email()->validate('mehome.alone');
+echo $v->isValid() ? 'true' : $v->error;
+die();
+
 require __DIR__ . '/../config/config.php';
 
 $app = new \Slim\App($settings);
