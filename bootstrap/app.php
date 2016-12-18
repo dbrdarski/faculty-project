@@ -15,25 +15,25 @@
 // echo $e();
 // die();
 
-// use Respect\Validation\Validator as v;
+use Respect\Validation\Validator as v;
 session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use \Core\Validation\CustomValidator as v;
+// use \Core\Validation\CustomValidator as v;
 
-v::addMethod('minlength', function($min){
-    return $min <= strlen($this->input);
-});
+// v::addMethod('minlength', function($min){
+//     return $min <= strlen($this->input);
+// });
 
-v::addMethod('maxlength', function($max){
-    return $max >= strlen($this->input);
-});
+// v::addMethod('maxlength', function($max){
+//     return $max >= strlen($this->input);
+// });
 
-$v = v::email()->maxlength(15)->validate('me@tricode.nl');
+// $v = v::email()->maxlength(15)->validate('me@tricode.nl');
 
-echo $v->isValid() ? 'true' : $v->error;
-die();
+// echo $v->isValid() ? 'true' : $v->error;
+// die();
 
 require __DIR__ . '/../config/config.php';
 
@@ -46,6 +46,14 @@ $container['view'] = function ($c) {
         array('charset' => 'UTF-8'), array('extension' => '.html')
     );
     return $mustache;
+};
+
+//Override the default Not Found Handler
+$container['notFoundHandler'] = function ($c) {
+    return function ($req, $res) use ($c) {
+        $view = new \Core\Containers\View($res, $c);
+        return $view('404');
+    };
 };
 
 $capsule = new \Illuminate\Database\Capsule\Manager;
@@ -107,7 +115,6 @@ $container['csrf'] = function ($container) {
 };
 
 $app->add(new \Core\Middleware\CsrfMiddleware($container));
-
 $app->add($container->csrf);
 
 

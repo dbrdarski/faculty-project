@@ -10,7 +10,12 @@ Class Auth{
 
     public function user()
     {   
-        return $this->signed() ? User::with(['role' => function($q){ $q->with('permissions'); }])->find($_SESSION['user']) : null;
+        if( ! $this->signed() ){
+            return null;
+        } elseif( ! isset($container['user']) ){
+            $container['user'] = User::with(['role' => function($q){ $q->with('permissions'); }])->find($_SESSION['user']);
+        }
+        return $container['user'];
     }
 
     // public static function roles()
@@ -21,13 +26,28 @@ Class Auth{
     //     return Environment::getGlobal('roles');
     // }
 
-    // public static function permissions()
-    // {   
+    public function permissions()
+    {   
+        $user = $this->user();
+                
+        if ( ! $user ){
+            return null;
+        } elseif ( ! isset( $container['permissions']) ) {
+            $container['permissions'] = $user->role->permissions->map(function($p){ return $p->name;});            
+        }
+        return $container['permissions'];
+
     //     if ( Environment::getGlobal('permissions') == null) {
     //         Environment::getGlobal('permissions', Permission::all());
     //     }
     //     return Environment::getGlobal('permissions');
-    // }
+    }
+
+    public function hasPermission($p){
+        $permissions = $this->permissions();
+        return $permissions->contains($p);
+    }
+
 
     public function signed()
     {

@@ -3,18 +3,23 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use \Core\Middleware\GuestMiddleware;
 use \Core\Middleware\AuthenticatedMiddleware;
+use \Core\Middleware\PermissionMiddleware;
 
 $app->get('/', 'HomeController:homeIndex')->setName('home');
+$app->get('/unauthorised-access', function($req, $res){
+    $view = new \Core\Containers\View($res, $this);
+    return $view('403');
+});
 
 $app->get('/user', 'UserController:userIndex')->setName('user');
 $app->get('/user/{username}', 'UserController:userIndex');
 
-$app->get('/asd', function($req, $res){
-	// $admins = \Core\Models\Role::find(1);
-	echo "<pre>";
-	var_dump(\Core\Models\User::with(['role' => function($q){ $q->with('permissions'); }])->find(1)->toArray());
-	die();
-});
+// $app->get('/asd', function($req, $res){
+// 	// $admins = \Core\Models\Role::find(1);
+// 	echo "<pre>";
+// 	var_dump(\Core\Models\User::with(['role' => function($q){ $q->with('permissions'); }])->find(1)->toArray());
+// 	die();
+// });
 
 $app->group('/admin', function(){
 
@@ -31,14 +36,19 @@ $app->group('/admin', function(){
 
 	})
 	->add(new AuthenticatedMiddleware($container))
-
-	// ->add(new AuthenticatedMiddleware($container))
+	->add(new PermissionMiddleware($container, 'manageUsers'))
 ;
 
 $app->get('/library/{slug}', 'CourseController:courseIndex');
-$app->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
 $app->get('/lecturers', 'LecturerController:lecturerListIndex');
 $app->get('/lecturers/{id}', 'LecturerController:lecturerIndex');
+
+$app->group('', function(){
+	$this->get('/library/{course}/{lession}', 'LessionController:lessionIndex');
+})
+	->add(new AuthenticatedMiddleware($container))
+	->add(new PermissionMiddleware($container, 'listenCourses'))
+;
 
 $app->group('', function(){
 	$this->get('/signup', 'AuthController:signUpIndex');
@@ -52,12 +62,20 @@ $app->group('', function(){
 $app->group('', function(){
 	$this->get('/signout', 'AuthController:getSignOut');
 	$this->post('/signout', 'AuthController:signOut');
+})
+	->add(new AuthenticatedMiddleware($container))
+;
+$app->group('', function(){
 	$this->post('/course/new', 'CourseController:createCourse');
 	$this->get('/course/new', 'CourseController:createCourseIndex');
 	$this->post('/course/{slug}', 'CourseController:editCourse');
 	$this->post('/course/{slug}/publish', 'CourseController:publishCourse');
 	$this->get('/course/{slug}', 'CourseController:editCourseIndex');
-})->add(new AuthenticatedMiddleware($container));
+})
+	->add(new AuthenticatedMiddleware($container))
+	->add(new PermissionMiddleware($container, 'manageCourses'))
+;
+
 
 
 $app->get('/install', 'InstallerController:installAll')->setName('install');
