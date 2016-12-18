@@ -13,7 +13,11 @@ use \Core\Containers\Model;
 
 class AdminController extends Controller
 {
-
+    // public function __construct()
+    // {
+    //     'password' => v::noWhitespace()->notEmpty(), 
+    //     'password-confirm' => v::noWhitespace()->notEmpty()
+    // }
 	public function adminUsersIndex($req, $res)
     {
         $view = new View($res, $this);

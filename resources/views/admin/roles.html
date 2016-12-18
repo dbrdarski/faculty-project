@@ -40,7 +40,7 @@
               </tbody>
             </table>
 
-            <button class="btn btn-primary" data-toggle="modal" data-target="#new-role-modal">+ Add Role</button>
+            <button class="btn btn-primary" data-toggle="modal" v-on:click="newRoleModal">+ Add Role</button>
 
             
             <!-- Modal -->
@@ -209,6 +209,7 @@
           },
           newRoleModal : function(e){
             // var role = this.filterRole($(e.target).data('role'));
+            $('#add-role-form').find('input').val('');
             $('#new-role-modal').modal();
           },
           deleteRoleModal : function(e){
