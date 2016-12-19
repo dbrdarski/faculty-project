@@ -2,6 +2,7 @@
 
 namespace Core\Controllers;
 
+// use \Core\Authentication\Auth;
 use \Core\Models\Course;
 use \Core\Containers\Environment;
 use Respect\Validation\Validator as v;
@@ -27,7 +28,8 @@ class CourseController extends Controller{
             [
                 'id' => null,
                 'action' => 'Create',
-                'saveButton' => 'Create'
+                'saveButton' => 'Create',
+                'users' => $this->container->auth->user()
             ]
         );
     }
@@ -91,7 +93,7 @@ class CourseController extends Controller{
 
         $c = new Course;
 
-        $c->lecturer_id = 2;
+        $c->lecturer_id = $_SESSION['user'];
 
         $c->title = $args['title'];
         $c->slug = $args['slug'];

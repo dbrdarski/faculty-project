@@ -45,7 +45,7 @@ Class Auth{
 
     public function hasPermission($p){
         $permissions = $this->permissions();
-        return $permissions->contains($p);
+        return $permissions !== null ? $permissions->contains($p) : null;
     }
 
 
